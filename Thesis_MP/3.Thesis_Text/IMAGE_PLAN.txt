@@ -1,0 +1,197 @@
+==============================================================================
+ FinITR-AI THESIS -- IMAGE PLAN
+==============================================================================
+
+The template expects 10 figures (filenames are referenced inside the .tex
+drafts and main.tex). They fall into two groups:
+
+  GROUP 1 -- ALREADY EXIST: 4 result charts are already generated in the
+             project at  evaluation/results/.  Just COPY + RENAME them into
+             Thesis_MP/2.Thesis_Image/  (and finally into the LaTeX images/
+             folder).
+
+  GROUP 2 -- TO BE CREATED: 6 architecture / flow diagrams. Detailed visual
+             descriptions are given below so you can build them in draw.io,
+             Excalidraw, Mermaid, PowerPoint, or an image-generation tool.
+
+Target resolution: ~1600 px wide, PNG, white background, readable at half-page.
+Keep a consistent palette and font across all 6 diagrams so the thesis looks
+coherent. Suggested palette: agents in blue, tools in green, data/documents in
+grey, the critic loop / risk in amber-red.
+
+------------------------------------------------------------------------------
+ GROUP 1 -- COPY THESE (no creation needed)
+------------------------------------------------------------------------------
+
+result1.png   <-  evaluation/results/chart_model_comparison.png
+              (Figure 5.x "Model comparison" -- FinITR-AI vs GPT-4o vs Gemini)
+
+result2.png   <-  evaluation/results/chart_category_breakdown.png
+              (Figure 5.x "Per-category accuracy heatmap")
+
+result3.png   <-  evaluation/results/chart_ablation.png
+              (Figure 5.x "Ablation study")
+
+result4.png   <-  evaluation/results/chart_notice_predictor.png
+              (Figure 5.x "Notice Predictor performance")
+
+NOTE: Output 2.2 (Transaction Classifier) is presented as a TABLE in the
+results draft, so no "result5.png" is required. If you prefer a figure there,
+generate a bar chart of per-class F1 and add a figure block back.
+
+------------------------------------------------------------------------------
+ GROUP 2 -- CREATE THESE 6 DIAGRAMS
+------------------------------------------------------------------------------
+
+==============================================================================
+ 1. block_diagram.png   (Chapter 3, "System Block Diagram / Data Model")
+==============================================================================
+A top-to-bottom (or left-to-right) data-flow block diagram with 5 horizontal
+bands:
+
+  BAND 1 -- INPUT DOCUMENTS (grey boxes, side by side):
+     "Form 16 (PDF/JSON)", "AIS (JSON)", "Bank Statement (CSV)",
+     "Form 26AS (JSON, optional)"
+
+  BAND 2 -- PARSERS (grey/blue boxes): "Form16 Parser", "AIS Parser",
+     "CSV Parser", "Form26AS Parser". An annotation arrow note:
+     "Form16 vs AIS within 3% -> trust AIS (noise tolerance)".
+
+  BAND 3 -- SHARED DATA MODEL (one wide central box, highlighted):
+     "AgentContext" with smaller sub-labels listed inside: gross_income,
+     bank_transactions, ais_data, form16_data, reconciliation, regime_comparison,
+     schedule_mapping, risk_score, agent_trace, critic_feedback.
+     Show double-headed arrows indicating every agent reads AND writes this box.
+
+  BAND 4 -- AGENT CORE (blue box containing 4 sub-boxes in sequence):
+     "Auditor -> Optimizer -> Compliance -> Critic" with a curved amber
+     feedback arrow from Critic back to the start labelled "re-run (<=3x)".
+
+  BAND 5 -- INLINE ML MODELS (green boxes): "TransactionClassifier (3-stage)"
+     and "NoticePredictor (LogReg)".
+
+  BAND 6 -- OUTPUT LAYER (grey boxes): "Final Report", "ITR-2 JSON",
+     "CA Brief (PDF)" -> arrows to "FastAPI" -> "Streamlit UI".
+
+Arrows flow downward between bands. The AgentContext box should visually sit at
+the centre as the single source of truth.
+
+==============================================================================
+ 2. architecture.png   (Chapter 3, "Architecture")
+==============================================================================
+A control-flow / architecture diagram emphasising the ReAct loop (this is more
+about CONTROL than data, complementing block_diagram.png which is about DATA).
+
+  - Centre-left: "Orchestrator (ReAct loop)" as a controller box.
+  - Four agent boxes arranged in a pipeline: AUDITOR -> OPTIMIZER ->
+    COMPLIANCE -> CRITIC (blue). Solid arrows left to right.
+  - From CRITIC, a dashed amber arrow labelled "issues found ->
+    re-run flagged agent (max 3 iterations)" loops back to the orchestrator.
+  - From CRITIC, a green arrow "satisfied -> finalize" exits to the right.
+  - Bottom: a shared "Tools" bar spanning the width with 4 green boxes:
+    "CalculatorTool (deterministic FY25-26 engine)", "PageIndex Retriever (RAG)",
+    "VectorStore (ChromaDB)", "FaithfulnessVerifier (NLI)". Dotted vertical
+    lines from each agent down to the tools bar showing any agent may call any
+    tool.
+  - Small caption inside: "LLM = qwen2.5:7b via Ollama, used for language only;
+    all arithmetic via CalculatorTool."
+
+==============================================================================
+ 3. module1_flow.png   (Chapter 3, "Module One -- Auditor Agent")
+==============================================================================
+A vertical flowchart for the Auditor:
+
+  START: "Bank transactions + AIS + Form 16"
+    |
+  STEP 1: "TransactionClassifier (3-stage)" -- show the 3 stages as a small
+          nested sequence with percentages:
+          "Regex (56.3%, <1ms)" -> "kNN on MiniLM embeddings (26%)" ->
+          "LLM fallback (18%)" -> output: 12 income labels.
+    |
+  STEP 2: "Reconcile AIS SFT entries vs Form 16" -> produces a
+          "Reconciliation Ledger" (matched / AIS-only / mismatch).
+    |
+  STEP 3: "Additive Risk Scoring" -- show the weights as small chips:
+          crypto=60, capital gains=55, AIS mismatch=25, cash=15.
+    |
+  END (decision band, colour-graded): risk band ->
+          LOW / MEDIUM / HIGH / CRITICAL.
+
+Use grey for inputs, blue for the agent steps, amber-to-red gradient for the
+risk band.
+
+==============================================================================
+ 4. module2_flow.png   (Chapter 3, "Module Two -- Optimizer Agent")
+==============================================================================
+A flowchart with a parallel two-branch comparison:
+
+  START: "Gross income + deductions + basic salary"
+    |
+  SPLIT into two parallel branches calling the SAME CalculatorTool:
+     LEFT  branch: "OLD REGIME" -> std deduction Rs.50,000, full Chapter VI-A
+                   (80C, 80D, 24b, HRA...), slabs, 87A (<=5L), surcharge, 4% cess.
+     RIGHT branch: "NEW REGIME (115BAC)" -> std deduction Rs.75,000, only
+                   80CCD(2)/80CCH, slabs, 87A (<=12L) + marginal relief,
+                   surcharge, 4% cess.
+    |
+  MERGE: "Compare total liability" -> "Recommend lower-tax regime".
+    |
+  SIDE STEP: "CTC Restructuring -- employer NPS 80CCD(2) up to 10% of basic"
+             with an "annual savings" output chip.
+    |
+  END: "LLM phrases explanation (template fallback if Ollama down)".
+
+Emphasise that BOTH branches go through the green "CalculatorTool" box (no LLM
+math).
+
+==============================================================================
+ 5. module3_flow.png   (Chapter 3, "Module Three -- Compliance Agent")
+==============================================================================
+A decision-tree style flowchart:
+
+  START: "Income types identified by Auditor"
+    |
+  DECISION 1 -- ITR FORM SELECTION (diamond cascade):
+     "Business income?" --yes--> ITR-3
+        --no--> "Presumptive (44ADA)?" --yes--> ITR-4
+        --no--> "Capital gains / crypto / foreign?" --yes--> ITR-2
+        --no--> ITR-1 (salary only)
+    |
+  STEP 2 -- SCHEDULE MAPPING (signal-based, show the gating condition on each):
+     "Schedule Salary" (always, if salary)
+     "Schedule CG"  <- only if capital-gains signal
+     "Schedule VDA" <- only if crypto signal
+     "Schedule OS"  <- ONLY if bank INT credit OR AIS SFT-004 OR deduction
+                       evidence  (highlight: "no blanket guessing")
+    |
+  END: "ITR form + required schedule set".
+
+Add a callout box: "Signal-based inference -> precision 96.2%".
+
+==============================================================================
+ 6. module4_flow.png   (Chapter 3, "Module Four -- Critic Agent")
+==============================================================================
+A verification-loop flowchart:
+
+  START: "Claims from Auditor / Optimizer / Compliance"
+    |
+  STEP 1: "FaithfulnessVerifier (NLI, keyword fallback)" checks each claim
+          against (a) source documents and (b) PageIndex legal corpus.
+    |
+  DECISION: "All claims grounded?"
+     --YES--> green: "Finalize report".
+     --NO-->  amber: "Block ungrounded claim (e.g. 80C under New Regime)" ->
+              "Record offending agent + constraints" ->
+              "Orchestrator re-runs that agent" -> loop back to STEP 1.
+              Label the loop "max 3 iterations".
+    |
+  Callout: "Removing the Critic raises hallucination 6.8% -> 18.4%".
+
+==============================================================================
+ OPTIONAL EXTRA IMAGES (not required by the template, but nice to have)
+==============================================================================
+ - A screenshot of the Streamlit dashboard (risk gauge + reconciliation table)
+   would strengthen Chapter 5. Screenshots already exist in outputs/screenshots/
+   -- check there before generating new ones.
+ - A sample CA-brief PDF page (outputs/ca_brief.pdf) could be added as a figure
+   if you want to show the final deliverable.

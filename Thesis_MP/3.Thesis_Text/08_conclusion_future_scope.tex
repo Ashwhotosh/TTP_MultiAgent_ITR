@@ -1,0 +1,77 @@
+% ============================================================================
+%  CHAPTER 7: CONCLUSION AND FUTURE SCOPE   (expanded version)
+%  Replaces the entire Chapter 7 body in main.tex.
+% ============================================================================
+
+\chapter{Conclusion and Future Scope}
+\label{chap:conclusion}
+
+This project began with a problem that most Indian taxpayers live with without
+ever naming it. They are asked to declare their own income, but they are
+measured against a far more complete record --- the AIS --- that the tools they
+file with never actually consult, and when the two disagree, the entire cost of
+the disagreement lands on them. FinITR-AI was built to close that gap before it
+becomes a notice. It reconciles Form 16, the bank statement, and the AIS while
+the return is still being prepared; it computes the exact liability under both
+FY 2025-26 regimes through a deterministic engine; it selects the correct ITR
+form and maps each income source to its schedule; and it verifies every claim it
+makes against the source documents and a structured corpus of tax law before
+letting that claim into the final report.
+
+If there is a single lesson the work teaches, it is architectural rather than
+about any particular model. The way to make a language model trustworthy for
+taxes is not to find a larger model or to write a more elaborate prompt; it is to
+take the arithmetic away from the model entirely and place it behind a
+deterministic engine, and then to put a critic in the loop with the authority to
+reject anything the documents do not support. The evaluation bears this out. On
+the IndianTaxBench suite the system reaches 94.0\% tax-computation accuracy with
+a 6.8\% hallucination rate, against 70 to 74\% accuracy and 24 to 27\%
+hallucination for prompted GPT-4o and Gemini 2.0 Flash, and the ablation
+attributes those gains specifically to the calculator and the critic rather than
+to anything diffuse. Just as importantly, the whole pipeline runs offline, so
+the most sensitive documents a person owns never leave their own machine --- a
+property the cloud-based alternatives cannot offer at any level of accuracy.
+
+The system is not finished, and several of its limitations point cleanly to the
+next pieces of work.
+
+\noindent\textbf{Future Enhancements:}
+
+\begin{itemize}
+    \item \textbf{Close the Schedule OS recall gap.} A conservative
+          income-bracket heuristic --- inferring Schedule OS when a taxpayer
+          holds a savings account and earns above a threshold --- would recover
+          the roughly thirteen percent of interest-income cases the system
+          currently leaves out, and the precision cost of doing so should be
+          measured rather than assumed.
+    \item \textbf{Add a noise-correction stage before the engine.} The held-out
+          degradation comes from OCR rounding flowing straight into the
+          deterministic calculator. A dedicated input-cleaning module that
+          cross-checks parsed figures across the available documents would
+          recover much of that loss before it reaches the arithmetic.
+    \item \textbf{Refine multi-signal risk escalation.} The risk scorer should
+          be strengthened so that a single severe signal --- undeclared crypto
+          visible only as a bank deposit, for example --- can escalate to
+          CRITICAL without waiting for a second corroborating signal, which is
+          the precise cause of the one notable misclassification in the results.
+    \item \textbf{Broaden coverage beyond the salaried filer.} Expanding the
+          training and validation cases for business and presumptive income
+          (ITR-3 and ITR-4) would address the multi-income edge cases behind the
+          eight-point form-selection gap and widen the system's safe operating
+          range.
+    \item \textbf{Integrate direct filing.} Connecting the validated ITR-2 JSON
+          export to the Income Tax Department's upload schema would let the tool
+          carry a user from raw documents to a filed return end to end, instead
+          of stopping at a filing-ready report.
+\end{itemize}
+
+Even in its present form, FinITR-AI demonstrates something worth stating plainly:
+a private, explainable, locally-runnable assistant can match the arithmetic
+reliability of established rule-based software while adding the AIS
+reconciliation, the notice-risk modelling, and the natural-language reasoning
+those tools lack --- and it can do all of this without ever sending a taxpayer's
+documents to a server it does not control. The broader principle generalises
+beyond tax. For any high-stakes, rule-governed domain, the pattern that worked
+here is likely to work again: let the language model reason and explain, force it
+to defer every consequential computation to a verified tool, and keep a critic in
+the loop with the standing to refuse whatever cannot be grounded.

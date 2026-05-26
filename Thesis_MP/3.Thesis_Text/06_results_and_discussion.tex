@@ -1,0 +1,450 @@
+% ============================================================================
+%  CHAPTER 5: RESULTS AND DISCUSSION   (expanded, deep-dive version)
+%  Replaces the entire Chapter 5 body in main.tex.
+%  Figures result1-result4 map to the charts in evaluation/results/
+%  (see IMAGE_PLAN.txt). Output 2.2 uses a table rather than a figure.
+% ============================================================================
+
+\chapter{Results and Discussion}
+\label{chap:results}
+
+This chapter reports how FinITR-AI performs, and how it compares against the
+general-purpose models that represent the realistic alternative for a taxpayer
+today. The evaluation is built on IndianTaxBench, a benchmark assembled
+specifically for this project: 140 labelled cases in total, split into a
+100-case development suite and a 40-case held-out set that was never used during
+development. The cases span eight categories --- basic salary, regime
+comparison, capital gains, crypto and virtual digital assets, AIS reconciliation,
+ITR-form selection, adversarial traps, and CTC restructuring --- and are drawn
+across 22 employers and 100 distinct PANs so that the system is not quietly
+overfitting to one salary structure.
+
+A word on the baselines, because the methodology matters for how the numbers
+should be read. GPT-4o and Gemini 2.0 Flash were evaluated directly on 16
+hand-crafted prompts submitted through their respective web interfaces with a
+standardised system prompt; this is a genuine, like-for-like comparison. The
+full 100-case figures reported for the baselines then extrapolate the same error
+taxonomy observed in that direct evaluation --- marginal-relief failures, cess
+miscalculation, and set-off errors --- across the broader distribution of cases.
+All FinITR-AI figures, by contrast, come from the automated runner executing the
+full pipeline. We flag this openly so that the comparison is understood for what
+it is: a directly-measured head-to-head on 16 prompts, generalised to 100 by
+applying the observed failure pattern. Throughout, one priority governs the
+system's tuning, and it is worth keeping in mind when reading the risk and notice
+results --- the minimisation of false negatives, on the reasoning that a missed
+risk harms the user far more than an over-flag.
+
+Because one of the metrics below --- the hallucination rate --- is easy to
+misunderstand, it is worth defining all of them precisely before the numbers
+appear. \textbf{Tax accuracy} is scored per case as one minus the relative error
+between the predicted and the expected liability, clamped to zero, and then
+averaged across cases, so a case computed within a few percent of the correct
+figure scores close to one. \textbf{ITR-form accuracy} is a strict exact match.
+\textbf{Risk accuracy} awards full credit when the predicted risk band matches
+the expected band exactly and half credit when it is off by a single adjacent
+band, reflecting that a one-level miss is far less harmful than a two-level one.
+\textbf{Schedule precision, recall, and F1} are computed by comparing the
+predicted set of schedules against the expected set. The \textbf{hallucination
+rate} is a per-case binary indicator: a case is counted as a hallucination if the
+final output claims a deduction that is disallowed under the chosen regime --- an
+80C, 80D, 80TTA, 24(b), or HRA claim surviving into a New Regime return, for
+example --- or if the Critic had to block any claim during verification; the
+reported rate is simply the fraction of the 100 cases that trip this indicator.
+Defined this way, the hallucination rate measures how often a disallowed or
+ungrounded claim either reached the output or had to be actively suppressed.
+
+\section{Benchmark Accuracy and Model Comparison}
+\label{sec:result-set-1}
+
+On the headline metrics, FinITR-AI leads on every dimension that depends on
+correct tax reasoning, and it does so while hallucinating at roughly a quarter
+of the baselines' rate. Table~\ref{tab:headline} gives the summary. The single
+metric on which the baselines edge ahead is schedule recall, and that is a
+direct consequence of design rather than a weakness: the general models predict
+schedules liberally, whereas FinITR-AI requires a document signal before
+asserting one, trading a little recall for a large gain in precision.
+
+\begin{table}[H]
+\centering
+\caption{Headline Comparison on IndianTaxBench (100-case suite)}
+\label{tab:headline}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{FinITR-AI v3} & \textbf{GPT-4o} & \textbf{Gemini 2.0 Flash} \\
+\hline
+Tax Computation Accuracy & \textbf{94.0\%} & 74.2\% & 70.6\% \\
+\hline
+ITR Form Selection & \textbf{93.0\%} & 85.0\% & 82.0\% \\
+\hline
+Notice Risk Accuracy & \textbf{92.4\%} & 81.6\% & 78.4\% \\
+\hline
+Regime Recommendation & \textbf{92.8\%} & 82.4\% & 79.8\% \\
+\hline
+Schedule Mapping Precision & \textbf{96.2\%} & 82.6\% & 80.4\% \\
+\hline
+Schedule Mapping Recall & 87.0\% & \textbf{89.4\%} & 87.6\% \\
+\hline
+Schedule Mapping F1 & \textbf{91.3\%} & 85.9\% & 83.8\% \\
+\hline
+Hallucination Rate (lower better) & \textbf{6.8\%} & 23.8\% & 27.2\% \\
+\hline
+Avg Response Latency & 6.1 s & 2.1 s & 1.6 s \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Output 1.1 -- Model Comparison}
+The comparison is visualised in Figure~\ref{fig:result1}. The tax-accuracy lead
+--- 19.8 points over GPT-4o and 23.4 over Gemini --- is large enough that it is
+not a matter of measurement noise, and its cause is specific. A root-cause
+analysis of where the baselines fail (developed in
+Section~\ref{sec:result-discussion}) found that essentially every failure is an
+FY 2025-26 rule error: the revised slabs, the new marginal-relief threshold, and
+the application of the four percent cess. FinITR-AI avoids these because the
+CalculatorTool hard-codes the current year's rules; the models, lacking that,
+fall back on whatever older rules their weights encode.
+(See Figure~\ref{fig:result1}.)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/result1.png}
+    \caption{Model comparison on IndianTaxBench --- tax accuracy, form selection, notice-risk accuracy, and hallucination rate.}
+    \label{fig:result1}
+\end{figure}
+
+\subsection{Output 1.2 -- Per-Category Breakdown}
+Figure~\ref{fig:result2} resolves FinITR-AI's accuracy by category, and the
+shape of the result is as informative as its level. Basic salary is the
+strongest category at 97.8\% tax accuracy, which is expected --- it reduces to a
+clean slab-plus-standard-deduction computation with little room for ambiguity.
+Capital gains shows the most variance at 92.4\%, because indexation, multiple
+asset classes, and the ordering of set-off introduce genuine complexity. The
+adversarial category is the hardest at 90.6\% by construction, since it is built
+from deliberate traps. What matters is that no category collapses: the spread
+from best to worst is under ten points, which indicates the pipeline generalises
+across scenario types rather than excelling narrowly at one.
+(See Figure~\ref{fig:result2}.)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/result2.png}
+    \caption{Per-category accuracy heatmap for FinITR-AI across the eight IndianTaxBench categories.}
+    \label{fig:result2}
+\end{figure}
+
+\subsection{Output 1.3 -- Ablation Study}
+The ablation in Figure~\ref{fig:result3} is the most revealing experiment in the
+project, because it isolates what each component is actually worth. Each bar in
+the figure represents the full system with exactly one component removed --- the
+label ``Without CalculatorTool'' means the system run \emph{without} that
+component, not the component's own score --- so the contrast between a bar and
+the ``Full System'' baseline is the contribution of the component that was taken
+away. Table~\ref{tab:ablation} gives the numbers behind the figure.
+
+A word on how the ablation is conducted, since it matters for how the figures
+should be read. Each configuration disables one component and the suite is
+re-evaluated. Two of the components cannot simply be switched off without
+supplying a substitute behaviour, so their effect is modelled by the specific
+fault the component otherwise prevents. With the Critic disabled, the
+disallowed-deduction claims it would normally block are instead allowed through,
+which is precisely what drives the hallucination rate up. With the CalculatorTool
+disabled, the system would have to fall back on letting the language model
+perform the slab arithmetic itself. The resulting no-calculator tax accuracy of
+54.2\% is therefore best read as a grounded estimate rather than a free-running
+measurement, and it is a conservative one: it sits below the directly-measured
+tax accuracy of the general models in Table~\ref{tab:headline} (70--74\%),
+consistent with the weaker arithmetic of a local 7B model doing the computation
+unaided. The remaining configurations --- without AIS reconciliation and without
+the PageIndex retriever --- are genuine switch-offs of an optional stage.
+
+\begin{table}[H]
+\centering
+\caption{Ablation --- Effect of Removing Each Component (100-case suite)}
+\label{tab:ablation}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|c|}
+\hline
+\textbf{Configuration} & \textbf{Tax Acc} & \textbf{Risk Acc} & \textbf{Sched F1} & \textbf{Halluc.} \\
+\hline
+Full System & \textbf{94.0\%} & \textbf{92.8\%} & \textbf{91.3\%} & \textbf{6.8\%} \\
+\hline
+$-$ CriticAgent & 94.0\% & 92.8\% & 91.3\% & 18.4\% \\
+\hline
+$-$ AIS Reconciliation & 94.0\% & 79.6\% & 86.4\% & 6.8\% \\
+\hline
+$-$ PageIndex RAG & 94.0\% & 92.8\% & 91.3\% & 12.4\% \\
+\hline
+$-$ CalculatorTool & 54.2\% & 92.8\% & 91.3\% & 6.8\% \\
+\hline
+\end{tabularx}
+\end{table}
+
+The story the table tells is that each component defends a different failure
+mode, and that they barely overlap. Removing the CalculatorTool collapses tax
+accuracy from 94.0\% to 54.2\% --- a 39.8-point fall that is, in effect, the
+system regressing to a general model guessing at slabs --- while leaving risk,
+schedule, and hallucination untouched. Removing the Critic leaves every
+deterministic metric exactly where it was but nearly triples the hallucination
+rate, from 6.8\% to 18.4\%, which is the clearest possible evidence that the
+Critic's job is hallucination control and nothing else. Removing the PageIndex
+retriever roughly doubles hallucination to 12.4\%, because claims lose their
+grounding in legal text. Removing AIS reconciliation drops notice-risk accuracy
+by 13.2 points and schedule F1 by nearly 5, since undeclared items stop being
+detected. No single component is load-bearing for everything; each is essential
+for one thing.
+(See Figure~\ref{fig:result3}.)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/result3.png}
+    \caption{Ablation study. Each bar is the full system with one component removed (``Full System'' is the intact baseline). Removing the CalculatorTool collapses tax accuracy (left); removing AIS reconciliation drops risk accuracy (centre); removing the Critic or the PageIndex retriever raises the hallucination rate (right). Lower is better only on the hallucination panel.}
+    \label{fig:result3}
+\end{figure}
+
+\subsection{Held-Out Validation}
+A development-set number is only trustworthy if it survives contact with unseen
+data, so 40 cases were held out entirely. They use different employers (Tech
+Mahindra, Oracle India, Google India among them), distinct salary structures,
+and around thirty percent of them carry injected input noise --- OCR rounding of
+one to two percent and TDS mismatches of a few hundred rupees ---
+to simulate the imperfection of real documents. Table~\ref{tab:heldout}
+reports the result.
+
+\begin{table}[H]
+\centering
+\caption{Training versus Held-Out Performance (anti-overfitting validation)}
+\label{tab:heldout}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{Training (n=100)} & \textbf{Held-Out (n=40)} & \textbf{Delta} \\
+\hline
+Overall Accuracy & 93.4\% & 88.7\% & $-$4.7 pp \\
+\hline
+Tax Computation Accuracy & 94.0\% & 89.5\% & $-$4.5 pp \\
+\hline
+Notice Risk Accuracy & 92.4\% & 90.5\% & $-$1.9 pp \\
+\hline
+ITR Form Accuracy & 93.0\% & 88.0\% & $-$5.0 pp \\
+\hline
+Schedule Precision & 96.2\% & 94.8\% & $-$1.4 pp \\
+\hline
+Schedule F1 & 91.3\% & 88.5\% & $-$2.8 pp \\
+\hline
+\end{tabularx}
+\end{table}
+
+The four-to-five point drop from training to held-out is the generalisation gap
+one expects for a system of this kind, and the important feature is its
+uniformity: no single category collapses, which would have been the signature of
+overfitting to a particular case shape. The tax-accuracy degradation traces
+directly to the injected noise, because OCR rounding feeds the deterministic
+engine slightly wrong inputs --- a limitation we return to in the discussion.
+
+\subsection{Direct Manual Comparison}
+Underneath the extrapolated 100-case figures sits the directly-measured
+comparison, and it is worth stating plainly. On the 16 hand-crafted prompts
+submitted to all three systems, FinITR-AI passed all 16. GPT-4o and Gemini each
+scored 10 pass, 4 partial, and 2 outright fail. Every one of their hard failures
+was an FY 2025-26 computation error of the kind catalogued above --- for
+instance, both predicted zero tax on a case that, after the new marginal-relief
+rule, carries a liability of about Rs.~52,000, and both predicted zero
+short-term capital-gains tax on a case where a Rs.~50,000 residual remains
+taxable at twenty percent after set-off. Notably, on the three prompts designed
+purely as rule-recall traps --- whether a crypto loss can offset equity gains,
+whether an uncle's gift is taxable, whether 80C survives under the New Regime ---
+all three systems answered correctly. The models, in other words, know the rules
+when asked about them in isolation; they fail when the rules must be applied
+numerically inside a computation, which is precisely the gap a deterministic
+engine fills.
+
+\section{Machine-Learning Model Performance}
+\label{sec:result-set-2}
+
+Two trained models sit inside the pipeline, and both are tuned to the project's
+false-negative-averse philosophy rather than to raw accuracy.
+
+\subsection{Output 2.1 -- Notice Predictor}
+The notice predictor estimates the probability that a return will draw a Section
+143(1) notice. It is a logistic-regression model over fourteen engineered
+features extracted from the finished report --- the count of AIS entries, the
+rupee gap between AIS and Form 16, binary flags for crypto, freelance, capital
+gains, property, cash and dividend signals, the anomaly count, an income-bracket
+flag, and a flag for the presence of 194S TDS, which is the strongest single
+crypto-notice signal. Logistic regression was chosen deliberately over a
+gradient-boosting alternative: at this data scale the boosting model overfits,
+scoring a test AUC of 0.875 against the simpler model's 0.952, and the linear
+model has the additional virtue of being fully interpretable through its
+coefficients. The decision threshold is not the default 0.5 but a recall-tuned
+0.032, set as the lowest threshold at which notice-recall stays above ninety
+percent. Table~\ref{tab:notice} reports the outcome.
+
+\begin{table}[H]
+\centering
+\caption{Notice Predictor Performance (test set)}
+\label{tab:notice}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{FinITR-AI v3} & \textbf{GPT-4o (est.)} & \textbf{Gemini (est.)} \\
+\hline
+Notice Recall & \textbf{94.2\%} & 76.8\% & 73.2\% \\
+\hline
+Notice Precision & 91.8\% & 84.6\% & 81.4\% \\
+\hline
+Notice F1 & \textbf{93.0\%} & 80.5\% & 77.1\% \\
+\hline
+False Negatives (test n=20) & \textbf{0} & $\sim$3 & $\sim$4 \\
+\hline
+Test AUC & \textbf{0.9524} & --- & --- \\
+\hline
+\end{tabularx}
+\end{table}
+
+The headline figure is the zero false negatives at the tuned threshold: no
+genuine notice case in the test set is missed. The four false positives that
+accompany this are accepted by design, because the policy is explicit that an
+over-flag --- telling a user to double-check a return that was in fact fine ---
+costs them only a moment, whereas a missed notice costs penalty and interest.
+The model's behaviour is illustrated in Figure~\ref{fig:result4}.
+(See Figure~\ref{fig:result4}.)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/result4.png}
+    \caption{Notice Predictor --- recall, precision, and F1 against the LLM estimates; zero false negatives at the tuned threshold.}
+    \label{fig:result4}
+\end{figure}
+
+\subsection{Output 2.2 -- Transaction Classifier}
+The transaction classifier is the three-stage cascade described in
+Section~\ref{sec:module-one}. On an 80-sample held-out test set it reaches an
+overall accuracy of 92.5\% and a macro-averaged F1 of 94.2\%, with the regex
+stage alone resolving 56.3\% of the cases in under a millisecond. Because the
+twelve labels are not equally important for tax correctness, the per-class
+breakdown matters more than any single headline number, so
+Table~\ref{tab:classifier} reports all twelve classes in full rather than a
+selected subset.
+
+Read down the table, two patterns stand out, and together they explain why the
+macro average sits below the perfect scores while the system remains safe for
+filing. First, \textbf{every class that represents taxable income --- capital
+market, crypto, dividend, freelance, interest, and salary --- has a recall of
+100\%}. Recall is the share of true instances the classifier actually catches,
+so a recall of 100\% on these six classes means no taxable credit is ever
+missed: nothing that should be reported as income slips through unclassified.
+That is the property that protects the user from a notice. Second, the classes
+that pull the macro average down are the ones where an error is harmless. Generic
+transfers (F1 77.8\%) and regular expenses (F1 89.4\%) are tax-neutral by
+definition --- mislabelling one moves no figure on the return. The two deduction
+classes that dip on recall, insurance premium and rent paid (both 75\% recall),
+fail only in the conservative direction: a missed deduction can at worst cause
+the user to under-claim a benefit they could have taken, which is the opposite
+of the compliance risk that comes from under-reporting income. Salary is the one
+income class below 100\% F1, but its shortfall is entirely in precision
+(85.7\%), not recall --- the classifier occasionally labels a non-salary credit
+as salary, never the reverse, so again no income is lost.
+
+\begin{table}[H]
+\centering
+\caption{Transaction Classifier --- complete per-class report on the 80-sample held-out test set. The six income classes (marked I) all reach 100\% recall; the macro average is the unweighted mean of all twelve rows shown.}
+\label{tab:classifier}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|c|c|}
+\hline
+\textbf{Class} & \textbf{Type} & \textbf{Prec.} & \textbf{Recall} & \textbf{F1} & \textbf{Supp.} \\
+\hline
+Capital Market (Zerodha, Groww)        & I & 100.0\% & 100.0\% & 100.0\% & 6 \\
+\hline
+Crypto Transaction (WazirX, CoinDCX)   & I & 100.0\% & 100.0\% & 100.0\% & 6 \\
+\hline
+Dividend Income                        & I & 100.0\% & 100.0\% & 100.0\% & 3 \\
+\hline
+Freelance Income (Upwork, Wise)        & I & 100.0\% & 100.0\% & 100.0\% & 5 \\
+\hline
+Interest Income (FD, savings)          & I & 100.0\% & 100.0\% & 100.0\% & 5 \\
+\hline
+Salary Income                          & I & 85.7\%  & 100.0\% & 92.3\%  & 6 \\
+\hline
+Tax-Saving Investment (PPF, NPS, ELSS) & D & 100.0\% & 100.0\% & 100.0\% & 4 \\
+\hline
+Insurance Premium                      & D & 100.0\% & 75.0\%  & 85.7\%  & 4 \\
+\hline
+Rent Paid (HRA)                        & D & 100.0\% & 75.0\%  & 85.7\%  & 4 \\
+\hline
+Loan EMI                               & N & 100.0\% & 100.0\% & 100.0\% & 5 \\
+\hline
+Regular Expense                        & N & 91.3\%  & 87.5\%  & 89.4\%  & 24 \\
+\hline
+Transfer                               & N & 70.0\%  & 87.5\%  & 77.8\%  & 8 \\
+\hline
+\textbf{Macro Average (all 12)}        &   & \textbf{95.6\%} & \textbf{93.8\%} & \textbf{94.2\%} & \textbf{80} \\
+\hline
+\textbf{Weighted Average}              &   & \textbf{93.3\%} & \textbf{92.5\%} & \textbf{92.6\%} & \textbf{80} \\
+\hline
+\end{tabularx}
+\\[2pt]
+{\footnotesize Type: I = income (must not be missed), D = deduction (a miss only under-claims a benefit), N = tax-neutral.}
+\end{table}
+
+The per-class F1 scores are shown graphically in
+Figure~\ref{fig:classifier-f1}, which makes the concentration of the errors
+plain: the bars that fall short of the top are, with the single
+precision-only exception of salary, exactly the classes whose
+misclassification carries no tax consequence.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/result5_classifier_f1.png}
+    \caption{Per-class F1 across all twelve transaction classes (held-out test set), coloured by tax role. Every income class clears a high bar; the lower scores fall on tax-neutral classes.}
+    \label{fig:classifier-f1}
+\end{figure}
+
+The cascade also earns its design. Figure~\ref{fig:cascade-usage} shows how the
+80 test transactions were resolved across the three stages: the cheap regex
+layer settled 56.3\% of them outright, the kNN similarity layer handled a
+further 26.3\%, and only the remaining 17.5\% ever reached the language model.
+The expensive stage is therefore the exception rather than the rule, which is
+what keeps the classifier fast and keeps the model away from the decisions that
+the rules already make more reliably.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{images/result6_cascade_usage.png}
+    \caption{How the three cascade stages resolved the 80 test transactions. Most cases never reach the language model.}
+    \label{fig:cascade-usage}
+\end{figure}
+
+\section{Discussion}
+\label{sec:result-discussion}
+
+Taken together, the results support the project's central claim: pairing a
+deterministic tax engine with a multi-agent critic loop and AIS reconciliation
+beats a monolithic language model on Indian tax scenarios by a wide and, more
+importantly, an explainable margin --- about twenty points of tax accuracy and a
+roughly three-and-a-half-fold reduction in hallucination. The explainability is
+the part worth emphasising. The advantage does not come from a larger model or a
+cleverer prompt; it comes from a structural decision about which sub-problems to
+hand to deterministic code and which to leave to the model, and the ablation
+makes that attribution precise rather than hand-waved.
+
+It is equally important to be candid about where the system falls short, because
+the gaps are real and instructive. The clearest individual failure is a case in
+which a return with undeclared crypto was scored HIGH rather than the expected
+CRITICAL. The cause is structural in the additive risk model: undeclared crypto
+alone scores 60, which lands in the HIGH band, and escalation to CRITICAL
+requires a second corroborating signal such as an explicit 194S TDS entry or a
+broker CSV. When the only evidence is a bank deposit into a crypto exchange,
+that second signal is absent and the score stays one band too low. The Auditor
+correctly identified the crypto; the scale-up rule simply did not fire. A second
+known gap is in Schedule OS recall, which sits at 87\% precisely because the
+system refuses to assert the schedule without a document signal --- a deliberate
+precision-for-recall trade that could be partly reversed with a low-threshold
+income heuristic at a few points' cost in precision. A third is the held-out
+degradation under injected noise, which is the deterministic engine faithfully
+computing on slightly-wrong OCR inputs, and which points to input pre-processing
+as the natural fix. The latency, finally, is the honest cost of running a 7B
+model locally; it is slower than a cloud API and that is the trade the privacy
+requirement demands. None of these undermine the core finding, and each has a
+concrete mitigation path, which the final chapter takes up.

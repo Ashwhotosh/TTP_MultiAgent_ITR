@@ -1,0 +1,269 @@
+% ============================================================================
+%  CHAPTER 2: LITERATURE SURVEY   (expanded, deep-dive version)
+%  Replaces the entire Chapter 2 body in main.tex.
+% ============================================================================
+
+\chapter{Literature Survey}
+\label{chap:literature}
+
+The work that FinITR-AI builds on does not come from a single field. It sits at
+the intersection of three communities that rarely talk to one another: the
+people who build tax-filing software in India, the people who apply large
+language models to financial questions, and the researchers who study how to
+make language models reliable by giving them tools and grounding. Each of these
+brings something the project needs, and each leaves a gap the project tries to
+fill. The rule-based tools are accurate but cannot see the AIS and cannot reason
+about anything outside their fixed flows. The general models reason fluently but
+fail at the arithmetic and invent rules. The tool-augmentation literature offers
+the right techniques --- deferring computation to tools, retrieving grounded
+evidence, checking claims for faithfulness --- but supplies them as
+domain-agnostic frameworks rather than as a finished, verified tax system. This
+chapter examines all three in turn. For each category we describe the
+representative systems in enough detail to make the comparison meaningful, and
+then we state precisely where our design diverges and why.
+
+\section{Existing Approaches -- Rule-Based and Commercial ITR Tools}
+\label{sec:category-a}
+
+The systems that the overwhelming majority of Indian taxpayers actually use are
+deterministic and form-driven. They encode the provisions of the Income Tax Act
+as explicit logic, walk the user through a guided sequence of questions, and
+validate the assembled return against the department's schema. On the standard
+salaried case they are reliable, and the arithmetic they produce is, for the
+most part, correct. Their limitation is one of perspective rather than of
+accuracy: they reason over data the user supplies, they do not interpret the AIS
+into actionable findings, and they cannot explain or adapt to a case that falls
+outside their predefined paths.
+
+\subsection{The Government e-Filing Portal and Offline Utilities}
+The Income Tax Department publishes both an online portal and downloadable
+offline utilities (in JSON and Excel form) that constitute the reference
+implementation of the rules \cite{ref1}. These tools pre-fill certain fields
+from the AIS and Form 26AS and enforce schema-level validation on the final
+return, which catches structural errors before submission. What they do not do
+is advise. They assume the filer already knows which form applies, which
+schedules to attach, and which regime serves them better. The AIS is presented
+as a list of raw entries rather than as a reconciled comparison against the
+return being prepared, so the burden of spotting a mismatch --- the very thing
+that triggers a notice --- remains entirely with the user.
+
+\subsection{ClearTax}
+ClearTax is among the most widely used assisted-filing platforms and automates
+much of the common salaried journey: importing Form 16, walking the user through
+deduction entry, offering a regime comparison, and handling e-filing
+\cite{ref2}. It is a polished, capable product within its design envelope. The
+constraints relevant to this project are two. First, its reconciliation of the
+AIS against self-reported income is shallow --- it surfaces AIS data but does
+not treat the gap between AIS and the return as a quantified risk to be
+explained. Second, its reasoning is a fixed rule engine, which means it handles
+the cases its designers anticipated and degrades on combinations they did not,
+without the ability to explain why a particular treatment was chosen.
+
+\subsection{Quicko}
+Quicko offers a comparable guided-filing experience and is notably strong on
+capital-gains import, integrating directly with brokers to pull trade data, and
+it includes a tax-planning calculator \cite{ref3}. Its breadth of broker
+integrations is genuinely useful for the investor segment. The shared limitation
+of the category applies here too: it is a closed deterministic product with no
+model of notice risk and no natural-language account of its own conclusions. A
+user is told what to file, not why, and is not warned about how their return
+compares to what the department already holds.
+
+\subsection{Differentiation of Our Approach}
+FinITR-AI keeps the one capability this category genuinely does well ---
+deterministic, statute-faithful arithmetic --- by embedding its own FY 2025-26
+tax engine rather than delegating the numbers to a model. Where it departs is in
+two directions that the rule-based tools structurally cannot follow.
+
+\begin{itemize}
+    \item It treats AIS-versus-Form-16 reconciliation and quantified notice-risk
+          scoring as the primary task, producing an explicit ledger of matched,
+          AIS-only, and mismatched items rather than a passive data dump.
+    \item It layers genuine reasoning and natural-language explanation over the
+          deterministic core, which lets it handle and justify the edge cases a
+          fixed rule engine cannot, while still running entirely offline so that
+          no document leaves the user's machine.
+\end{itemize}
+
+A side-by-side comparison of the category against our approach is given in
+Table~\ref{tab:cat-a-comparison}.
+
+\begin{table}[H]
+\centering
+\caption{Rule-Based / Commercial ITR Tools versus Our Approach}
+\label{tab:cat-a-comparison}
+\small
+\begin{tabularx}{\textwidth}{|l|l|l|X|X|}
+\hline
+\textbf{System} & \textbf{Type} & \textbf{Year} & \textbf{Methodology} & \textbf{Key Findings / Limitation} \\
+\hline
+IT e-Filing Portal \cite{ref1} & Govt. utility & 2024 & Schema-validated rule engine with partial AIS pre-fill & Accurate but purely procedural; user must know form and schedules; AIS shown raw \\
+\hline
+ClearTax \cite{ref2} & Commercial & 2024 & Guided rule-based filing, Form 16 import, regime compare & Shallow AIS reconciliation; closed rules; no notice-risk model; no explanation \\
+\hline
+Quicko \cite{ref3} & Commercial & 2024 & Guided filing with direct broker capital-gains import & Strong CG import; no risk modelling; closed; no natural-language rationale \\
+\hline
+\textbf{Proposed (FinITR-AI)} & Agentic + engine & 2026 & Multi-agent reasoning over a deterministic FY25-26 engine, fully offline & AIS reconciliation, quantified notice-risk, citation-verified explanations \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Existing Approaches -- General-Purpose Large Language Models}
+\label{sec:category-b}
+
+The second category is the direct use of large language models, proprietary or
+open, to answer tax and personal-finance questions. The appeal is obvious: no
+rigid form, a conversational interface, and an immediate answer. The weakness is
+equally structural. These models reason about taxes as text, which means they
+inherit two failure modes that matter enormously in this domain --- unreliable
+arithmetic, and a tendency to state plausible but incorrect rules with complete
+confidence. The distinction worth keeping in mind, and one our evaluation in
+Chapter~\ref{chap:results} makes explicit, is that these models often get the
+qualitative answer right (which regime, which form) while getting the
+quantitative answer wrong (the exact liability), and in a tax filing the
+quantitative answer is the one that counts.
+
+\subsection{GPT-4o, Prompted}
+GPT-4o is a strong general reasoner, and when prompted with Indian tax scenarios
+it frequently identifies the correct direction --- it will usually pick the
+right regime and the right form \cite{ref4}. In our own manual evaluation,
+however, its failures clustered tightly in the FY 2025-26 specific computations:
+it missed the revised marginal-relief threshold, omitted the four percent health
+and education cess, and mis-ordered the set-off of short-term capital losses
+against gains. These are not careless slips a user can easily audit; they are
+confident, well-formatted, wrong final numbers, which is the most hazardous kind
+of error in a tool people trust.
+
+\subsection{Gemini 2.0 Flash, Prompted}
+Gemini 2.0 Flash exhibits a very similar profile \cite{ref5}: fluent
+explanations, correct handling of the well-known rule-recall traps, and the same
+class of arithmetic failures on the current year's slabs and surcharge. Its
+principal advantage is speed --- its latency is the lowest of the systems we
+compared --- which makes it attractive as a conversational assistant. That
+advantage does not translate into reliability as a system of record for a tax
+computation, which is the role this project cares about.
+
+\subsection{Domain-Specific Financial Language Models}
+A separate line of work fine-tunes or instruction-tunes models on financial
+corpora. BloombergGPT and the open FinGPT family are the best-known examples
+\cite{ref6}. These genuinely improve financial language understanding --- named
+entity recognition, sentiment, document classification --- but they are aimed at
+markets and reporting rather than at jurisdiction-specific tax computation, and
+crucially they still leave the arithmetic to the model rather than to a verified
+engine. Specialising the training data does not, on its own, fix the problem
+that a neural network is the wrong instrument for applying a tax slab exactly.
+
+\subsection{Differentiation of Our Approach}
+FinITR-AI uses a language model, but it is deliberate about confining the model
+to what it is good at and removing it from what it is bad at.
+
+\begin{itemize}
+    \item \textbf{No model arithmetic.} Every number is computed by a
+          deterministic engine; the model never applies a slab or sums a tax.
+          The ablation attributes roughly a forty percentage-point gain in tax
+          accuracy to this decision alone.
+    \item \textbf{Rules pinned to the assessment year.} The FY 2025-26 slabs,
+          rebate, surcharge, and marginal relief are hard-coded, so the system
+          does not depend on whether a model happens to have the current rules
+          embedded in its weights.
+    \item \textbf{Active hallucination control.} A Critic agent verifies claims
+          against the source documents and a structured tax-law corpus, a step
+          that a prompted model, used on its own, does not perform on itself.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{General-Purpose Large Language Model Approaches}
+\label{tab:cat-b-comparison}
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Model / Method} & \textbf{Key Features} & \textbf{Limitations for Indian ITR} \\
+\hline
+GPT-4o, prompted \cite{ref4} & Strong general reasoning; good qualitative direction; conversational & FY25-26 slab, cess, and marginal-relief errors; high computational hallucination; cloud-only \\
+\hline
+Gemini 2.0 Flash, prompted \cite{ref5} & Lowest latency; correct on rule-recall traps & Same arithmetic failures; unreliable as system of record; cloud-only \\
+\hline
+Domain LLMs (BloombergGPT, FinGPT) \cite{ref6} & Tuned on financial text; stronger finance NLU & Built for markets and reporting, not tax computation; arithmetic still left to the model \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Existing Approaches -- Tool-Augmented and Multi-Agent LLM Systems}
+\label{sec:category-c}
+
+The third body of work is the research on making language models reliable by
+letting them act rather than only speak: calling external tools, retrieving
+grounded knowledge, and dividing a task across multiple cooperating agents.
+These are the techniques on which FinITR-AI is constructed. The gap they leave
+is that they are general scaffolding --- they describe how to reason with tools
+and how to ground claims, but they do not supply the tax engine, the
+reconciliation logic, or the verification policy that a working filing system
+needs.
+
+\subsection{ReAct and Tool-Augmented Reasoning}
+The ReAct paradigm interleaves a model's reasoning steps with explicit actions,
+so the model can call a tool, read the result, and continue reasoning with that
+result in hand \cite{ref7}. Toolformer-style methods extend the idea by teaching
+a model when an external call is warranted. This is the direct intellectual
+ancestor of our orchestrator, in which the agents reason about what to compute
+but always defer the computation itself to a calculator tool. The frameworks
+themselves, however, are agnostic to any domain; they say nothing about Indian
+tax slabs, about reconciling an AIS against a Form 16, or about when a deduction
+must be blocked. Those are the parts this project contributes.
+
+\subsection{Retrieval-Augmented Generation and Faithfulness Verification}
+Retrieval-augmented generation grounds a model's output in an external corpus,
+retrieving relevant passages and conditioning the generation on them to reduce
+hallucination \cite{ref8}. Alongside it, natural-language-inference (NLI) based
+faithfulness checking asks whether a generated claim is actually entailed by the
+evidence it cites, which provides a mechanical test for grounding \cite{ref9}.
+FinITR-AI adopts both ideas concretely: a PageIndex retriever returns the
+authoritative text of an Income-Tax-Act section, and an NLI cross-encoder backs
+the Critic agent's verdicts. The prior work establishes these as available
+components; the step this project takes is to wire them into a closed loop that
+can not only flag a weakly-grounded claim but veto it and force the upstream
+agent to produce a better one.
+
+\subsection{Differentiation of Our Approach}
+FinITR-AI is, in effect, a domain-specific instantiation and tightening of these
+general ideas, with two distinguishing features.
+
+\begin{itemize}
+    \item \textbf{A specialised division of labour.} Rather than a single
+          tool-using agent, the system uses four agents with distinct
+          responsibilities --- audit, optimise, comply, and criticise --- each
+          grounded in tax-specific tools and a tax-specific corpus, so that the
+          reasoning for each sub-problem is handled by a component built for it.
+    \item \textbf{Verification with the authority to act.} The Critic does not
+          merely annotate low-confidence output. It blocks an ungrounded claim
+          and triggers a bounded re-run of the responsible agent, which closes
+          the distance between ``retrieval was available'' and ``the
+          hallucination was actually prevented.''
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Tool-Augmented / Multi-Agent LLM Approaches}
+\label{tab:cat-c-comparison}
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+\hline
+\textbf{Method} & \textbf{Key Features} & \textbf{Methodology} & \textbf{Gap We Fill} \\
+\hline
+ReAct / tool-use \cite{ref7} & Reasoning interleaved with tool calls & Prompted reason--act loops invoking external tools & Domain-agnostic; supplies no tax engine, reconciliation, or verification policy \\
+\hline
+RAG + NLI faithfulness \cite{ref8}\cite{ref9} & Grounding and entailment-checking of claims & Retrieve evidence; test entailment of generated claims & Components exist; not assembled into a vetoing loop for Indian ITR \\
+\hline
+\end{tabularx}
+\end{table}
+
+To summarise the landscape: the rule-based tools are accurate but blind to the
+AIS and unable to explain themselves; the general models are flexible but
+arithmetically unreliable and hostile to privacy; and the agentic and retrieval
+literature provides the right building blocks but no finished, verified, offline
+tax system. FinITR-AI is positioned in the empty middle of this space. It takes
+the arithmetic reliability of a rule engine, the reasoning and explanation of a
+language model, the AIS reconciliation that neither chatbots nor most tools
+attempt, and a verification loop that keeps the whole assembly honest. How that
+assembly is engineered is the subject of the next chapter.

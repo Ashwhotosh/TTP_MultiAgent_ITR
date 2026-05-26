@@ -1,0 +1,126 @@
+% ============================================================================
+%  CHAPTER 6: TOOLS, TECHNOLOGIES, AND PARAMETERS   (expanded version)
+%  Replaces the entire Chapter 6 body in main.tex.
+% ============================================================================
+
+\chapter{Tools, Technologies, and Parameters}
+\label{chap:tools}
+
+FinITR-AI is written entirely in Python and is built to run on a single ordinary
+computer with no cloud dependency, and that constraint --- offline operation on
+commodity hardware --- shaped nearly every technology choice in the project.
+Wherever a task called for a language model, a local model served through Ollama
+was used in place of a hosted API. Wherever embeddings or classification were
+needed, the library chosen was one that runs comfortably on a CPU. And wherever
+arithmetic was involved, it was written from scratch rather than delegated to any
+external service. This chapter records the concrete stack, with the reasoning
+behind the choices that were not obvious, and then sets out the numeric
+parameters that govern the system's behaviour so that the results in the
+previous chapter are reproducible.
+
+\section{Tools and Technologies}
+\label{sec:tools}
+
+\begin{itemize}
+    \item \textbf{Programming language and application frameworks.} Python 3.10
+          or later throughout. The backend is a FastAPI service run under
+          Uvicorn, exposing endpoints for analysis, the interview step, and the
+          report exports; the interactive front-end is built in Streamlit; and
+          Pydantic provides the request and response schemas that keep the two
+          ends in agreement.
+    \item \textbf{Hardware and platform.} The system targets commodity hardware
+          --- a minimum of 8\,GB of RAM, with 16\,GB recommended. A GPU is
+          optional; an RTX 3060 or better speeds up local model inference but is
+          not required for correctness, only for latency. Everything is designed
+          to run offline on the user's own device, which is the property that
+          makes it safe for sensitive documents.
+    \item \textbf{Local large language model.} A model served through Ollama,
+          with qwen2.5:7b as the recommended default and llama3.1:8b as a tested
+          alternative. The model is used only for natural-language explanation
+          and for the rare classification fallback; it never performs
+          arithmetic, and the pipeline degrades to deterministic templates when
+          it is unavailable, so no result depends on the model being up.
+    \item \textbf{Machine-learning and NLP libraries.} The transaction classifier
+          embeds descriptions with a multilingual MiniLM sentence-transformer
+          \cite{ref10}, chosen because it handles Hinglish merchant names on a
+          CPU; ChromaDB serves as the vector store for semantic document search;
+          scikit-learn \cite{ref11} provides both the logistic-regression notice
+          predictor and the k-nearest-neighbour stage of the classifier; and the
+          faithfulness verifier wraps a DeBERTa-based NLI cross-encoder
+          \cite{ref9}. NumPy underlies the numerical work.
+    \item \textbf{Document parsing.} pandas handles the bank-statement CSV and
+          other tabular data, while pdfplumber and pdfminer.six extract text from
+          Form 16 PDFs. A dedicated description normaliser strips transfer codes,
+          UTR references, and transaction IDs before classification.
+    \item \textbf{Output generation and visualisation.} ReportLab and Jinja2
+          generate the PDF CA-brief; plotly renders the dashboard visualisations
+          --- the risk gauge, the reconciliation table, and the regime Sankey
+          diagram --- in the Streamlit front-end.
+    \item \textbf{Datasets and external resources.} IndianTaxBench v1.0, the
+          purpose-built suite of 140 labelled synthetic cases (100 development
+          and 40 held-out) across 22 employers and 100 PANs, together with the
+          synthetic Form 16, AIS, and bank-statement fixtures used in
+          development; and a hand-built Income-Tax-Act knowledge corpus of more
+          than eighty section nodes that the PageIndex retriever walks. The
+          feature design for the notice predictor draws on the CBDT Annual Report
+          \cite{ref12}, which identifies AIS mismatch as the leading cause of
+          Section 143(1) adjustments.
+    \item \textbf{Development and testing tools.} pytest for unit and integration
+          tests, httpx for exercising the API, tqdm for evaluation progress, and
+          standard Python virtual environments for dependency isolation.
+\end{itemize}
+
+\section{Key Parameters and Settings}
+\label{sec:parameters}
+
+Table~\ref{tab:parameters} lists the parameters that most directly determine the
+system's behaviour and its measured results. They fall into two groups. Some are
+statutory values for FY 2025-26 --- these are not tunable, and getting them
+exactly right is the whole point of the deterministic engine. The rest are
+genuine tuning choices, and almost all of them reflect the false-negative-averse
+philosophy described in Chapter~\ref{chap:challenges}: where a parameter trades
+one kind of error against another, it is set to prefer the cheaper mistake.
+
+\begin{table}[H]
+\centering
+\caption{Important Parameters Used in the Implementation}
+\label{tab:parameters}
+\small
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Parameter} & \textbf{Value / Rationale} \\
+\hline
+Orchestrator max iterations & 3 --- bounds the critic re-run loop; in practice cases resolve in one or two passes, and the bound prevents runaway self-correction \\
+\hline
+Form-16 vs AIS noise tolerance & 3\% --- below this gap the AIS salary is trusted as ground truth, absorbing OCR and rounding noise \\
+\hline
+New Regime standard deduction & Rs.~75,000 (FY 2025-26, Section 115BAC) --- statutory \\
+\hline
+Old Regime standard deduction & Rs.~50,000 (FY 2025-26) --- statutory \\
+\hline
+Health \& education cess & 4\% on tax plus surcharge, both regimes --- statutory \\
+\hline
+Section 87A rebate (new) & up to Rs.~60,000 for taxable income $\leq$ Rs.~12,00,000, with marginal relief to $\approx$ Rs.~12,75,000 --- statutory \\
+\hline
+Section 87A rebate (old) & up to Rs.~12,500 for taxable income $\leq$ Rs.~5,00,000 --- statutory \\
+\hline
+Risk weights (additive) & crypto = 60, capital gains = 55, AIS mismatch = 25, freelance = 25, property = 20, cash = 15, savings interest = 10 \\
+\hline
+Risk bands & LOW $<$20, MEDIUM $<$50, HIGH $<$75, CRITICAL $\geq$75 (score clipped to 100) \\
+\hline
+Classifier confidence threshold & 0.65 --- below this the kNN stage defers to the LLM fallback \\
+\hline
+Classifier neighbours (k) & 5 --- majority vote over the five nearest labelled descriptions \\
+\hline
+Notice-predictor threshold & 0.032 --- lowest threshold with notice-recall $\geq$ 0.90; test AUC 0.9524 \\
+\hline
+Notice-predictor model & Logistic Regression over 14 features (chosen over GBC, which overfits at this scale: test AUC 0.875) \\
+\hline
+Transaction embedding model & multilingual MiniLM (384-dim), CPU-friendly \\
+\hline
+NLI verifier model & DeBERTa-v3 cross-encoder; keyword-overlap fallback if unavailable \\
+\hline
+Default local LLM & qwen2.5:7b via Ollama \\
+\hline
+\end{tabularx}
+\end{table}

@@ -1,0 +1,41 @@
+% ============================================================================
+%  ABSTRACT  ->  replaces \lipsum[1] and \lipsum[2][1-5] under the
+%  \frontmatterheading{ABSTRACT} block in main.tex (~line 213)
+% ============================================================================
+
+Every year, millions of salaried Indians file their income tax returns while
+sitting on an awkward information gap: the Income Tax Department already knows
+about most of their financial activity through the Annual Information Statement
+(AIS), yet the tools people use to file still work almost entirely from
+self-reported numbers. When the two views disagree, the taxpayer is the last to
+find out -- usually through a Section 143(1) notice months later. This thesis
+presents FinITR-AI, a locally-runnable, multi-agent system that closes that gap
+by reconciling a taxpayer's Form 16, bank statement and AIS before the return is
+ever filed.
+
+FinITR-AI is built as a ReAct-style pipeline of four specialised agents -- an
+Auditor that cross-checks the documents and scores notice risk, an Optimizer
+that compares the Old and New tax regimes, a Compliance agent that selects the
+correct ITR form and maps income to schedules, and a Critic that verifies every
+claim against the source documents and forces a re-run when something cannot be
+grounded. A key design decision is that no arithmetic is ever left to the
+language model: all tax computation flows through a deterministic engine that
+hard-codes the FY 2025-26 slabs, surcharge, cess, rebate and marginal-relief
+rules.
+
+Supporting the pipeline are two trained models --- a three-stage transaction
+classifier that labels every bank-statement line, and a logistic-regression
+notice predictor tuned for zero false negatives --- together with an NLI-based
+faithfulness verifier and a structured retriever over a corpus of tax-law
+sections. We evaluate the system on IndianTaxBench, a purpose-built suite of 140
+labelled cases spanning salary, regime comparison, capital gains, crypto, AIS
+reconciliation, ITR-form selection, adversarial traps, and CTC restructuring. On
+the 100-case suite FinITR-AI reaches 94.0\% tax-computation accuracy with a 6.8\%
+hallucination rate, against 70--74\% accuracy and 24--27\% hallucination for
+prompted GPT-4o and Gemini 2.0 Flash, and it passes all sixteen prompts of a
+direct manual comparison on which the baselines each fail two. An ablation
+isolates the deterministic calculator and the critic loop as the two
+load-bearing components, the former worth roughly forty points of tax accuracy
+and the latter responsible for keeping hallucination low. The result is a
+private, explainable filing assistant that combines the arithmetic reliability
+of rule-based software with the flexible reasoning of large language models.

@@ -1,0 +1,98 @@
+==============================================================================
+ HOW TO ASSEMBLE THE THESIS  (read me first)
+==============================================================================
+
+These drafts are written as LaTeX-ready content that maps 1:1 onto the sections
+of main.tex. Integration is mostly copy-paste; nothing about the template's
+formatting, packages or front-matter machinery needs to change.
+
+------------------------------------------------------------------------------
+ FILE -> TEMPLATE MAPPING
+------------------------------------------------------------------------------
+ 00_title_and_frontmatter_values.txt -> paste into the "USER INPUTS" block
+                                         (main.tex ~lines 46-59). Fill in name,
+                                         roll number, supervisor.
+
+ 01_abstract.tex          -> replaces \lipsum[1] + \lipsum[2][1-5] under
+                             \frontmatterheading{ABSTRACT} (~line 213).
+
+ 02_introduction.tex      -> replaces the ENTIRE Chapter 1 body (it already
+                             includes \chapter{Introduction} and all sections,
+                             so you can delete the template's Chapter 1 lipsum
+                             and paste this in, OR \input it).
+
+ 03_literature_survey.tex -> replaces ENTIRE Chapter 2 (includes \chapter and
+                             the 3 comparison tables, real content).
+
+ 04_methodology.tex       -> replaces ENTIRE Chapter 3 (includes \chapter, all
+                             sections, and the 6 figure blocks with the SAME
+                             image filenames the template uses).
+
+ 05_challenges_and_solutions.tex -> replaces ENTIRE Chapter 4 (incl. \chapter
+                             and the challenges table, expanded to 6 rows).
+
+ 06_results_and_discussion.tex   -> replaces ENTIRE Chapter 5 (incl. \chapter,
+                             result figures result1-result4, and extra tables).
+
+ 07_tools_technologies_parameters.tex -> replaces ENTIRE Chapter 6.
+
+ 08_conclusion_future_scope.tex  -> replaces ENTIRE Chapter 7.
+
+ 09_bibliography.tex      -> replaces the dummy \bibitem entries INSIDE the
+                             existing \begin{thebibliography}{99}...\end{...}
+                             block. Keys ref1..ref12 match the \cite{} calls
+                             across Chapters 2, 3, and 6.
+
+ IMAGE_PLAN.txt           -> instructions for the figures (see that file).
+
+NOTE ON DEPTH / PAGE COUNT: these are the expanded, deep-dive drafts written to
+push the compiled thesis past 30 pages. Chapter 3 (Methodology) contains
+pseudocode in \begin{verbatim} blocks -- verbatim is core LaTeX, so NO extra
+package is needed. The verbatim lines are kept under ~72 characters so they fit
+inside the 1in margins; if you change the geometry, re-check that none overflow.
+
+NOTE ON CITATIONS: the bibliography now has 12 entries (ref1..ref12). New ones
+beyond the original 8: ref9 DeBERTa (NLI verifier), ref10 Sentence-BERT (MiniLM
+embeddings), ref11 scikit-learn, ref12 CBDT Annual Report (notice-predictor
+feature basis). All are cited in the text -- don't drop any without removing its
+\cite, or LaTeX will warn.
+
+NOTE ON CHAPTER 4: the expanded challenges file adds a \section*{...} with an
+\addcontentsline so the discussion shows in the TOC. This compiles as-is.
+
+------------------------------------------------------------------------------
+ TWO WAYS TO INTEGRATE
+------------------------------------------------------------------------------
+ OPTION A (simplest): open main.tex, delete each chapter's lipsum body, and
+   paste the matching file's contents in its place.
+
+ OPTION B (cleaner, recommended): keep main.tex as a thin shell and replace the
+   chapter bodies with \input commands, e.g.:
+        \input{chapters/02_introduction}
+        \input{chapters/03_literature_survey}
+        ...
+   Put the .tex files in a chapters/ folder next to main.tex. For the abstract
+   and bibliography, \input only the body (they are written to drop into the
+   existing front-matter / thebibliography blocks).
+
+------------------------------------------------------------------------------
+ BEFORE COMPILING -- CHECKLIST
+------------------------------------------------------------------------------
+ [ ] Fill in studentName, rollNumber, supervisorName in main.tex.
+ [ ] Copy the 4 result charts from evaluation/results/ into images/ and rename
+     them result1.png..result4.png (see IMAGE_PLAN.txt).
+ [ ] Create the 6 diagrams (block_diagram, architecture, module1-4_flow) per
+     IMAGE_PLAN.txt and place in images/.
+ [ ] Verify the 8 bibliography URLs / access dates.
+ [ ] The drafts use "Rs." for the rupee (the template font lacks the symbol) --
+     see the note in 00_title_and_frontmatter_values.txt if you want the glyph.
+ [ ] Compile twice (pdflatex x2) so the TOC, \ref and \cite resolve.
+
+------------------------------------------------------------------------------
+ HONESTY NOTE (worth knowing for the viva)
+------------------------------------------------------------------------------
+ The Results chapter reports the baselines (GPT-4o, Gemini) exactly as the
+ project's BENCHMARK_REPORT.md does: the 16-prompt manual evaluation is a DIRECT
+ comparison, while the full 100-case baseline figures EXTRAPOLATE the same
+ observed error taxonomy. The draft states this in the chapter intro so the
+ methodology is transparent. Be ready to explain this distinction if asked.

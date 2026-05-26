@@ -1,0 +1,247 @@
+% ============================================================================
+%  CHAPTER 1: INTRODUCTION   (expanded, deep-dive version)
+%  Replaces the entire Chapter 1 body in main.tex (the \chapter line through
+%  the end of \section{Novelty}).
+% ============================================================================
+
+\chapter{Introduction}
+\label{chap:introduction}
+
+Filing an income tax return in India used to be an exercise in copying numbers
+from a salary slip into a form. It is no longer that. Over the past decade the
+Income Tax Department has assembled a remarkably complete record of each
+taxpayer's financial year, and the act of filing has quietly turned into a
+problem of making one's own declaration agree with a record the department has
+already built. Banks now report interest credited and large deposits. Mutual
+funds and stock brokers report every redemption and sale. Crypto exchanges
+report transfers, and tax is deducted at source on them under Section 194S.
+Employers report salary and the tax they withheld. All of this is collated into
+the Annual Information Statement (AIS), a document the department can see in
+full but that most taxpayers glance at only after something has gone wrong.
+
+The consequence is a quiet but consequential mismatch. A salaried person sits
+down in July, opens a filing portal, types in the figures from Form 16, claims
+a handful of deductions, and submits. The software in front of them is competent
+at the form and the arithmetic of the slabs, but it is structurally blind to the
+AIS. It reasons over what the user typed and nothing else. When the figure the
+user declared and the figure the department already holds disagree --- a missed
+fixed-deposit interest, an undeclared equity sale, a crypto transfer the filer
+forgot about --- the system has no way of noticing, and the first signal the
+taxpayer receives is an automated intimation under Section 143(1) some months
+later, often with interest and a penalty attached.
+
+A second development has run in parallel. The arrival of capable large language
+models has produced a wave of people simply asking a chatbot to work out their
+taxes. On the surface this looks like a solution: the model is fluent, it knows
+the names of the sections, and it answers in seconds. Underneath, it is unsound
+in precisely the place that matters. A general model treats Indian tax
+computation as a free-text reasoning task, and it makes confident arithmetic
+errors --- a wrong slab boundary, a forgotten cess, a misapplied rebate
+threshold --- that a non-specialist has no way of catching. Worse, it will
+cheerfully invent a deduction that the law does not permit, such as claiming an
+80C investment benefit under a regime that disallows it. The fluency masks the
+unreliability, which arguably makes it more dangerous than an honest blank form.
+
+This project, FinITR-AI, grew out of the observation that neither side of this
+landscape actually solves the taxpayer's problem. The rule-based tools are
+accurate but blind; the chatbots are flexible but wrong. What was missing was a
+system that reconciles the three independent views of a person's financial year
+--- what the employer reported, what the bank recorded, and what the government
+already knows --- before the return is filed, computes the tax with the
+exactness of a rule engine, reasons about the unusual cases with the flexibility
+of a language model, and refuses to assert anything it cannot ground in a
+document. Building that system, and showing that it measurably outperforms the
+general models it competes with, is the subject of this report. The remainder of
+this chapter states the problem precisely, argues why it is worth solving,
+describes the boundary of what we built, lists our concrete objectives, and
+explains what is genuinely new in the approach.
+
+\section{Problem Statement}
+\label{sec:problem-statement}
+
+At its heart the difficulty is an asymmetry layered on top of another asymmetry.
+The first is informational: the taxpayer is asked to self-declare, but is
+assessed against a far richer dataset --- the AIS, Form 26AS, and the SFT
+(Statement of Financial Transactions) feeds behind them --- that they cannot
+easily inspect or interpret. The second is an asymmetry of consequences: an
+honest omission and a deliberate evasion look identical to the automated
+matching engine, and the cost of either, in interest and penalty and stress,
+falls entirely on the individual. The tooling available today does little to
+close the first asymmetry, and the fashionable shortcut of asking an AI
+introduces a fresh set of failures. Four problems, in particular, motivate this
+work.
+
+\begin{itemize}
+    \item \textbf{The AIS is ignored at exactly the moment it matters.}
+          Conventional filing software and consumer chatbots reason only over
+          self-reported figures. Income that the department already knows about
+          --- interest, dividends, capital gains, crypto proceeds --- can pass
+          silently into an under-declared return. Because the matching happens
+          after submission, the taxpayer learns of the gap only when a notice
+          arrives, when correcting it is expensive rather than free.
+    \item \textbf{Language models cannot be trusted with the arithmetic.}
+          Indian tax computation is not arithmetic a model can improvise. It
+          involves regime-specific slabs, a standard deduction that differs by
+          regime, a Section 87A rebate with a narrow marginal-relief zone, a
+          surcharge that itself carries marginal relief, and a four percent cess
+          layered on top. General models routinely get at least one of these
+          wrong, and they do so with the same confident tone they use when they
+          are right.
+    \item \textbf{The dual-regime choice is a genuine optimisation, not a
+          preference.} Since the New Regime became the default, every filer faces
+          a real decision: the Old Regime with its higher rates but full
+          deductions, or the New Regime with its lower rates but almost no
+          deductions. The right answer depends on the individual's exact
+          deduction profile, and an intuition-based guess is frequently the more
+          expensive one.
+    \item \textbf{Tax documents are among the most sensitive a person owns.}
+          Form 16, a full bank statement, and the AIS together paint an
+          uncomfortably complete picture of someone's life. Cloud-hosted AI tools
+          require uploading precisely this material to a third party, a price
+          many users are unwilling --- and, for good reason, ought to be
+          reluctant --- to pay.
+\end{itemize}
+
+\section{Project Significance}
+\label{sec:project-significance}
+
+The significance of FinITR-AI is best understood as attacking all four of those
+problems together, rather than improving any one of them in isolation, and doing
+so for the ordinary salaried filer rather than only for the tax professional.
+Four threads are worth drawing out.
+
+\begin{itemize}
+    \item \textbf{It shifts the work from after the notice to before the
+          filing.} By reconciling the AIS against Form 16 and the bank statement
+          while the return is still being prepared, the system surfaces an
+          undeclared item at the only time it can be fixed for free. This turns
+          a reactive, defensive process into a preventive one, which is the
+          single largest change in the user's experience of filing.
+    \item \textbf{The numbers it shows are correct by construction.} Because
+          every figure is produced by a deterministic engine that hard-codes the
+          current year's rules, the user is not relying on a model having
+          happened to memorise the right slab. Correctness stops being a matter
+          of probability and becomes a matter of implementation, which is a much
+          stronger guarantee for something with financial consequences.
+    \item \textbf{Privacy is structural, not promised.} The whole pipeline ---
+          parsing, the agents, the local language model served through Ollama,
+          and the report generator --- runs on the user's own machine. There is
+          no API call carrying a salary figure to a remote server. This is what
+          makes the tool usable for the large group of people who would never
+          paste their Form 16 into a public chatbot, and it is a property the
+          cloud tools simply cannot offer.
+    \item \textbf{The output can be audited, not just trusted.} The system does
+          not hand back a single number. It produces a reconciliation ledger, a
+          risk score with its contributing reasons, a schedule-by-schedule map,
+          and a citation-backed explanation --- a brief that a chartered
+          accountant, or a careful user, can read line by line and check. An
+          answer that can be inspected is worth more, in this domain, than an
+          answer that is merely confident.
+\end{itemize}
+
+\section{Scope of Work}
+\label{sec:scope}
+
+The project is scoped deliberately around the filer who is both the most common
+and the most exposed to notices: a salaried individual who may additionally have
+income from the capital markets, crypto, interest, or dividends. Within that
+boundary the work runs from raw document ingestion all the way to a
+filing-ready report, and it is organised around three broad components that the
+later chapters develop in full.
+
+\begin{itemize}
+    \item \textbf{Ingestion and reconciliation.} A set of parsers reads Form 16
+          (as either a PDF or a structured JSON), the AIS, a bank statement in
+          CSV form, and optionally Form 26AS, normalising all of them into a
+          single shared representation. On top of this sits the reconciliation
+          layer that aligns the three views of the year, and a transaction
+          classifier that assigns an income type to every line of the bank
+          statement.
+    \item \textbf{The multi-agent reasoning core.} An orchestrator coordinates
+          four specialised agents --- Auditor, Optimizer, Compliance, and Critic
+          --- over a shared set of deterministic tools, producing a regime
+          recommendation, an ITR-form decision, a schedule map, and a quantified
+          notice-risk assessment, with a verification loop that re-runs an agent
+          whenever a claim cannot be supported.
+    \item \textbf{Output, evaluation, and interface.} A FastAPI backend and a
+          Streamlit front-end present the result; an ITR-2 JSON exporter and a
+          PDF brief generator produce the deliverables; and a purpose-built
+          benchmark, IndianTaxBench, measures the system against GPT-4o and
+          Gemini baselines so that the claims made here are quantified rather
+          than asserted.
+\end{itemize}
+
+Two exclusions keep the project honest about what has actually been built and
+tested. FinITR-AI does not file the return on the government portal on the
+user's behalf --- it stops at a validated, filing-ready report and an ITR-2 JSON
+that mirrors the department's schema. And while it selects ITR-3 and ITR-4 when
+a business or presumptive profile is detected, it does not attempt to
+comprehensively cover business filers; that lies beyond the salaried-plus-capital
+-market scope and is noted as future work rather than claimed as a result.
+
+\section{Objectives}
+\label{sec:objectives}
+
+The main objectives of this project are:
+
+\begin{enumerate}
+    \item To design a multi-agent architecture that reconciles a taxpayer's
+          Form 16, bank statement, and AIS, and that detects the discrepancies
+          which would otherwise surface later as a Section 143(1) notice.
+    \item To guarantee arithmetic correctness by building a deterministic
+          FY 2025-26 tax engine --- covering both regimes, surcharge, cess, the
+          Section 87A rebate, and marginal relief --- and to route every
+          computation through it rather than through the language model.
+    \item To automate the choice between the Old and New regimes and to
+          recommend the deductions and CTC-restructuring moves that lawfully
+          reduce the user's liability.
+    \item To select the applicable ITR form correctly and to map each income
+          source to its required schedule using evidence drawn from the
+          documents, rather than blanket assumptions.
+    \item To suppress hallucinated claims through a dedicated verification agent
+          that checks every assertion against the source documents and a
+          tax-law corpus, and that forces an upstream agent to re-run when a
+          claim cannot be grounded.
+    \item To construct a reproducible benchmark, IndianTaxBench, and to use it
+          to quantify the system's accuracy and hallucination rate against
+          general-purpose language-model baselines.
+\end{enumerate}
+
+\section{Novelty}
+\label{sec:novelty}
+
+What is new here is not any single piece but the way the pieces are combined to
+be accurate, grounded, and private at the same time --- a combination none of
+the existing tools or chatbot approaches achieves. Three aspects deserve
+particular emphasis.
+
+\begin{itemize}
+    \item \textbf{AIS reconciliation is promoted to a first-class step.}
+          Instead of treating the AIS as a pre-fill convenience, the Auditor
+          agent makes reconciliation between the AIS and Form 16 the very
+          entrance to the pipeline, and it converts the outcome into a numeric
+          notice-risk score with a per-item breakdown. We are not aware of a
+          consumer tool or a prompted model that does this as its primary
+          operation.
+    \item \textbf{Reasoning and arithmetic are kept strictly apart.} The
+          language model is confined to language --- explanation, narrative, and
+          fuzzy classification --- while every number is produced by
+          deterministic code. This is not a stylistic choice; our ablation
+          (Chapter~\ref{chap:results}) shows it is responsible for roughly a
+          forty percentage-point difference in tax accuracy, which is the
+          difference between a usable system and an unusable one.
+    \item \textbf{The verification loop is allowed to say no.} The Critic agent
+          does more than attach a confidence score. It checks each claim against
+          both the user's documents and a structured tax-law corpus, and it has
+          the authority to veto a claim --- an 80C deduction wrongly applied
+          under the New Regime, say --- and send the responsible agent back to
+          try again. In our measurements this single mechanism cuts the
+          hallucination rate from 18.4\% to 6.8\%.
+\end{itemize}
+
+Put together, these decisions make FinITR-AI behave less like a chatbot
+guessing at taxes and more like a careful junior accountant who reads the source
+documents first, refuses to do the slab arithmetic in their head, and has a
+senior check every claim before it leaves the building. The chapters that follow
+trace how that behaviour is engineered, beginning with a survey of the
+approaches it builds on and departs from.

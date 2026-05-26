@@ -1,0 +1,123 @@
+% ============================================================================
+%  CHAPTER 4: CHALLENGES AND SOLUTIONS   (expanded, deep-dive version)
+%  Replaces the entire Chapter 4 body in main.tex.
+% ============================================================================
+
+\chapter{Challenges and Solutions}
+\label{chap:challenges}
+
+Building FinITR-AI was, more than anything, an exercise in working out what the
+language model should never be allowed to touch. The recurring discovery was
+that the parts of the task a model finds easy --- producing fluent prose,
+recognising the rough shape of a problem --- are not the parts that determine
+whether the output is correct, and the parts that do determine correctness are
+exactly where a model is least dependable. A second theme, present in almost
+every design decision, was a deliberate asymmetry in how errors are weighed:
+because a missed risk can cost a taxpayer real money in penalty and interest
+while an over-cautious flag costs them only a moment's attention, the system is
+tuned throughout to err toward false positives. This chapter sets out the major
+obstacles we encountered and how each was resolved.
+Table~\ref{tab:challenges} summarises them, and the discussion that follows
+expands on the ones that shaped the architecture most.
+
+\begin{table}[H]
+\centering
+\caption{Major Implementation Challenges and Their Solutions}
+\label{tab:challenges}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Challenge} & \textbf{Solution} \\
+\hline
+Language models compute Indian tax incorrectly --- wrong slab boundaries,
+omitted cess, mis-applied 87A rebate and FY 2025-26 marginal relief --- and do
+so with full confidence. & All arithmetic was removed from the model. A
+deterministic CalculatorTool hard-codes the FY 2025-26 slabs, surcharge, cess,
+rebate, and marginal relief. The ablation shows this lifts tax accuracy from
+54.2\% to 94.0\%. \\
+\hline
+Models hallucinate disallowed claims --- most often an 80C or HRA deduction
+under the New Regime --- which a non-expert cannot catch. & A Critic agent with
+an NLI faithfulness verifier and a legal-corpus retriever blocks ungrounded
+claims and forces the responsible agent to re-run. The hallucination rate fell
+from 18.4\% (no critic) to 6.8\%. \\
+\hline
+Real documents carry noise: OCR rounding and small TDS differences make Form 16
+disagree with the AIS by a few rupees. & The orchestrator treats a
+$\leq$3\% Form-16-versus-AIS gap as noise and adopts the AIS salary as ground
+truth, scaling basic salary proportionally, so the downstream computation stays
+stable. \\
+\hline
+Aggressive schedule inference inflates recall but creates false positives;
+conservative inference misses genuine cases. & Schedule inference was made
+strictly signal-based --- a schedule is added only on concrete evidence (a bank
+interest credit, an AIS SFT entry, a broker CSV). This holds schedule precision
+at 96.2\% while accepting a known, documented recall gap. \\
+\hline
+Risk scoring on a single signal can under-rate a severe case --- undeclared
+crypto seen only as a bank deposit was scored HIGH rather than CRITICAL. & An
+additive, evidence-weighted risk model with documented escalation rules was
+adopted, and the false-negative-averse banding ensures no genuine HIGH or
+CRITICAL case is ever scored LOW, even where the exact band is arguable. \\
+\hline
+Bank-statement descriptions are terse, code-laden, and full of Hinglish vendor
+names that defeat simple keyword rules. & A three-stage classifier ---
+high-precision regex, then kNN over multilingual sentence embeddings, then an
+LLM fallback --- normalises and labels each transaction, reaching 94.2\% macro
+F1 with 100\% F1 on every income-critical class. \\
+\hline
+Running a 7B model locally is several seconds slower than calling a cloud API. &
+The $\sim$6.1 s average latency was accepted as the price of privacy: the whole
+pipeline runs offline, no document leaves the machine, and the model sits on the
+explanation path rather than the arithmetic path. \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section*{Discussion of the Decisive Challenges}
+\addcontentsline{toc}{section}{Discussion of the Decisive Challenges}
+
+The first two rows of the table carried the project. Forbidding the model from
+doing arithmetic was the single most consequential architectural decision, and
+it is the one that separates FinITR-AI's tax accuracy from the general models we
+benchmarked against. The instinct, when a language model gets a sum wrong, is to
+prompt it more carefully or to give it a better example. We found that instinct
+to be a dead end for tax: the failures are not failures of instruction but of
+the underlying mechanism, and no amount of prompting reliably teaches a network
+to apply a marginal-relief taper or to remember that the cess compounds on tax
+plus surcharge. Replacing the model's mental arithmetic with a few hundred lines
+of deterministic code did what better prompting could not, and the ablation in
+the next chapter quantifies the gap at nearly forty percentage points.
+
+The Critic loop was the second pillar, and it solved a subtler problem than the
+calculator. Grounding alone is not sufficient, because a model can retrieve the
+correct rule and still state an incorrect conclusion in the same breath --- it
+can quote the text of Section 80C accurately and then recommend claiming it
+under a regime that disallows it. What was needed was not more evidence but the
+authority to act on a verdict. Giving the Critic the power to veto a claim and
+return the work to its author, rather than merely lowering a confidence score,
+is what turned grounding from a passive feature into an active control. The
+re-run is bounded at three iterations precisely because an unbounded
+self-correction loop is its own hazard; in practice almost every case is clean
+on the first review or resolved on the second.
+
+The classifier challenge is worth dwelling on because it is where the messiness
+of real data is most visible. An Indian bank statement does not say ``salary from
+Infosys''; it says something like ``WDL TFR NEFT-SALARY-INFOSYS BPM
+LTD-MAR25-UTR123456''. A purely rule-based approach drowns in these variants,
+and a purely learned approach wastes the easy cases and is slow. The cascade was
+the resolution: rules clear the unambiguous bulk instantly, sentence embeddings
+absorb the noisy middle including Hinglish merchants that no rule anticipates,
+and the model is consulted only for the residue. The result is both fast and
+accurate where accuracy matters, since every label with a tax consequence is one
+the cheap, reliable stages resolve.
+
+The remaining rows reflect a quieter kind of engineering judgement: choosing,
+consciously and with the trade-off in view, to give up a little recall for
+precision, a little speed for privacy, and a little simplicity for robustness to
+noise. None of these were forced by circumstance; each was a decision about what
+kind of errors a tax tool should prefer to make. A tool that occasionally asks
+the user to confirm an item it was unsure about is behaving correctly. A tool
+that silently asserts a schedule the documents do not support, or that leaks a
+salary figure to a remote server to save four seconds, is not. The error
+philosophy described at the start of this chapter is, in the end, the thread
+that ties these smaller decisions together.

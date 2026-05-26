@@ -1,0 +1,30 @@
+==============================================================================
+ FRONT-MATTER VALUES  ->  paste into the "USER INPUTS" block of main.tex
+==============================================================================
+
+These replace the placeholder \newcommand values near the top of main.tex
+(lines ~46-59). Fill in your own name, roll number and supervisor.
+
+% Plain title (single line) -- used in declaration, certificate, abstract.
+\newcommand{\thesisTitle}{FinITR-AI: An Agentic Multi-Document Reconciliation System for Indian Income Tax Return Filing}
+
+% Display title (with line breaks) -- used only on the title page.
+\newcommand{\thesisTitleDisplay}{FinITR-AI \\ AN AGENTIC MULTI-DOCUMENT RECONCILIATION SYSTEM \\ FOR INDIAN INCOME TAX RETURN FILING}
+
+\newcommand{\studentName}{<< YOUR FULL NAME >>}
+\newcommand{\rollNumber}{<< YOUR ROLL NUMBER >>}
+\newcommand{\supervisorName}{Dr.~<< SUPERVISOR NAME >>}
+\newcommand{\departmentName}{Computer Science and Engineering}
+\newcommand{\submissionMonthYear}{May 2026}
+\newcommand{\submissionLocation}{Raichur -- 584135}
+\newcommand{\degreeName}{Bachelor of Technology}
+\newcommand{\logoPath}{images/iiitr_logo.png}
+
+------------------------------------------------------------------------------
+ NOTE ON THE RUPEE SYMBOL
+------------------------------------------------------------------------------
+The template loads inputenc/fontenc with the Latin Modern font, which does NOT
+contain the Indian Rupee glyph. Throughout these drafts amounts are written as
+"Rs." (e.g. Rs.~52,000) so they compile cleanly. If you want the actual symbol,
+add to the preamble:  \usepackage{tipa}  or  \usepackage[india]{fontspec} (XeLaTeX),
+then replace "Rs." with the symbol of your choice.
