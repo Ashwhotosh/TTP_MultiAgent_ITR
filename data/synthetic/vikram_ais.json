@@ -1,0 +1,228 @@
+{
+    "pan": "FGHJK5678L",
+    "assessment_year": "2026-27",
+    "financial_year": "2025-26",
+    "name": "VIKRAM MEHTA",
+
+    "_persona_note": "Vikram Mehta, 34yo Senior Software Engineer at Infosys BPM, Bangalore. ₹26.22L salary + home loan (EMI ₹28,400/month) + crypto trading (WazirX + CoinSwitch) + freelance on Upwork + ELSS SIP + equity trading (Zerodha) + FD interest. Pays ₹22,000/month rent but HRA not claimed properly. Has LIC policies. Volunteer NPS top-up of ₹1.5L. High complexity ITR-2 case.",
+
+    "sft": [
+        {
+            "sft_code": "SFT-001",
+            "sft_description": "Salary",
+            "info_source": "INFOSYS BPM LIMITED",
+            "info_source_id": "TAN: BLRI09876K",
+            "reported_value": 2622000,
+            "derived_value": 2622000,
+            "tds_tcs": 298400,
+            "quarter": "ALL",
+            "_note": "₹2,18,500/month × 12 = ₹26,22,000 gross. Includes ₹50,000 performance bonus in Feb."
+        },
+        {
+            "sft_code": "SFT-003",
+            "sft_description": "Interest on Savings Account",
+            "info_source": "STATE BANK OF INDIA",
+            "info_source_id": "TAN: DELS99001M",
+            "reported_value": 18700,
+            "derived_value": 18700,
+            "tds_tcs": 1870,
+            "quarter": "ALL",
+            "_note": "Monthly savings interest: Aug ₹4,200 + Nov ₹4,500 + Feb ₹4,800 + Mar ₹5,200 = ₹18,700"
+        },
+        {
+            "sft_code": "SFT-004",
+            "sft_description": "Interest on Fixed Deposit",
+            "info_source": "AXIS BANK LIMITED",
+            "info_source_id": "TAN: MUMB78234N",
+            "reported_value": 35000,
+            "derived_value": 35000,
+            "tds_tcs": 3500,
+            "quarter": "ALL",
+            "_note": "FD interest: Q1 ₹8,750 + Q2 ₹8,750 + Q3 ₹8,750 + Q4 ₹8,750 = ₹35,000. Maturity ₹3,85,000 principal+interest."
+        },
+        {
+            "sft_code": "SFT-006",
+            "sft_description": "Dividend from Equity Shares",
+            "info_source": "INFOSYS LIMITED",
+            "info_source_id": "ISIN: INE009A01021",
+            "reported_value": 3200,
+            "derived_value": 3200,
+            "tds_tcs": 320,
+            "quarter": "Q3",
+            "_note": "Infosys dividend ₹3,200 in October"
+        },
+        {
+            "sft_code": "SFT-008",
+            "sft_description": "Mutual Fund Redemption",
+            "info_source": "GROWW (NEXTBILLION TECHNOLOGY)",
+            "info_source_id": "AMFI: 139230",
+            "reported_value": 125000,
+            "derived_value": 125000,
+            "tds_tcs": 0,
+            "quarter": "Q2",
+            "additional_info": {
+                "scheme_name": "Groww ELSS Tax Saver Fund",
+                "lock_in_years": 3,
+                "redemption_type": "LTCG_112A"
+            }
+        },
+        {
+            "sft_code": "SFT-009",
+            "sft_description": "Sale of Equity Shares",
+            "info_source": "ZERODHA BROKING LTD",
+            "info_source_id": "SEBI: INZ000031633",
+            "reported_value": 582000,
+            "derived_value": 582000,
+            "tds_tcs": 0,
+            "quarter": "ALL",
+            "additional_info": {
+                "stt_paid": 582,
+                "trade_count": 4,
+                "breakdown": {
+                    "RELIANCE_Jun25": 210000,
+                    "TCS_Sep25": 175000,
+                    "WIPRO_Nov25": 52000,
+                    "BAJAJ_FINANCE_Jan26": 145000
+                }
+            }
+        },
+        {
+            "sft_code": "SFT-015",
+            "sft_description": "Foreign Remittance - Inward (Freelance/Consulting)",
+            "info_source": "HDFC BANK LTD",
+            "info_source_id": "AD Code: 7654321",
+            "reported_value": 548000,
+            "derived_value": 548000,
+            "tds_tcs": 0,
+            "quarter": "ALL",
+            "additional_info": {
+                "remitter": "UPWORK GLOBAL INC",
+                "country": "UNITED STATES",
+                "purpose": "P1301 - Software/IT Consulting",
+                "transactions": [
+                    {"date": "2025-06-15", "amount": 110000},
+                    {"date": "2025-07-16", "amount": 75000},
+                    {"date": "2025-08-18", "amount": 95000},
+                    {"date": "2025-10-10", "amount": 88000},
+                    {"date": "2025-11-20", "amount": 72000},
+                    {"date": "2026-01-16", "amount": 115000},
+                    {"date": "2026-02-22", "amount": 68000},
+                    {"date": "2026-01-26", "amount": 25000, "_note": "this appears to be from Ramesh Verma personal transfer, NOT Upwork. AIS may have mis-categorized. Flag for interview."}
+                ]
+            }
+        },
+        {
+            "sft_code": "SFT-016",
+            "sft_description": "Virtual Digital Asset Transfer",
+            "info_source": "ZANMAI LABS PVT LTD (WAZIRX)",
+            "info_source_id": "VDA Exchange",
+            "reported_value": 417000,
+            "derived_value": 417000,
+            "tds_tcs": 12510,
+            "quarter": "ALL",
+            "additional_info": {
+                "tds_section": "194S",
+                "assets_traded": ["BTC", "ETH"],
+                "transactions": [
+                    {"date": "2025-05-20", "description": "BTC Sale", "amount": 45000},
+                    {"date": "2025-07-10", "description": "ETH Sale", "amount": 88000},
+                    {"date": "2025-08-10", "description": "BTC Partial Exit", "amount": 62000},
+                    {"date": "2025-09-10", "description": "ETH Exit", "amount": 52000},
+                    {"date": "2025-10-20", "description": "USDT Sale via CoinSwitch", "amount": 38000},
+                    {"date": "2026-01-10", "description": "BTC Partial", "amount": 78000},
+                    {"date": "2026-03-10", "description": "CoinSwitch Crypto Exit", "amount": 44000},
+                    {"date": "2026-03-20", "description": "Final ETH Exit", "amount": 92000}
+                ],
+                "_cost_note": "Total sale proceeds ₹4,99,000. Acquisition cost (self-reported) ₹3,20,000. Estimated gain: ₹1,79,000."
+            }
+        },
+        {
+            "sft_code": "SFT-013",
+            "sft_description": "Cash Deposit in Bank Account",
+            "info_source": "HDFC BANK LTD",
+            "info_source_id": "TAN: MUMH09876B",
+            "reported_value": 125000,
+            "derived_value": 125000,
+            "tds_tcs": 0,
+            "quarter": "ALL",
+            "additional_info": {
+                "cash_deposits": [
+                    {"date": "2025-07-30", "amount": 50000},
+                    {"date": "2025-11-10", "amount": 75000}
+                ],
+                "_note": "Two cash deposits totalling ₹1,25,000. Source of funds needs clarification. Likely savings/salary cash but AIS flags it."
+            }
+        }
+    ],
+
+    "tds_tcs": [
+        {
+            "section": "192",
+            "deductor_name": "INFOSYS BPM LIMITED",
+            "deductor_tan": "BLRI09876K",
+            "amount_paid_credited": 2622000,
+            "tax_deducted": 298400,
+            "tax_deposited": 298400,
+            "date_of_deposit": "2026-04-07"
+        },
+        {
+            "section": "194A",
+            "deductor_name": "AXIS BANK LIMITED",
+            "deductor_tan": "MUMB78234N",
+            "amount_paid_credited": 35000,
+            "tax_deducted": 3500,
+            "tax_deposited": 3500,
+            "date_of_deposit": "2026-04-10"
+        },
+        {
+            "section": "194A",
+            "deductor_name": "STATE BANK OF INDIA",
+            "deductor_tan": "DELS99001M",
+            "amount_paid_credited": 18700,
+            "tax_deducted": 1870,
+            "tax_deposited": 1870,
+            "date_of_deposit": "2026-04-12"
+        },
+        {
+            "section": "194",
+            "deductor_name": "INFOSYS LIMITED",
+            "deductor_tan": "BLRI11223P",
+            "amount_paid_credited": 3200,
+            "tax_deducted": 320,
+            "tax_deposited": 320,
+            "date_of_deposit": "2025-11-01"
+        },
+        {
+            "section": "194S",
+            "deductor_name": "ZANMAI LABS PVT LTD (WAZIRX)",
+            "deductor_tan": "MUMW78901D",
+            "amount_paid_credited": 499000,
+            "tax_deducted": 12510,
+            "tax_deposited": 12510,
+            "date_of_deposit": "2026-04-15"
+        }
+    ],
+
+    "_reconciliation_notes": {
+        "crypto_sale_proceeds_ais": 499000,
+        "crypto_sale_proceeds_bank": 499000,
+        "crypto_acquisition_cost_interview_needed": true,
+        "freelance_ais": 548000,
+        "freelance_bank_identified": 523000,
+        "freelance_delta": 25000,
+        "delta_note": "₹25,000 personal transfer from Ramesh Verma may have been miscategorized. Interview needed.",
+        "fd_interest_in_form16": false,
+        "savings_interest_in_form16": false,
+        "dividend_in_form16": false,
+        "elss_redemption_ltcg_112a": true,
+        "equity_sale_multiple_categories": true,
+        "cash_deposits_source_needed": true,
+        "home_loan_emi_28400_per_month": true,
+        "home_loan_interest_section_24b": "approx ₹2,40,000 - verify from bank statement",
+        "hra_received_not_claimed": true,
+        "rent_paid_22000_per_month": true,
+        "nps_voluntary_150000_80CCD1B": true,
+        "elss_sip_96000_per_year_80C": true,
+        "lic_premium_37500_80C": true
+    }
+}

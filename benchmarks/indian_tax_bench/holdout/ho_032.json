@@ -1,0 +1,226 @@
+{
+  "id": "ho_032",
+  "category": "adversarial_tricky",
+  "difficulty": "hard",
+  "description": "Salary ₹1,200,000 + LTCG ₹60,000 + Crypto ₹40,000 — dual schedule",
+  "input": {
+    "gross_income": 1200000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "capital_gains",
+      "crypto_vda"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "SAMSUNG R&D",
+        "part_a": {
+          "gross_salary": 1200000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1200000,
+          "salary_breakup": {
+            "basic_salary": 600000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "NYION4908F",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "SAMSUNG R&D",
+            "reported_value": 1200000
+          },
+          {
+            "sft_code": "SFT-009",
+            "info_source": "ZERODHA SECURITIES",
+            "reported_value": 60000
+          },
+          {
+            "sft_code": "SFT-016",
+            "info_source": "COINDCX",
+            "reported_value": 40000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81905,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81899,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 82095,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81784,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 82047,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 82004,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81876,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81870,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 82041,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81778,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 82027,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT SAMSUNG R&D",
+          "amount": 81823,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-03-09",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1780,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-02-14",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1007,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-02-08",
+          "description": "SWIGGY ORDER",
+          "amount": 493,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-08",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4955,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-02-08",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21973,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-19",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 819,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_cg_01",
+          "date": "2025-09-01",
+          "description": "ZERODHA SECURITIES EQUITY SALE",
+          "amount": 60000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_crypto_01",
+          "date": "2025-10-01",
+          "description": "COINDCX WITHDRAWAL",
+          "amount": 40000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-11-01",
+          "description": "SB INT CR",
+          "amount": 3496,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1125000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-2",
+    "risk_level": "CRITICAL",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule CG",
+      "Schedule VDA",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Must have BOTH Schedule CG and Schedule VDA",
+      "Should NOT merge CG and VDA into one schedule"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

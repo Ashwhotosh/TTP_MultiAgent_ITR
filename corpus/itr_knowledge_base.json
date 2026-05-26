@@ -1,0 +1,202 @@
+{
+  "tax_year": "FY 2024-25 (AY 2025-26)",
+
+  "old_regime": {
+    "name": "Old Tax Regime",
+    "standard_deduction": 50000,
+    "tax_slabs": [
+      {"min": 0,       "max": 250000,  "rate": 0.0},
+      {"min": 250001,  "max": 500000,  "rate": 0.05},
+      {"min": 500001,  "max": 1000000, "rate": 0.20},
+      {"min": 1000001, "max": null,    "rate": 0.30}
+    ],
+    "rebate_87A": {"max_income": 500000, "max_rebate": 12500},
+    "surcharge": [
+      {"min": 5000000,  "max": 10000000, "rate": 0.10},
+      {"min": 10000001, "max": 20000000, "rate": 0.15},
+      {"min": 20000001, "max": 50000000, "rate": 0.25},
+      {"min": 50000001, "max": null,     "rate": 0.37}
+    ],
+    "cess": 0.04,
+    "deductions": {
+      "80C": {
+        "section": "80C",
+        "title": "Savings and Investments",
+        "max_limit": 150000,
+        "shared_limit_with": ["80CCC", "80CCD(1)"],
+        "eligible_categories": ["Life Insurance Premium", "PPF Contribution", "ELSS Investment", "Tax Saving FD", "Tuition Fees", "NSC", "Home Loan Principal"],
+        "conditions": "Payment must be for self, spouse, or children. LIC policy must not lapse.",
+        "citation": "Income Tax Act Section 80C(2)"
+      },
+      "80CCD_1B": {
+        "section": "80CCD(1B)",
+        "title": "Additional NPS Contribution",
+        "max_limit": 50000,
+        "shared_limit_with": [],
+        "note": "Over and above the 80C limit of 1,50,000",
+        "eligible_categories": ["NPS Contribution"],
+        "conditions": "Only Tier-I NPS account contributions qualify.",
+        "citation": "Income Tax Act Section 80CCD(1B)"
+      },
+      "80CCD_2": {
+        "section": "80CCD(2)",
+        "title": "Employer NPS Contribution",
+        "max_limit_percent_of_salary": 10,
+        "max_limit": null,
+        "note": "Available in BOTH old and new regime. 14% for central govt employees.",
+        "eligible_categories": ["Employer NPS"],
+        "citation": "Income Tax Act Section 80CCD(2)"
+      },
+      "80D": {
+        "section": "80D",
+        "title": "Health Insurance Premium",
+        "max_limit_self_family": 25000,
+        "max_limit_parents": 25000,
+        "max_limit_parents_senior": 50000,
+        "preventive_checkup_within_limit": 5000,
+        "total_max": 75000,
+        "eligible_categories": ["Health Insurance"],
+        "conditions": "Premium must be paid by cheque/digital mode. Cash not allowed except preventive checkup.",
+        "citation": "Income Tax Act Section 80D(2)"
+      },
+      "80E": {
+        "section": "80E",
+        "title": "Education Loan Interest",
+        "max_limit": null,
+        "note": "No upper limit. Available for 8 years starting from year of first repayment.",
+        "eligible_categories": ["Education Loan Interest"],
+        "conditions": "Loan must be from bank/approved institution. For higher education of self, spouse, children.",
+        "citation": "Income Tax Act Section 80E"
+      },
+      "80G": {
+        "section": "80G",
+        "title": "Donations",
+        "max_limit": null,
+        "eligible_categories": ["Donation"],
+        "subcategories": {
+          "100_no_limit": ["PM National Relief Fund", "National Defence Fund", "PM CARES"],
+          "100_with_10pct_limit": ["Government approved institutions"],
+          "50_no_limit": ["Jawaharlal Nehru Memorial Fund", "Indira Gandhi Memorial Trust"],
+          "50_with_10pct_limit": ["Other approved charitable institutions", "CRY Foundation", "Smile Foundation"]
+        },
+        "conditions": "Donation must be to approved/registered institutions. Cash donations above 2000 not allowed.",
+        "citation": "Income Tax Act Section 80G"
+      },
+      "80TTA": {
+        "section": "80TTA",
+        "title": "Savings Account Interest",
+        "max_limit": 10000,
+        "eligible_categories": ["Savings Interest"],
+        "note": "Only savings account interest. Not FD/RD interest. Not available for senior citizens (use 80TTB instead).",
+        "conditions": "Available for individuals and HUF below 60 years.",
+        "citation": "Income Tax Act Section 80TTA"
+      },
+      "80TTB": {
+        "section": "80TTB",
+        "title": "Senior Citizen Interest Income",
+        "max_limit": 50000,
+        "eligible_categories": ["Savings Interest", "FD Interest"],
+        "note": "For senior citizens (60+) only. Replaces 80TTA.",
+        "citation": "Income Tax Act Section 80TTB"
+      },
+      "24b": {
+        "section": "24(b)",
+        "title": "Home Loan Interest",
+        "max_limit_self_occupied": 200000,
+        "max_limit_let_out": null,
+        "note": "For let-out property, entire interest deductible but total loss capped at 2L setoff.",
+        "eligible_categories": ["Home Loan EMI"],
+        "interest_component_note": "Only INTEREST portion of EMI qualifies. Principal goes to 80C.",
+        "conditions": "Loan must be from bank/approved lender. Construction must complete within 5 years of loan.",
+        "citation": "Income Tax Act Section 24(b)"
+      },
+      "80C_home_loan_principal": {
+        "section": "80C",
+        "title": "Home Loan Principal Repayment",
+        "max_limit": 150000,
+        "shared_limit_with": ["80C"],
+        "eligible_categories": ["Home Loan EMI"],
+        "note": "Principal component of EMI goes to 80C aggregate limit.",
+        "citation": "Income Tax Act Section 80C(2)(xviii)"
+      },
+      "HRA_10_13A": {
+        "section": "10(13A)",
+        "title": "House Rent Allowance",
+        "max_limit": null,
+        "eligible_categories": ["Rent Payment"],
+        "calculation": "min(actual_HRA_received, 50_pct_basic_metro_or_40_pct_nonmetro, rent_paid_minus_10pct_basic)",
+        "note": "Requires: actual HRA from employer, basic salary, and city type (metro/non-metro).",
+        "conditions": "Rent receipts required. PAN of landlord required if rent > 1L per year.",
+        "citation": "Income Tax Act Section 10(13A)"
+      },
+      "80GG": {
+        "section": "80GG",
+        "title": "Rent Deduction (No HRA)",
+        "max_limit": 60000,
+        "eligible_categories": ["Rent Payment"],
+        "calculation": "min(5000_per_month, 25pct_total_income, rent_minus_10pct_total_income)",
+        "note": "Only for those NOT receiving HRA from employer.",
+        "citation": "Income Tax Act Section 80GG"
+      }
+    }
+  },
+
+  "new_regime": {
+    "name": "New Tax Regime (Default from FY 2023-24)",
+    "standard_deduction": 75000,
+    "tax_slabs": [
+      {"min": 0,       "max": 300000,  "rate": 0.0},
+      {"min": 300001,  "max": 700000,  "rate": 0.05},
+      {"min": 700001,  "max": 1000000, "rate": 0.10},
+      {"min": 1000001, "max": 1200000, "rate": 0.15},
+      {"min": 1200001, "max": 1500000, "rate": 0.20},
+      {"min": 1500001, "max": null,    "rate": 0.30}
+    ],
+    "rebate_87A": {"max_income": 700000, "max_rebate": 25000},
+    "surcharge": [
+      {"min": 5000000,  "max": 10000000, "rate": 0.10},
+      {"min": 10000001, "max": 20000000, "rate": 0.15},
+      {"min": 20000001, "max": null,     "rate": 0.25}
+    ],
+    "cess": 0.04,
+    "note": "Most deductions NOT available. Switched to new regime from FY 2023-24 unless opted out.",
+    "allowed_deductions": {
+      "80CCD_2": {
+        "section": "80CCD(2)",
+        "title": "Employer NPS Contribution",
+        "max_limit_percent_of_salary": 14,
+        "note": "14% for central govt, 10% for others"
+      },
+      "family_pension": {
+        "title": "Family Pension Standard Deduction",
+        "calculation": "min(pension / 3, 25000)"
+      }
+    },
+    "not_allowed": ["80C", "80D", "80E", "80G", "80TTA", "80TTB", "80GG", "24b", "HRA_10_13A", "80CCD_1B"]
+  },
+
+  "category_to_section_map": {
+    "Life Insurance Premium":  {"old": "80C",                 "new": null},
+    "Health Insurance":        {"old": "80D",                 "new": null},
+    "PPF Contribution":        {"old": "80C",                 "new": null},
+    "ELSS Investment":         {"old": "80C",                 "new": null},
+    "NPS Contribution":        {"old": "80CCD(1B)",           "new": null},
+    "Home Loan EMI":           {"old": ["24b", "80C"],        "new": null, "note": "Split: interest→24b, principal→80C"},
+    "Education Loan Interest": {"old": "80E",                 "new": null},
+    "Rent Payment":            {"old": ["10(13A)", "80GG"],   "new": null, "note": "10(13A) if HRA received, 80GG otherwise"},
+    "Tax Saving FD":           {"old": "80C",                 "new": null},
+    "Tuition Fees":            {"old": "80C",                 "new": null},
+    "Donation":                {"old": "80G",                 "new": null},
+    "Savings Interest":        {"old": "80TTA",               "new": null},
+    "Dining":                  {"old": null,                  "new": null},
+    "Shopping":                {"old": null,                  "new": null},
+    "Groceries":               {"old": null,                  "new": null},
+    "Transport":               {"old": null,                  "new": null},
+    "Food Delivery":           {"old": null,                  "new": null},
+    "Travel":                  {"old": null,                  "new": null},
+    "Pharmacy":                {"old": null,                  "new": null},
+    "Wallet Transfer":         {"old": null,                  "new": null},
+    "Utility Bill":            {"old": null,                  "new": null},
+    "Other":                   {"old": null,                  "new": null}
+  }
+}

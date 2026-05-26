@@ -1,0 +1,101 @@
+================================================================================
+                    FinITR-AI v3 — Execution Instructions
+================================================================================
+
+This document details how to set up, configure, and execute the various components 
+of the FinITR-AI v3 project. 
+
+NOTE: The dependencies have already been successfully installed in a local 
+virtual environment ('venv') in this directory.
+
+--------------------------------------------------------------------------------
+1. Prerequisites & LLM Setup
+--------------------------------------------------------------------------------
+The orchestrator leverages local large language models via Ollama.
+
+- Install Ollama (https://ollama.com/) if not already installed.
+- Pull the primary or alternative model from your terminal:
+  
+  ollama pull qwen2.5:7b       # Recommended model
+  ollama pull llama3.1:8b      # Alternative model
+
+- Ensure the Ollama server is running. You can run it via the Ollama desktop app 
+  or by running:
+  
+  ollama serve
+
+--------------------------------------------------------------------------------
+2. Activating the Virtual Environment
+--------------------------------------------------------------------------------
+Before running any command, activate the virtual environment created in this project:
+
+- Windows (PowerShell):
+  .\venv\Scripts\Activate.ps1
+
+- Windows (Command Prompt):
+  .\venv\Scripts\activate.bat
+
+- Linux/macOS:
+  source venv/bin/activate
+
+--------------------------------------------------------------------------------
+3. Execution Commands
+--------------------------------------------------------------------------------
+
+A. Run the Multi-Agent Orchestrator (CLI Pipeline)
+   Run the unified multi-agent system on synthetic test data:
+
+   python -m agents.orchestrator --bank data/synthetic/sample_bank_statement.csv --ais data/synthetic/sample_ais.json --form16 data/synthetic/sample_form16.json
+
+   Options:
+     --bank: Path to bank statement CSV
+     --ais: Path to AIS JSON
+     --form16: Path to Form 16 JSON/PDF
+     --form26as: Path to Form 26AS JSON (optional)
+     --income: Gross income (automatically derived from Form 16 if not given)
+     --basic: Basic salary (optional)
+     --output: Path to save the final JSON report (e.g. --output outputs/report.json)
+     --model: Ollama model to use (defaults to qwen2.5:7b)
+     --quiet: Suppress verbose logs
+
+B. Launch the Streamlit Frontend UI
+   Start the interactive Streamlit dashboard:
+
+   streamlit run frontend/app.py
+
+C. Launch the FastAPI Backend Server
+   Start the FastAPI development backend server:
+
+   uvicorn api.main:app --reload --port 8000
+
+D. Run IndianTaxBench Evaluation
+   Run the tax benchmark evaluation runner:
+
+   python -m benchmarks.indian_tax_bench.runner
+
+E. Run the Test Suite
+   To verify all parser, calculator, retriever, and critic loop behaviors, run pytest:
+
+   python -m pytest
+
+--------------------------------------------------------------------------------
+4. Programmatic Usage (Python API)
+--------------------------------------------------------------------------------
+You can also run the orchestrator directly within Python:
+
+   from agents.orchestrator import Orchestrator
+
+   # Initialize
+   orch = Orchestrator(ollama_model="qwen2.5:7b", max_iterations=3, verbose=True)
+
+   # Run pipeline
+   report = orch.run(
+       bank_csv="data/synthetic/sample_bank_statement.csv",
+       ais_json="data/synthetic/sample_ais.json",
+       form16_json="data/synthetic/sample_form16.json"
+   )
+
+   # Print report summary
+   print("Reconciliation complete!")
+   print(f"Risk Score: {report.get('risk_score', {}).get('total_score', 0)}")
+================================================================================

@@ -1,0 +1,236 @@
+{
+  "id": "ho_016",
+  "category": "crypto_vda",
+  "difficulty": "hard",
+  "description": "Salary ₹900,000 + Crypto proceeds ₹120,000 via WazirX",
+  "input": {
+    "gross_income": 900000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "crypto_vda"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "CISCO SYSTEMS INDIA",
+        "part_a": {
+          "gross_salary": 900000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 900000,
+          "salary_breakup": {
+            "basic_salary": 450000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "MXRNM9442X",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "CISCO SYSTEMS INDIA",
+            "reported_value": 900000
+          },
+          {
+            "sft_code": "SFT-016",
+            "info_source": "WAZIRX",
+            "reported_value": 120000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61710,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61774,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61317,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61218,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61543,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61314,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61467,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61759,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61578,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61548,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61793,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 61475,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-02-22",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1846,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-07",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1013,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-02-26",
+          "description": "SWIGGY ORDER",
+          "amount": 454,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-20",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5047,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-01-05",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21969,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-28",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 769,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_crypto_01",
+          "date": "2025-07-10",
+          "description": "WAZIRX TRANSFER OUT CREDIT",
+          "amount": 120000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-12-01",
+          "description": "SAVINGS ACCOUNT INT",
+          "amount": 4495,
+          "transaction_type": "credit"
+        }
+      ],
+      "wazirx_csv": [
+        {
+          "Date": "2025-04-01",
+          "Market": "ETH/INR",
+          "Type": "Buy",
+          "Price": "114542",
+          "Volume": "0.5",
+          "Total": "57271",
+          "Fee": "100",
+          "Fee Currency": "INR"
+        },
+        {
+          "Date": "2025-07-10",
+          "Market": "ETH/INR",
+          "Type": "Sell",
+          "Price": "240000",
+          "Volume": "0.5",
+          "Total": "120000",
+          "Fee": "150",
+          "Fee Currency": "INR"
+        }
+      ]
+    },
+    "interview_answers": {
+      "q_txn_crypto_01": "57271.0"
+    }
+  },
+  "expected": {
+    "taxable_income": 825000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-2",
+    "risk_level": "HIGH",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule VDA",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should NOT offset crypto loss",
+      "Must use ITR-2"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

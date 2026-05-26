@@ -1,0 +1,204 @@
+{
+  "id": "ho_007",
+  "category": "regime_comparison",
+  "difficulty": "medium",
+  "description": "Old vs New regime comparison at ₹1,200,000 with 80C+80D deductions",
+  "input": {
+    "gross_income": 1200000,
+    "regime": "old",
+    "deductions": {
+      "80C": 150000,
+      "80D": 50000
+    },
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "PUBLICIS SAPIENT",
+        "part_a": {
+          "gross_salary": 1200000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1200000,
+          "salary_breakup": {
+            "basic_salary": 600000
+          },
+          "regime": "old",
+          "standard_deduction": 50000,
+          "deductions_claimed": {
+            "80C": 150000,
+            "80D": 50000
+          }
+        }
+      },
+      "ais": {
+        "pan": "VCLRO2547H",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "PUBLICIS SAPIENT",
+            "reported_value": 1200000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82023,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 81942,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82240,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82015,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 81854,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 81891,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82268,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82028,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 81995,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82099,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 82002,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 81892,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-12",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1833,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-23",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1022,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-03-11",
+          "description": "SWIGGY ORDER",
+          "amount": 475,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-01-21",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5036,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-01-05",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21961,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-02-21",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 780,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-10-01",
+          "description": "SB INT CR",
+          "amount": 3256,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1125000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should compare both regimes"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

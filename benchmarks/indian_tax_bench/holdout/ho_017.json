@@ -1,0 +1,236 @@
+{
+  "id": "ho_017",
+  "category": "crypto_vda",
+  "difficulty": "hard",
+  "description": "Salary ₹1,000,000 + Crypto proceeds ₹80,000 via WazirX",
+  "input": {
+    "gross_income": 1000000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "crypto_vda"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "THOUGHTWORKS",
+        "part_a": {
+          "gross_salary": 1000000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1000000,
+          "salary_breakup": {
+            "basic_salary": 500000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "UUHGP3788C",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "THOUGHTWORKS",
+            "reported_value": 1000000
+          },
+          {
+            "sft_code": "SFT-016",
+            "info_source": "WAZIRX",
+            "reported_value": 80000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68278,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68088,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68574,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68252,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68436,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68454,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68475,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68463,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68115,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68234,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68413,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 68114,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-02-13",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1840,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-01-26",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1046,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-01-08",
+          "description": "SWIGGY ORDER",
+          "amount": 485,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-16",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4992,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-02-13",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22013,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-24",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 816,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_crypto_01",
+          "date": "2025-07-10",
+          "description": "WAZIRX TRANSFER OUT CREDIT",
+          "amount": 80000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-10-01",
+          "description": "SB INT CR",
+          "amount": 3419,
+          "transaction_type": "credit"
+        }
+      ],
+      "wazirx_csv": [
+        {
+          "Date": "2025-04-01",
+          "Market": "ETH/INR",
+          "Type": "Buy",
+          "Price": "68158",
+          "Volume": "0.5",
+          "Total": "34079",
+          "Fee": "100",
+          "Fee Currency": "INR"
+        },
+        {
+          "Date": "2025-07-10",
+          "Market": "ETH/INR",
+          "Type": "Sell",
+          "Price": "160000",
+          "Volume": "0.5",
+          "Total": "80000",
+          "Fee": "150",
+          "Fee Currency": "INR"
+        }
+      ]
+    },
+    "interview_answers": {
+      "q_txn_crypto_01": "34079.0"
+    }
+  },
+  "expected": {
+    "taxable_income": 925000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-2",
+    "risk_level": "HIGH",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule VDA",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should NOT offset crypto loss",
+      "Must use ITR-2"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

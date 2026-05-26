@@ -1,0 +1,203 @@
+{
+  "id": "ho_038",
+  "category": "ctc_restructuring",
+  "difficulty": "medium",
+  "description": "CTC ₹1,500,000 with 10% employer NPS (Section 80CCD(2))",
+  "input": {
+    "gross_income": 1500000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "CISCO SYSTEMS INDIA",
+        "part_a": {
+          "gross_salary": 1522258,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1522258,
+          "salary_breakup": {
+            "basic_salary": 750000
+          },
+          "regime": "new",
+          "standard_deduction": 75000,
+          "deductions_chapter_vi_a": {
+            "80CCD_2": 150000
+          }
+        }
+      },
+      "ais": {
+        "pan": "FQOKM1027V",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "CISCO SYSTEMS INDIA",
+            "reported_value": 1500000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102768,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102635,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102508,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102243,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102575,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102218,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102548,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102610,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102467,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102666,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102669,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT CISCO SYSTEMS INDIA",
+          "amount": 102377,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-24",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1804,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-06",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1017,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-01-06",
+          "description": "SWIGGY ORDER",
+          "amount": 484,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-01-15",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4989,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-03-05",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22043,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-02-10",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 775,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-08-01",
+          "description": "FD INT CR",
+          "amount": 2315,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1275000,
+    "tax_liability": 74099.84,
+    "rebate_87a_applied": false,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule OS",
+      "Schedule VIA"
+    ],
+    "hallucination_traps": [
+      "80CCD(2) employer NPS is allowed under new regime",
+      "Should optimise CTC via NPS restructuring"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ],
+  "_noise": "OCR rounding: Form 16 gross off by +22258"
+}

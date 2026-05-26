@@ -1,0 +1,138 @@
+{
+    "pan": "ABCDE1234F",
+    "assessment_year": "2026-27",
+    "financial_year": "2025-26",
+    "name": "ARJUN KUMAR SHARMA",
+
+    "sft": [
+        {
+            "sft_code": "SFT-001",
+            "sft_description": "Salary",
+            "info_source": "TECHCORP INDIA PVT LTD",
+            "info_source_id": "TAN: DELT12345A",
+            "reported_value": 2200000,
+            "derived_value": 2200000,
+            "tds_tcs": 182400,
+            "quarter": "ALL"
+        },
+        {
+            "sft_code": "SFT-003",
+            "sft_description": "Interest on Savings Account",
+            "info_source": "HDFC BANK LTD",
+            "info_source_id": "TAN: MUMH09876B",
+            "reported_value": 14200,
+            "derived_value": 14200,
+            "tds_tcs": 1420,
+            "quarter": "ALL"
+        },
+        {
+            "sft_code": "SFT-004",
+            "sft_description": "Interest on Fixed Deposit",
+            "info_source": "SBI",
+            "info_source_id": "TAN: DELS45678C",
+            "reported_value": 32000,
+            "derived_value": 32000,
+            "tds_tcs": 3200,
+            "quarter": "Q4"
+        },
+        {
+            "sft_code": "SFT-008",
+            "sft_description": "Mutual Fund Redemption",
+            "info_source": "MIRAE ASSET MF",
+            "info_source_id": "AMFI: 120843",
+            "reported_value": 120000,
+            "derived_value": 120000,
+            "tds_tcs": 0,
+            "quarter": "Q3",
+            "additional_info": {
+                "scheme_name": "Mirae Asset Tax Saver Fund - ELSS",
+                "units_redeemed": 842.5,
+                "nav_on_redemption": 142.38
+            }
+        },
+        {
+            "sft_code": "SFT-016",
+            "sft_description": "Virtual Digital Asset Transfer",
+            "info_source": "WAZIRX",
+            "info_source_id": "VDA Exchange",
+            "reported_value": 128000,
+            "derived_value": 128000,
+            "tds_tcs": 3840,
+            "quarter": "Q2",
+            "additional_info": {
+                "tds_section": "194S",
+                "number_of_transactions": 7
+            }
+        },
+        {
+            "sft_code": "SFT-009",
+            "sft_description": "Sale of Equity Shares",
+            "info_source": "ZERODHA BROKING LTD",
+            "info_source_id": "SEBI: INZ000031633",
+            "reported_value": 85000,
+            "derived_value": 85000,
+            "tds_tcs": 0,
+            "quarter": "Q1",
+            "additional_info": {
+                "stt_paid": 85,
+                "trade_type": "delivery"
+            }
+        },
+        {
+            "sft_code": "SFT-015",
+            "sft_description": "Foreign Remittance - Inward",
+            "info_source": "HDFC BANK LTD",
+            "info_source_id": "AD Code: 1234567",
+            "reported_value": 85000,
+            "derived_value": 85000,
+            "tds_tcs": 0,
+            "quarter": "Q3",
+            "additional_info": {
+                "remitter": "UPWORK GLOBAL INC",
+                "country": "UNITED STATES",
+                "purpose": "P1301 - Freelance/Consulting"
+            }
+        }
+    ],
+
+    "tds_tcs": [
+        {
+            "section": "192",
+            "deductor_name": "TECHCORP INDIA PVT LTD",
+            "deductor_tan": "DELT12345A",
+            "amount_paid_credited": 2200000,
+            "tax_deducted": 182400,
+            "tax_deposited": 182400,
+            "date_of_deposit": "2026-04-07"
+        },
+        {
+            "section": "194A",
+            "deductor_name": "HDFC BANK LTD",
+            "deductor_tan": "MUMH09876B",
+            "amount_paid_credited": 14200,
+            "tax_deducted": 1420,
+            "tax_deposited": 1420,
+            "date_of_deposit": "2026-04-15"
+        },
+        {
+            "section": "194A",
+            "deductor_name": "STATE BANK OF INDIA",
+            "deductor_tan": "DELS45678C",
+            "amount_paid_credited": 32000,
+            "tax_deducted": 3200,
+            "tax_deposited": 3200,
+            "date_of_deposit": "2026-04-10"
+        },
+        {
+            "section": "194S",
+            "deductor_name": "ZANMAI LABS PVT LTD (WAZIRX)",
+            "deductor_tan": "MUMW78901D",
+            "amount_paid_credited": 128000,
+            "tax_deducted": 3840,
+            "tax_deposited": 3840,
+            "date_of_deposit": "2025-10-15"
+        }
+    ],
+
+    "_comment": "This is SYNTHETIC test data for development. Not a real AIS."
+}

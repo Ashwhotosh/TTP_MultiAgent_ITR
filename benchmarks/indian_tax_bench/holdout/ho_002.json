@@ -1,0 +1,184 @@
+{
+  "id": "ho_002",
+  "category": "basic_salary",
+  "difficulty": "easy",
+  "description": "Salaried employee, ₹400,000 gross, New Regime",
+  "input": {
+    "gross_income": 400000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "TECH MAHINDRA",
+        "part_a": {
+          "gross_salary": 400000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 400000,
+          "salary_breakup": {
+            "basic_salary": 200000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "IDWSJ4408L",
+        "assessment_year": "2026-27",
+        "sft": []
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27213,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27430,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27516,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27538,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27608,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27237,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27314,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27525,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27204,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27291,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27234,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT TECH MAHINDRA",
+          "amount": 27398,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-23",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1814,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-17",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1011,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-03-19",
+          "description": "SWIGGY ORDER",
+          "amount": 497,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-19",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4981,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-03-17",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21999,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-01-12",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 781,
+          "transaction_type": "debit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 325000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": false,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary"
+    ],
+    "hallucination_traps": [
+      "Should NOT claim 80C under new regime"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ],
+  "_noise": "Missing SFT-001: AIS salary entry absent (bank delay)"
+}

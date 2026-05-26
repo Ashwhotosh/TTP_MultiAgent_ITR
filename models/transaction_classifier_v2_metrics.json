@@ -1,0 +1,115 @@
+{
+  "model": "RealWorldTransactionClassifier",
+  "embedder": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "k": 5,
+  "confidence_threshold": 0.65,
+  "n_train": 320,
+  "n_test": 80,
+  "test_accuracy": 0.925,
+  "per_category": {
+    "CAPITAL_MARKET": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6.0
+    },
+    "CRYPTO_TRANSACTION": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6.0
+    },
+    "DIVIDEND_INCOME": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3.0
+    },
+    "FREELANCE_INCOME": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "INSURANCE_PREMIUM": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1-score": 0.8571428571428571,
+      "support": 4.0
+    },
+    "INTEREST_INCOME": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "INVESTMENT_TAX_SAVING": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "LOAN_EMI": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "REGULAR_EXPENSE": {
+      "precision": 0.9130434782608695,
+      "recall": 0.875,
+      "f1-score": 0.8936170212765957,
+      "support": 24.0
+    },
+    "RENT_PAID": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1-score": 0.8571428571428571,
+      "support": 4.0
+    },
+    "SALARY_INCOME": {
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1-score": 0.9230769230769231,
+      "support": 6.0
+    },
+    "TRANSFER": {
+      "precision": 0.7,
+      "recall": 0.875,
+      "f1-score": 0.7777777777777778,
+      "support": 8.0
+    },
+    "accuracy": 0.925,
+    "macro avg": {
+      "precision": 0.9558488612836439,
+      "recall": 0.9375,
+      "f1-score": 0.9423964530347511,
+      "support": 80.0
+    },
+    "weighted avg": {
+      "precision": 0.9331987577639751,
+      "recall": 0.925,
+      "f1-score": 0.9258079391058116,
+      "support": 80.0
+    }
+  },
+  "stage_usage": {
+    "llm_fallback": 14,
+    "pattern": 45,
+    "ml": 21
+  },
+  "labels": [
+    "CAPITAL_MARKET",
+    "CRYPTO_TRANSACTION",
+    "DIVIDEND_INCOME",
+    "FREELANCE_INCOME",
+    "INSURANCE_PREMIUM",
+    "INTEREST_INCOME",
+    "INVESTMENT_TAX_SAVING",
+    "LOAN_EMI",
+    "REGULAR_EXPENSE",
+    "RENT_PAID",
+    "SALARY_INCOME",
+    "TRANSFER"
+  ]
+}

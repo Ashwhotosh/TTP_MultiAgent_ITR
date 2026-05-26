@@ -1,0 +1,204 @@
+{
+  "id": "ho_009",
+  "category": "regime_comparison",
+  "difficulty": "medium",
+  "description": "Old vs New regime comparison at ₹1,600,000 with 80C+80D deductions",
+  "input": {
+    "gross_income": 1600000,
+    "regime": "old",
+    "deductions": {
+      "80C": 150000,
+      "80D": 50000
+    },
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "SAP LABS INDIA",
+        "part_a": {
+          "gross_salary": 1600000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1600000,
+          "salary_breakup": {
+            "basic_salary": 800000
+          },
+          "regime": "old",
+          "standard_deduction": 50000,
+          "deductions_claimed": {
+            "80C": 150000,
+            "80D": 50000
+          }
+        }
+      },
+      "ais": {
+        "pan": "CBZEL3298Q",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "SAP LABS INDIA",
+            "reported_value": 1600000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109245,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109351,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109517,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109331,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109488,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109265,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109407,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109056,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109546,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109565,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109149,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT SAP LABS INDIA",
+          "amount": 109212,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-02-25",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1830,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-02-11",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1016,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-02-16",
+          "description": "SWIGGY ORDER",
+          "amount": 402,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-01-26",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4977,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-01-19",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22032,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-08",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 774,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-08-01",
+          "description": "SAVINGS ACCOUNT INT",
+          "amount": 4216,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1525000,
+    "tax_liability": 113099.84,
+    "rebate_87a_applied": false,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should compare both regimes"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

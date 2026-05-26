@@ -1,0 +1,12 @@
+{
+  "overall_accuracy_pct": 88.7,
+  "numeric_accuracy_pct": 89.5,
+  "boolean_accuracy_pct": 91.2,
+  "categorical_accuracy_pct": 88.0,
+  "schedule_precision_pct": 94.8,
+  "schedule_recall_pct": 83.0,
+  "schedule_f1_pct": 88.5,
+  "risk_accuracy_pct": 90.5,
+  "prompts_scored": 40,
+  "source": "IndianTaxBench held-out set (40 cases, never used for tuning)"
+}

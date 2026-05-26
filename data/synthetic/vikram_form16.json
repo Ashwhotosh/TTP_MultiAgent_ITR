@@ -1,0 +1,99 @@
+{
+    "employer_name": "INFOSYS BPM LIMITED",
+    "employer_tan": "BLRI09876K",
+    "employee_pan": "FGHJK5678L",
+    "employee_name": "VIKRAM MEHTA",
+    "assessment_year": "2026-27",
+    "period": {"from": "2025-04-01", "to": "2026-03-31"},
+
+    "_note": "Vikram's employer processed under New Regime. His ₹50,000 referral bonus appears as 'other income' in Part B. HRA received (₹3.6L) but Vikram did not submit rent receipts to employer. Home loan interest (₹2.4L) not claimed with employer. ELSS SIPs (₹96k) not submitted to employer. LIC premiums (₹37.5k) not submitted. NPS voluntary (₹1.5L under 80CCD-1B) not submitted. Employer NPS contribution is NIL (Infosys BPM does not offer NPS scheme).",
+
+    "part_a": {
+        "gross_salary": 2622000,
+        "tds_deducted": 298400,
+        "tds_deposited": 298400
+    },
+
+    "part_b": {
+        "salary_breakup": {
+            "basic_salary": 1048800,
+            "hra_received": 419520,
+            "special_allowance": 786000,
+            "lta": 104880,
+            "performance_bonus": 50000,
+            "other_allowances": 212800
+        },
+
+        "gross_salary_section_17_1": 2572000,
+        "perquisites_section_17_2": 0,
+        "profits_in_lieu_section_17_3": 50000,
+
+        "exemptions": {
+            "hra_exemption_claimed": 0,
+            "lta_exemption_claimed": 0,
+            "other_exemptions": 0,
+            "_note": "Employee did not submit rent receipts or LTA claims to employer"
+        },
+
+        "income_under_salary": 2622000,
+        "standard_deduction": 75000,
+        "professional_tax": 2400,
+        "entertainment_allowance": 0,
+        "income_chargeable_under_salary": 2544600,
+
+        "other_income_reported_by_employee": 0,
+        "_note": "Employee did NOT declare any other income to employer. Freelance, crypto, equity, FD interest — all undeclared to employer.",
+
+        "gross_total_income": 2544600,
+
+        "deductions_chapter_vi_a": {
+            "80C": 0,
+            "80CCC": 0,
+            "80CCD_1": 0,
+            "80CCD_1B": 0,
+            "80CCD_2": 0,
+            "80D": 0,
+            "80E": 0,
+            "80G": 0,
+            "80TTA": 0,
+            "24b": 0,
+            "_note": "New Regime selected. Most deductions not applicable. 80CCD(2) is NIL as employer doesn't contribute to NPS. Employee's own NPS top-up (80CCD-1B, 1.5L) not submitted."
+        },
+
+        "total_deductions": 0,
+        "total_taxable_income": 2544600,
+        "tax_on_total_income": 298400,
+        "rebate_87a": 0,
+        "surcharge": 0,
+        "cess_4_percent": 11936,
+        "total_tax_payable": 310336,
+        "relief_89": 0,
+        "net_tax_payable": 310336,
+        "tds_deducted_total": 298400,
+        "balance_payable": 11936,
+
+        "regime": "new"
+    },
+
+    "_what_auditor_should_find": {
+        "AIS_not_in_Form16": [
+            "FD interest ₹35,000 (Axis Bank) — NOT in Form 16",
+            "Savings interest ₹18,700 (SBI) — NOT in Form 16",
+            "Dividend ₹3,200 (Infosys) — NOT in Form 16",
+            "Freelance/Upwork ₹5,48,000 — NOT in Form 16",
+            "Crypto VDA ₹4,99,000 proceeds — NOT in Form 16",
+            "Equity sale ₹5,82,000 — NOT in Form 16",
+            "ELSS MF redemption ₹1,25,000 — NOT in Form 16",
+            "Cash deposits ₹1,25,000 — source unverified"
+        ],
+        "deductions_not_claimed_but_eligible": [
+            "80CCD-1B: NPS voluntary ₹1,50,000 — NOT CLAIMED (New Regime blocks this)",
+            "80C: ELSS SIPs ₹96,000 + LIC ₹37,500 = ₹1,33,500 — NOT CLAIMED (New Regime blocks this)",
+            "If Old Regime: HRA exemption possible — rent ₹22k/month, basic ₹1,04,880/month, metro city",
+            "If Old Regime: Section 24(b) home loan interest ~₹2,40,000 — NOT CLAIMED",
+            "80D: Health insurance premium ₹24,000 (Star Health) — NOT CLAIMED (New Regime blocks)"
+        ],
+        "regime_analysis": "Under New Regime: taxable = 2,544,600 + undeclared income. Under Old Regime: with HRA ₹2.1L exemption + 24b ₹2L + 80C ₹1.5L + 80D ₹25k + 80CCD-1B ₹50k: net deductions ≈ ₹6.1L. May be optimal to switch regimes despite higher declared income. Calculator will determine.",
+        "notice_risk": "CRITICAL — crypto (largest trigger), freelance undeclared, equity sales undeclared, FD/savings interest undeclared. Multiple AIS entries with no corresponding Form 16 declaration."
+    }
+}

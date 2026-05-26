@@ -1,0 +1,158 @@
+{
+  "model": "LogisticRegression",
+  "model_rationale": "LR generalizes better than GBC on n=80; GBC test AUC 0.875 < LR 0.952",
+  "n_train": 80,
+  "n_test": 20,
+  "test_auc": 0.9524,
+  "cv_auc_mean": 1.0,
+  "cv_auc_std": 0.0,
+  "decision_threshold": 0.032,
+  "threshold_rationale": "Lowest threshold where notice-recall >= 0.90 (FN-minimization policy)",
+  "notice_recall_at_threshold": 1.0,
+  "notice_precision_at_threshold": 0.6,
+  "gbc_ablation_test_auc": 0.875,
+  "classification_report": {
+    "0": {
+      "precision": 1.0,
+      "recall": 0.7142857142857143,
+      "f1-score": 0.8333333333333334,
+      "support": 14.0
+    },
+    "1": {
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1-score": 0.75,
+      "support": 6.0
+    },
+    "accuracy": 0.8,
+    "macro avg": {
+      "precision": 0.8,
+      "recall": 0.8571428571428572,
+      "f1-score": 0.7916666666666667,
+      "support": 20.0
+    },
+    "weighted avg": {
+      "precision": 0.8800000000000001,
+      "recall": 0.8,
+      "f1-score": 0.8083333333333333,
+      "support": 20.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      10,
+      4
+    ],
+    [
+      0,
+      6
+    ]
+  ],
+  "precision_recall_curve": [
+    {
+      "threshold": 0.005,
+      "precision": 0.3,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.316,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.333,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.353,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.375,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.4,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.005,
+      "precision": 0.429,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.032,
+      "precision": 0.6,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.11,
+      "precision": 0.556,
+      "recall": 0.833
+    },
+    {
+      "threshold": 0.12,
+      "precision": 0.625,
+      "recall": 0.833
+    },
+    {
+      "threshold": 0.121,
+      "precision": 0.714,
+      "recall": 0.833
+    },
+    {
+      "threshold": 0.122,
+      "precision": 0.833,
+      "recall": 0.833
+    },
+    {
+      "threshold": 0.95,
+      "precision": 1.0,
+      "recall": 0.833
+    },
+    {
+      "threshold": 0.975,
+      "precision": 1.0,
+      "recall": 0.667
+    },
+    {
+      "threshold": 0.976,
+      "precision": 1.0,
+      "recall": 0.333
+    },
+    {
+      "threshold": 0.976,
+      "precision": 1.0,
+      "recall": 0.167
+    },
+    {
+      "threshold": 1.0,
+      "precision": 1.0,
+      "recall": 0.0
+    }
+  ],
+  "feature_importances": {
+    "has_capital_gains": 0.3119593656564289,
+    "has_tds_section_194S": 0.11881237618353467,
+    "has_crypto_vda": 0.11881237618353462,
+    "ais_minus_form16_delta": 0.11102043617413969,
+    "num_anomalies": 0.10635020963508555,
+    "num_ais_entries": 0.08448695344896313,
+    "num_ais_mismatches": 0.08448695344896309,
+    "form16_gross_salary": 0.027178022567918556,
+    "ais_total_reported_rupees": 0.02587984421417071,
+    "has_freelance": 0.005536691248954847,
+    "income_above_50L": 0.005476771238306006,
+    "has_property_sft": 0.0,
+    "has_cash_deposits": 0.0,
+    "has_dividend": 0.0
+  },
+  "class_distribution": {
+    "0_no_notice": 69,
+    "1_notice": 31
+  }
+}

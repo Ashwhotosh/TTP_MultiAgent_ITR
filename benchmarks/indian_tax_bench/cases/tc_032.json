@@ -1,0 +1,2901 @@
+{
+  "id": "tc_032",
+  "category": "capital_gains",
+  "difficulty": "hard",
+  "description": "Generic Capital Gains case 32 with STCG gain of 50000",
+  "input": {
+    "gross_income": 1000000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "capital_gains"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "INFOSYS",
+        "part_a": {
+          "gross_salary": 1000000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1000000,
+          "salary_breakup": {
+            "basic_salary": 500000.0
+          },
+          "regime": "new",
+          "standard_deduction": 75000,
+          "income_chargeable_under_salary": 925000
+        }
+      },
+      "ais": {
+        "pan": "BQUGM3802J",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "INFOSYS",
+            "reported_value": 1000000
+          },
+          {
+            "sft_code": "SFT-009",
+            "info_source": "ZERODHA",
+            "reported_value": 150000.0
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_0001",
+          "date": "2024-04-01",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78688,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0002",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78875,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0003",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 79068,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0004",
+          "date": "2024-07-01",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78880,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0005",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78498,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0006",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78590,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0007",
+          "date": "2024-10-01",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 79213,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0008",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 79346,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0009",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78824,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0010",
+          "date": "2025-01-01",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 79241,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0011",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78587,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_0012",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT INFOSYS",
+          "amount": 78629,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_cg_credit",
+          "date": "2025-09-25",
+          "description": "ZERODHA SECURITIES EQUITY SALE",
+          "amount": 150000.0,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0100",
+          "date": "2024-04-01",
+          "description": "NEFT/LANDLORD RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0101",
+          "date": "2024-05-03",
+          "description": "NEFT/LANDLORD RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0102",
+          "date": "2024-06-03",
+          "description": "UPI/DR/OWNER RENT PAYMENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0103",
+          "date": "2024-07-01",
+          "description": "NEFT/LANDLORD RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0104",
+          "date": "2024-08-03",
+          "description": "UPI/HOUSING SOCIETY RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0105",
+          "date": "2024-09-03",
+          "description": "NEFT/LANDLORD RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0106",
+          "date": "2024-10-01",
+          "description": "IMPS/HOUSE RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0107",
+          "date": "2024-11-03",
+          "description": "NEFT/LANDLORD RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0108",
+          "date": "2024-12-03",
+          "description": "UPI/DR/OWNER RENT PAYMENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0109",
+          "date": "2025-01-01",
+          "description": "UPI/HOUSING SOCIETY RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0110",
+          "date": "2025-02-03",
+          "description": "IMPS/HOUSE RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0111",
+          "date": "2025-03-03",
+          "description": "IMPS/HOUSE RENT",
+          "amount": 18000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0112",
+          "date": "2024-04-01",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0113",
+          "date": "2024-05-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0114",
+          "date": "2024-06-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0115",
+          "date": "2024-07-01",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0116",
+          "date": "2024-08-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0117",
+          "date": "2024-09-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0118",
+          "date": "2024-10-01",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0119",
+          "date": "2024-11-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0120",
+          "date": "2024-12-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0121",
+          "date": "2025-01-01",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0122",
+          "date": "2025-02-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0123",
+          "date": "2025-03-03",
+          "description": "ICICI HOME LOAN EMI",
+          "amount": 35000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0124",
+          "date": "2024-04-01",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0125",
+          "date": "2024-05-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0126",
+          "date": "2024-06-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0127",
+          "date": "2024-07-01",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0128",
+          "date": "2024-08-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0129",
+          "date": "2024-09-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0130",
+          "date": "2024-10-01",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0131",
+          "date": "2024-11-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0132",
+          "date": "2024-12-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0133",
+          "date": "2025-01-01",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0134",
+          "date": "2025-02-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0135",
+          "date": "2025-03-03",
+          "description": "SBI EQUITY HYBRID SIP",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0136",
+          "date": "2024-10-18",
+          "description": "TATA POWER ELECTRICITY",
+          "amount": 3938,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0137",
+          "date": "2024-12-09",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 2629,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0138",
+          "date": "2025-01-02",
+          "description": "MSEDCL ELECTRICITY BILL",
+          "amount": 4116,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0139",
+          "date": "2024-11-10",
+          "description": "TATA POWER ELECTRICITY",
+          "amount": 2104,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0140",
+          "date": "2024-11-27",
+          "description": "TATA POWER ELECTRICITY",
+          "amount": 3257,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0141",
+          "date": "2024-08-07",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 3066,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0142",
+          "date": "2024-08-12",
+          "description": "TATA POWER ELECTRICITY",
+          "amount": 4192,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0143",
+          "date": "2024-09-16",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 2486,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0144",
+          "date": "2025-03-10",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 3818,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0145",
+          "date": "2024-05-23",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 3383,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0146",
+          "date": "2024-04-27",
+          "description": "MSEDCL ELECTRICITY BILL",
+          "amount": 2914,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0147",
+          "date": "2024-09-08",
+          "description": "BSES RAJDHANI BILL",
+          "amount": 1856,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0148",
+          "date": "2024-09-30",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 634,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0149",
+          "date": "2025-01-03",
+          "description": "HATHWAY BROADBAND",
+          "amount": 891,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0150",
+          "date": "2025-03-17",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 780,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0151",
+          "date": "2024-08-05",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1352,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0152",
+          "date": "2025-03-05",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 1363,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0153",
+          "date": "2024-05-26",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 1116,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0154",
+          "date": "2024-04-05",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1116,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0155",
+          "date": "2024-05-27",
+          "description": "ACT FIBERNET BILL",
+          "amount": 914,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0156",
+          "date": "2024-04-13",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1263,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0157",
+          "date": "2024-05-05",
+          "description": "HATHWAY BROADBAND",
+          "amount": 829,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0158",
+          "date": "2025-02-02",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 928,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0159",
+          "date": "2025-03-29",
+          "description": "ACT FIBERNET BILL",
+          "amount": 1493,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0160",
+          "date": "2025-01-12",
+          "description": "AIRTEL RECHARGE",
+          "amount": 852,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0161",
+          "date": "2024-04-08",
+          "description": "JIO RECHARGE",
+          "amount": 580,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0162",
+          "date": "2024-05-10",
+          "description": "AIRTEL RECHARGE",
+          "amount": 742,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0163",
+          "date": "2024-05-11",
+          "description": "VI MOBILE RECHARGE",
+          "amount": 712,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0164",
+          "date": "2024-12-07",
+          "description": "BSNL RECHARGE",
+          "amount": 550,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0165",
+          "date": "2024-09-08",
+          "description": "AIRTEL RECHARGE",
+          "amount": 568,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0166",
+          "date": "2025-02-25",
+          "description": "AIRTEL RECHARGE",
+          "amount": 457,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0167",
+          "date": "2025-02-08",
+          "description": "AIRTEL RECHARGE",
+          "amount": 249,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0168",
+          "date": "2025-01-28",
+          "description": "VI MOBILE RECHARGE",
+          "amount": 835,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0169",
+          "date": "2024-10-13",
+          "description": "BSNL RECHARGE",
+          "amount": 433,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0170",
+          "date": "2025-02-24",
+          "description": "BSNL RECHARGE",
+          "amount": 889,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0171",
+          "date": "2024-12-12",
+          "description": "AIRTEL RECHARGE",
+          "amount": 729,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0172",
+          "date": "2025-03-01",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0173",
+          "date": "2024-08-04",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0174",
+          "date": "2025-03-06",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0175",
+          "date": "2024-07-04",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0176",
+          "date": "2024-06-22",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0177",
+          "date": "2024-08-17",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0178",
+          "date": "2025-01-03",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0179",
+          "date": "2024-08-26",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0180",
+          "date": "2024-10-17",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0181",
+          "date": "2024-11-24",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0182",
+          "date": "2024-09-08",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0183",
+          "date": "2024-07-22",
+          "description": "SPOTIFY PREMIUM",
+          "amount": 119,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0184",
+          "date": "2024-05-27",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0185",
+          "date": "2025-01-28",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0186",
+          "date": "2024-12-25",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0187",
+          "date": "2024-10-17",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0188",
+          "date": "2024-09-16",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0189",
+          "date": "2025-02-16",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0190",
+          "date": "2024-07-29",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0191",
+          "date": "2024-07-23",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0192",
+          "date": "2024-09-16",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0193",
+          "date": "2024-08-08",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0194",
+          "date": "2024-07-28",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0195",
+          "date": "2024-10-29",
+          "description": "YOUTUBE PREMIUM",
+          "amount": 189,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0196",
+          "date": "2024-05-07",
+          "description": "SPENCERS RETAIL",
+          "amount": 1018,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0197",
+          "date": "2024-07-07",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 2239,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0198",
+          "date": "2024-07-05",
+          "description": "SPENCERS RETAIL",
+          "amount": 768,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0199",
+          "date": "2024-10-31",
+          "description": "DMART RETAIL",
+          "amount": 3357,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0200",
+          "date": "2024-07-11",
+          "description": "SPENCERS RETAIL",
+          "amount": 3122,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0201",
+          "date": "2025-01-06",
+          "description": "SPENCERS RETAIL",
+          "amount": 2234,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0202",
+          "date": "2024-04-24",
+          "description": "SPENCERS RETAIL",
+          "amount": 3923,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0203",
+          "date": "2024-09-12",
+          "description": "BIGBASKET ORDER",
+          "amount": 1920,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0204",
+          "date": "2024-06-18",
+          "description": "BIGBASKET ORDER",
+          "amount": 3504,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0205",
+          "date": "2024-10-23",
+          "description": "DMART RETAIL",
+          "amount": 4461,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0206",
+          "date": "2025-01-05",
+          "description": "SPENCERS RETAIL",
+          "amount": 2803,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0207",
+          "date": "2024-09-08",
+          "description": "DMART RETAIL",
+          "amount": 1299,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0208",
+          "date": "2025-01-13",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 1638,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0209",
+          "date": "2024-10-07",
+          "description": "SPENCERS RETAIL",
+          "amount": 1936,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0210",
+          "date": "2024-12-06",
+          "description": "BIGBASKET ORDER",
+          "amount": 3210,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0211",
+          "date": "2024-05-31",
+          "description": "SPENCERS RETAIL",
+          "amount": 3807,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0212",
+          "date": "2024-10-22",
+          "description": "BIGBASKET ORDER",
+          "amount": 3817,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0213",
+          "date": "2025-03-25",
+          "description": "DMART RETAIL",
+          "amount": 3915,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0214",
+          "date": "2024-10-06",
+          "description": "SPENCERS RETAIL",
+          "amount": 646,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0215",
+          "date": "2024-09-18",
+          "description": "MORE MEGASTORE",
+          "amount": 3231,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0216",
+          "date": "2024-06-08",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 3218,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0217",
+          "date": "2024-07-21",
+          "description": "MORE MEGASTORE",
+          "amount": 2940,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0218",
+          "date": "2025-01-22",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 3342,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0219",
+          "date": "2024-09-12",
+          "description": "SPENCERS RETAIL",
+          "amount": 1745,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0220",
+          "date": "2024-05-27",
+          "description": "NATURE BASKET",
+          "amount": 1475,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0221",
+          "date": "2024-11-12",
+          "description": "BIGBASKET ORDER",
+          "amount": 2515,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0222",
+          "date": "2024-10-30",
+          "description": "NATURE BASKET",
+          "amount": 1837,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0223",
+          "date": "2024-04-08",
+          "description": "NATURE BASKET",
+          "amount": 1169,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0224",
+          "date": "2024-04-25",
+          "description": "BIGBASKET ORDER",
+          "amount": 2849,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0225",
+          "date": "2024-09-24",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 4396,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0226",
+          "date": "2024-07-08",
+          "description": "NATURE BASKET",
+          "amount": 4002,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0227",
+          "date": "2025-02-06",
+          "description": "SPENCERS RETAIL",
+          "amount": 1432,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0228",
+          "date": "2024-08-19",
+          "description": "MORE MEGASTORE",
+          "amount": 4487,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0229",
+          "date": "2025-02-14",
+          "description": "SPENCERS RETAIL",
+          "amount": 3085,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0230",
+          "date": "2025-03-12",
+          "description": "DMART RETAIL",
+          "amount": 1717,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0231",
+          "date": "2024-11-20",
+          "description": "MORE MEGASTORE",
+          "amount": 1148,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0232",
+          "date": "2024-06-09",
+          "description": "NATURE BASKET",
+          "amount": 4471,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0233",
+          "date": "2025-02-04",
+          "description": "MORE MEGASTORE",
+          "amount": 4387,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0234",
+          "date": "2024-07-11",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 3101,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0235",
+          "date": "2024-05-30",
+          "description": "NATURE BASKET",
+          "amount": 1534,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0236",
+          "date": "2024-11-17",
+          "description": "BIGBASKET ORDER",
+          "amount": 3907,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0237",
+          "date": "2024-07-02",
+          "description": "BIGBASKET ORDER",
+          "amount": 2622,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0238",
+          "date": "2024-08-25",
+          "description": "DMART RETAIL",
+          "amount": 705,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0239",
+          "date": "2025-03-15",
+          "description": "DMART RETAIL",
+          "amount": 3021,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0240",
+          "date": "2025-02-22",
+          "description": "BIGBASKET ORDER",
+          "amount": 1338,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0241",
+          "date": "2025-03-15",
+          "description": "BIGBASKET ORDER",
+          "amount": 4224,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0242",
+          "date": "2024-11-05",
+          "description": "NATURE BASKET",
+          "amount": 2634,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0243",
+          "date": "2024-11-26",
+          "description": "RELIANCE SMART BAZAAR",
+          "amount": 4020,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0244",
+          "date": "2024-07-10",
+          "description": "MORE MEGASTORE",
+          "amount": 2342,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0245",
+          "date": "2024-08-18",
+          "description": "MORE MEGASTORE",
+          "amount": 4415,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0246",
+          "date": "2024-08-20",
+          "description": "SPENCERS RETAIL",
+          "amount": 2794,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0247",
+          "date": "2024-09-07",
+          "description": "MORE MEGASTORE",
+          "amount": 3536,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0248",
+          "date": "2024-11-06",
+          "description": "SWIGGY ORDER",
+          "amount": 445,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0249",
+          "date": "2024-11-23",
+          "description": "SWIGGY ORDER",
+          "amount": 821,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0250",
+          "date": "2024-08-29",
+          "description": "SWIGGY ORDER",
+          "amount": 865,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0251",
+          "date": "2025-02-26",
+          "description": "DUNZO DELIVERY",
+          "amount": 404,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0252",
+          "date": "2025-01-17",
+          "description": "ZOMATO DELIVERY",
+          "amount": 733,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0253",
+          "date": "2024-09-02",
+          "description": "SWIGGY ORDER",
+          "amount": 708,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0254",
+          "date": "2024-06-21",
+          "description": "ZOMATO DELIVERY",
+          "amount": 630,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0255",
+          "date": "2024-12-28",
+          "description": "SWIGGY ORDER",
+          "amount": 210,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0256",
+          "date": "2024-09-13",
+          "description": "SWIGGY ORDER",
+          "amount": 603,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0257",
+          "date": "2024-04-19",
+          "description": "ZOMATO DELIVERY",
+          "amount": 157,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0258",
+          "date": "2024-09-16",
+          "description": "SWIGGY ORDER",
+          "amount": 631,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0259",
+          "date": "2024-07-18",
+          "description": "SWIGGY ORDER",
+          "amount": 265,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0260",
+          "date": "2024-11-21",
+          "description": "DUNZO DELIVERY",
+          "amount": 199,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0261",
+          "date": "2025-03-16",
+          "description": "ZOMATO DELIVERY",
+          "amount": 837,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0262",
+          "date": "2024-10-27",
+          "description": "DUNZO DELIVERY",
+          "amount": 893,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0263",
+          "date": "2024-07-02",
+          "description": "SWIGGY ORDER",
+          "amount": 266,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0264",
+          "date": "2024-12-29",
+          "description": "DUNZO DELIVERY",
+          "amount": 528,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0265",
+          "date": "2025-01-06",
+          "description": "DUNZO DELIVERY",
+          "amount": 474,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0266",
+          "date": "2024-09-10",
+          "description": "DUNZO DELIVERY",
+          "amount": 540,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0267",
+          "date": "2024-04-15",
+          "description": "SWIGGY ORDER",
+          "amount": 889,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0268",
+          "date": "2025-03-01",
+          "description": "DUNZO DELIVERY",
+          "amount": 791,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0269",
+          "date": "2024-11-26",
+          "description": "ZOMATO DELIVERY",
+          "amount": 346,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0270",
+          "date": "2024-09-25",
+          "description": "DUNZO DELIVERY",
+          "amount": 577,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0271",
+          "date": "2024-10-22",
+          "description": "ZOMATO DELIVERY",
+          "amount": 554,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0272",
+          "date": "2024-04-05",
+          "description": "DUNZO DELIVERY",
+          "amount": 530,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0273",
+          "date": "2024-06-15",
+          "description": "ZOMATO DELIVERY",
+          "amount": 542,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0274",
+          "date": "2024-09-30",
+          "description": "DUNZO DELIVERY",
+          "amount": 515,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0275",
+          "date": "2024-10-08",
+          "description": "DUNZO DELIVERY",
+          "amount": 288,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0276",
+          "date": "2024-06-20",
+          "description": "SWIGGY ORDER",
+          "amount": 659,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0277",
+          "date": "2025-01-16",
+          "description": "SWIGGY ORDER",
+          "amount": 738,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0278",
+          "date": "2025-02-22",
+          "description": "DUNZO DELIVERY",
+          "amount": 274,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0279",
+          "date": "2024-11-26",
+          "description": "SWIGGY ORDER",
+          "amount": 403,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0280",
+          "date": "2024-07-15",
+          "description": "ZOMATO DELIVERY",
+          "amount": 869,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0281",
+          "date": "2024-06-18",
+          "description": "ZOMATO DELIVERY",
+          "amount": 204,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0282",
+          "date": "2024-12-10",
+          "description": "SWIGGY ORDER",
+          "amount": 483,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0283",
+          "date": "2024-07-13",
+          "description": "ZOMATO DELIVERY",
+          "amount": 369,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0284",
+          "date": "2024-04-11",
+          "description": "DUNZO DELIVERY",
+          "amount": 889,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0285",
+          "date": "2024-05-12",
+          "description": "ZOMATO DELIVERY",
+          "amount": 418,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0286",
+          "date": "2024-11-13",
+          "description": "DUNZO DELIVERY",
+          "amount": 712,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0287",
+          "date": "2025-01-31",
+          "description": "SWIGGY ORDER",
+          "amount": 206,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0288",
+          "date": "2024-11-04",
+          "description": "SWIGGY ORDER",
+          "amount": 354,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0289",
+          "date": "2024-10-03",
+          "description": "ZOMATO DELIVERY",
+          "amount": 708,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0290",
+          "date": "2024-07-13",
+          "description": "DUNZO DELIVERY",
+          "amount": 230,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0291",
+          "date": "2024-12-04",
+          "description": "ZOMATO DELIVERY",
+          "amount": 802,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0292",
+          "date": "2024-06-03",
+          "description": "SWIGGY ORDER",
+          "amount": 698,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0293",
+          "date": "2024-12-19",
+          "description": "ZOMATO DELIVERY",
+          "amount": 846,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0294",
+          "date": "2024-08-05",
+          "description": "DUNZO DELIVERY",
+          "amount": 745,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0295",
+          "date": "2024-05-09",
+          "description": "ZOMATO DELIVERY",
+          "amount": 686,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0296",
+          "date": "2025-01-14",
+          "description": "SWIGGY ORDER",
+          "amount": 731,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0297",
+          "date": "2024-08-19",
+          "description": "DUNZO DELIVERY",
+          "amount": 558,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0298",
+          "date": "2024-08-09",
+          "description": "SWIGGY ORDER",
+          "amount": 578,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0299",
+          "date": "2025-03-10",
+          "description": "SWIGGY ORDER",
+          "amount": 213,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0300",
+          "date": "2024-05-13",
+          "description": "ZOMATO DELIVERY",
+          "amount": 267,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0301",
+          "date": "2024-06-16",
+          "description": "SWIGGY ORDER",
+          "amount": 721,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0302",
+          "date": "2024-09-11",
+          "description": "DUNZO DELIVERY",
+          "amount": 739,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0303",
+          "date": "2025-01-09",
+          "description": "SWIGGY ORDER",
+          "amount": 798,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0304",
+          "date": "2024-11-08",
+          "description": "ZOMATO DELIVERY",
+          "amount": 487,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0305",
+          "date": "2024-10-31",
+          "description": "SWIGGY ORDER",
+          "amount": 448,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0306",
+          "date": "2025-02-05",
+          "description": "DUNZO DELIVERY",
+          "amount": 723,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0307",
+          "date": "2025-02-28",
+          "description": "SWIGGY ORDER",
+          "amount": 355,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0308",
+          "date": "2024-09-27",
+          "description": "DUNZO DELIVERY",
+          "amount": 654,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0309",
+          "date": "2024-07-31",
+          "description": "DUNZO DELIVERY",
+          "amount": 374,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0310",
+          "date": "2024-08-19",
+          "description": "ZOMATO DELIVERY",
+          "amount": 159,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0311",
+          "date": "2024-12-07",
+          "description": "ZOMATO DELIVERY",
+          "amount": 565,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0312",
+          "date": "2025-01-28",
+          "description": "SWIGGY ORDER",
+          "amount": 332,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0313",
+          "date": "2024-11-26",
+          "description": "DUNZO DELIVERY",
+          "amount": 221,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0314",
+          "date": "2025-01-10",
+          "description": "SWIGGY ORDER",
+          "amount": 209,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0315",
+          "date": "2024-12-05",
+          "description": "SWIGGY ORDER",
+          "amount": 833,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0316",
+          "date": "2024-05-07",
+          "description": "SWIGGY ORDER",
+          "amount": 699,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0317",
+          "date": "2024-12-26",
+          "description": "ZOMATO DELIVERY",
+          "amount": 807,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0318",
+          "date": "2025-01-03",
+          "description": "ZOMATO DELIVERY",
+          "amount": 336,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0319",
+          "date": "2024-07-03",
+          "description": "DUNZO DELIVERY",
+          "amount": 811,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0320",
+          "date": "2025-01-11",
+          "description": "ZOMATO DELIVERY",
+          "amount": 723,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0321",
+          "date": "2024-05-15",
+          "description": "DUNZO DELIVERY",
+          "amount": 624,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0322",
+          "date": "2024-04-11",
+          "description": "ZOMATO DELIVERY",
+          "amount": 768,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0323",
+          "date": "2024-10-09",
+          "description": "ZOMATO DELIVERY",
+          "amount": 663,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0324",
+          "date": "2025-02-12",
+          "description": "ZOMATO DELIVERY",
+          "amount": 658,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0325",
+          "date": "2024-04-05",
+          "description": "DUNZO DELIVERY",
+          "amount": 274,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0326",
+          "date": "2024-11-08",
+          "description": "DUNZO DELIVERY",
+          "amount": 645,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0327",
+          "date": "2025-02-18",
+          "description": "ZOMATO DELIVERY",
+          "amount": 594,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0328",
+          "date": "2025-01-02",
+          "description": "ZOMATO DELIVERY",
+          "amount": 427,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0329",
+          "date": "2024-07-27",
+          "description": "ZOMATO DELIVERY",
+          "amount": 805,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0330",
+          "date": "2024-08-23",
+          "description": "DUNZO DELIVERY",
+          "amount": 871,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0331",
+          "date": "2025-01-18",
+          "description": "ZOMATO DELIVERY",
+          "amount": 335,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0332",
+          "date": "2024-04-20",
+          "description": "SWIGGY ORDER",
+          "amount": 752,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0333",
+          "date": "2024-11-12",
+          "description": "SWIGGY ORDER",
+          "amount": 899,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0334",
+          "date": "2024-07-07",
+          "description": "DUNZO DELIVERY",
+          "amount": 501,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0335",
+          "date": "2024-04-17",
+          "description": "DUNZO DELIVERY",
+          "amount": 522,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0336",
+          "date": "2025-01-12",
+          "description": "DUNZO DELIVERY",
+          "amount": 810,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0337",
+          "date": "2024-11-21",
+          "description": "ZOMATO DELIVERY",
+          "amount": 694,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0338",
+          "date": "2024-12-12",
+          "description": "SWIGGY ORDER",
+          "amount": 354,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0339",
+          "date": "2024-05-27",
+          "description": "DUNZO DELIVERY",
+          "amount": 618,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0340",
+          "date": "2024-08-16",
+          "description": "DUNZO DELIVERY",
+          "amount": 827,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0341",
+          "date": "2024-05-02",
+          "description": "SWIGGY ORDER",
+          "amount": 303,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0342",
+          "date": "2024-10-07",
+          "description": "DUNZO DELIVERY",
+          "amount": 586,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0343",
+          "date": "2025-02-05",
+          "description": "DUNZO DELIVERY",
+          "amount": 678,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0344",
+          "date": "2024-12-31",
+          "description": "DUNZO DELIVERY",
+          "amount": 271,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0345",
+          "date": "2024-05-30",
+          "description": "SWIGGY ORDER",
+          "amount": 634,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0346",
+          "date": "2025-03-06",
+          "description": "SWIGGY ORDER",
+          "amount": 255,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0347",
+          "date": "2024-11-19",
+          "description": "DUNZO DELIVERY",
+          "amount": 850,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0348",
+          "date": "2024-07-29",
+          "description": "SWIGGY ORDER",
+          "amount": 344,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0349",
+          "date": "2024-10-02",
+          "description": "ZOMATO DELIVERY",
+          "amount": 657,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0350",
+          "date": "2024-04-02",
+          "description": "ZOMATO DELIVERY",
+          "amount": 881,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0351",
+          "date": "2024-07-25",
+          "description": "ZOMATO DELIVERY",
+          "amount": 890,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0352",
+          "date": "2024-09-12",
+          "description": "DUNZO DELIVERY",
+          "amount": 260,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0353",
+          "date": "2024-06-10",
+          "description": "DUNZO DELIVERY",
+          "amount": 309,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0354",
+          "date": "2024-10-29",
+          "description": "ZOMATO DELIVERY",
+          "amount": 168,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0355",
+          "date": "2024-11-19",
+          "description": "SWIGGY ORDER",
+          "amount": 417,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0356",
+          "date": "2024-05-19",
+          "description": "DUNZO DELIVERY",
+          "amount": 861,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0357",
+          "date": "2024-08-02",
+          "description": "SWIGGY ORDER",
+          "amount": 296,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0358",
+          "date": "2025-02-24",
+          "description": "SWIGGY ORDER",
+          "amount": 384,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0359",
+          "date": "2025-01-08",
+          "description": "SWIGGY ORDER",
+          "amount": 427,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0360",
+          "date": "2025-01-13",
+          "description": "ZOMATO DELIVERY",
+          "amount": 801,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0361",
+          "date": "2024-08-06",
+          "description": "DUNZO DELIVERY",
+          "amount": 439,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0362",
+          "date": "2024-11-16",
+          "description": "SWIGGY ORDER",
+          "amount": 410,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0363",
+          "date": "2024-04-19",
+          "description": "SWIGGY ORDER",
+          "amount": 629,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0364",
+          "date": "2024-06-27",
+          "description": "SWIGGY ORDER",
+          "amount": 150,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0365",
+          "date": "2024-05-12",
+          "description": "SWIGGY ORDER",
+          "amount": 885,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0366",
+          "date": "2024-07-07",
+          "description": "DUNZO DELIVERY",
+          "amount": 499,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0367",
+          "date": "2024-12-13",
+          "description": "ZOMATO DELIVERY",
+          "amount": 797,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0368",
+          "date": "2025-03-30",
+          "description": "UPI/DR/INDIANOIL PETROL",
+          "amount": 4711,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0369",
+          "date": "2024-11-06",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 3770,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0370",
+          "date": "2024-07-27",
+          "description": "PAYTM/FASTAG RECHARGE",
+          "amount": 5825,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0371",
+          "date": "2024-07-01",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 106,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0372",
+          "date": "2024-11-27",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 2937,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0373",
+          "date": "2025-01-04",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 4979,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0374",
+          "date": "2024-09-15",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 894,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0375",
+          "date": "2025-02-04",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 6413,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0376",
+          "date": "2024-04-30",
+          "description": "UPI/DR/IXIGO TRAVEL",
+          "amount": 6839,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0377",
+          "date": "2025-03-26",
+          "description": "UPI/DR/INDIANOIL PETROL",
+          "amount": 7211,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0378",
+          "date": "2024-10-04",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 7808,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0379",
+          "date": "2025-03-29",
+          "description": "UPI/GPAY/MISC PAYMENT",
+          "amount": 3194,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0380",
+          "date": "2024-06-06",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 6080,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0381",
+          "date": "2024-04-20",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 3399,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0382",
+          "date": "2025-03-18",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 6733,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0383",
+          "date": "2025-01-17",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 6430,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0384",
+          "date": "2025-02-21",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 1575,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0385",
+          "date": "2025-01-20",
+          "description": "UPI/DR/IXIGO TRAVEL",
+          "amount": 5706,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0386",
+          "date": "2024-06-05",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 5607,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0387",
+          "date": "2025-01-02",
+          "description": "UPI/DR/STARBUCKS COFFEE",
+          "amount": 3896,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0388",
+          "date": "2024-09-15",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 7734,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0389",
+          "date": "2024-04-29",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 4873,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0390",
+          "date": "2024-12-24",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 1761,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0391",
+          "date": "2024-04-20",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 5090,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0392",
+          "date": "2024-04-01",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 4759,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0393",
+          "date": "2024-08-03",
+          "description": "UPI/PHONEPE/MISC",
+          "amount": 3176,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0394",
+          "date": "2024-12-11",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 1451,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0395",
+          "date": "2024-11-04",
+          "description": "UPI/DR/STARBUCKS COFFEE",
+          "amount": 5136,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0396",
+          "date": "2024-05-20",
+          "description": "UPI/DR/STARBUCKS COFFEE",
+          "amount": 6101,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0397",
+          "date": "2024-06-01",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 6541,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0398",
+          "date": "2025-03-28",
+          "description": "PAYTM/FASTAG RECHARGE",
+          "amount": 3586,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0399",
+          "date": "2024-09-28",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 3011,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0400",
+          "date": "2024-05-22",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 3120,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0401",
+          "date": "2024-07-17",
+          "description": "UPI/PHONEPE/MISC",
+          "amount": 2632,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0402",
+          "date": "2025-02-07",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 6631,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0403",
+          "date": "2024-12-06",
+          "description": "UPI/GPAY/MISC PAYMENT",
+          "amount": 4249,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0404",
+          "date": "2025-02-21",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 424,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0405",
+          "date": "2024-05-17",
+          "description": "UPI/DR/APOLLO PHARMACY",
+          "amount": 220,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0406",
+          "date": "2024-09-21",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 3336,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0407",
+          "date": "2024-09-16",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 5758,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0408",
+          "date": "2024-12-04",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 3866,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0409",
+          "date": "2024-08-04",
+          "description": "UPI/DR/CCD COFFEE",
+          "amount": 7139,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0410",
+          "date": "2024-12-20",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 444,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0411",
+          "date": "2024-09-09",
+          "description": "UPI/DR/CCD COFFEE",
+          "amount": 3401,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0412",
+          "date": "2024-11-22",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 1540,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0413",
+          "date": "2025-02-26",
+          "description": "UPI/DR/IXIGO TRAVEL",
+          "amount": 5099,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0414",
+          "date": "2024-11-28",
+          "description": "UPI/DR/LIFESTYLE FASHION",
+          "amount": 6655,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0415",
+          "date": "2024-10-06",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 1039,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0416",
+          "date": "2024-10-01",
+          "description": "UPI/GPAY/MISC PAYMENT",
+          "amount": 2017,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0417",
+          "date": "2024-08-01",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 2396,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0418",
+          "date": "2025-02-25",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 4211,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0419",
+          "date": "2024-04-28",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 4210,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0420",
+          "date": "2024-10-17",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 4165,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0421",
+          "date": "2024-05-02",
+          "description": "UPI/DR/CCD COFFEE",
+          "amount": 841,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0422",
+          "date": "2024-10-22",
+          "description": "PAYTM/FASTAG RECHARGE",
+          "amount": 6172,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0423",
+          "date": "2025-02-28",
+          "description": "UPI/PHONEPE/MISC",
+          "amount": 3530,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0424",
+          "date": "2024-12-04",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 6684,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0425",
+          "date": "2024-07-31",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 7087,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0426",
+          "date": "2024-12-18",
+          "description": "PAYTM/FASTAG RECHARGE",
+          "amount": 6901,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0427",
+          "date": "2024-08-31",
+          "description": "UPI/DR/APOLLO PHARMACY",
+          "amount": 599,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0428",
+          "date": "2024-04-11",
+          "description": "UPI/DR/LENSKART ORDER",
+          "amount": 5630,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0429",
+          "date": "2024-09-17",
+          "description": "UPI/GPAY/MISC PAYMENT",
+          "amount": 1874,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0430",
+          "date": "2024-09-13",
+          "description": "UPI/DR/CCD COFFEE",
+          "amount": 3982,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0431",
+          "date": "2024-10-13",
+          "description": "UPI/DR/HP PETROL PUMP",
+          "amount": 3507,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0432",
+          "date": "2025-02-16",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 2592,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0433",
+          "date": "2024-12-17",
+          "description": "UPI/PHONEPE/MISC",
+          "amount": 2055,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0434",
+          "date": "2024-11-15",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 4240,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0435",
+          "date": "2024-11-29",
+          "description": "UPI/DR/CCD COFFEE",
+          "amount": 5481,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0436",
+          "date": "2024-05-03",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 4109,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0437",
+          "date": "2024-04-03",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 1876,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0438",
+          "date": "2024-08-30",
+          "description": "PAYTM/FASTAG RECHARGE",
+          "amount": 5411,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0439",
+          "date": "2024-07-05",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 6045,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0440",
+          "date": "2024-04-29",
+          "description": "UPI/GPAY/MISC PAYMENT",
+          "amount": 6812,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0441",
+          "date": "2024-09-02",
+          "description": "UPI/DR/DECATHLON SPORTS",
+          "amount": 1726,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0442",
+          "date": "2024-06-17",
+          "description": "UPI/DR/IXIGO TRAVEL",
+          "amount": 4080,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0443",
+          "date": "2024-04-13",
+          "description": "UPI/DR/STARBUCKS COFFEE",
+          "amount": 3934,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0444",
+          "date": "2024-07-07",
+          "description": "UPI/DR/MAKEMYTRIP",
+          "amount": 660,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0445",
+          "date": "2024-04-08",
+          "description": "UPI/DR/HALDIRAM SNACKS",
+          "amount": 466,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0446",
+          "date": "2024-12-14",
+          "description": "UPI/DR/MEDPLUS PHARMACY",
+          "amount": 6282,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0447",
+          "date": "2024-12-11",
+          "description": "UPI/DR/STARBUCKS COFFEE",
+          "amount": 7877,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0448",
+          "date": "2025-01-12",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 2000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0449",
+          "date": "2025-02-17",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0450",
+          "date": "2024-12-23",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 2000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0451",
+          "date": "2024-08-27",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0452",
+          "date": "2024-10-28",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0453",
+          "date": "2025-01-29",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 2000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0454",
+          "date": "2025-01-25",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 3000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0455",
+          "date": "2024-05-29",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 2000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0456",
+          "date": "2025-02-19",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0457",
+          "date": "2024-12-08",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0458",
+          "date": "2024-08-29",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0459",
+          "date": "2024-09-06",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 3000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0460",
+          "date": "2025-01-24",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 3000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0461",
+          "date": "2025-03-11",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 3000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0462",
+          "date": "2024-05-02",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0463",
+          "date": "2024-08-04",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 3000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0464",
+          "date": "2024-06-29",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 10000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0465",
+          "date": "2024-12-10",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 2000,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0466",
+          "date": "2025-02-12",
+          "description": "ICICI CREDIT CARD BILL",
+          "amount": 30112,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0467",
+          "date": "2024-11-05",
+          "description": "ICICI CREDIT CARD BILL",
+          "amount": 24541,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0468",
+          "date": "2025-03-12",
+          "description": "AXIS BANK CREDIT CARD",
+          "amount": 23820,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0469",
+          "date": "2024-08-30",
+          "description": "SBI CREDIT CARD PAYMENT",
+          "amount": 31084,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0470",
+          "date": "2024-10-20",
+          "description": "SBI CREDIT CARD PAYMENT",
+          "amount": 49186,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0471",
+          "date": "2024-12-05",
+          "description": "ICICI CREDIT CARD BILL",
+          "amount": 65467,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0472",
+          "date": "2024-10-11",
+          "description": "AXIS BANK CREDIT CARD",
+          "amount": 24103,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0473",
+          "date": "2024-07-26",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 14845,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0474",
+          "date": "2024-12-11",
+          "description": "AXIS BANK CREDIT CARD",
+          "amount": 76870,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0475",
+          "date": "2025-02-03",
+          "description": "AXIS BANK CREDIT CARD",
+          "amount": 68157,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0476",
+          "date": "2024-11-15",
+          "description": "ICICI CREDIT CARD BILL",
+          "amount": 54603,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0477",
+          "date": "2024-06-17",
+          "description": "AXIS BANK CREDIT CARD",
+          "amount": 8676,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0478",
+          "date": "2024-04-02",
+          "description": "HDFC LIFE INSURANCE PREMIUM",
+          "amount": 3847,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0479",
+          "date": "2025-01-23",
+          "description": "HDFC LIFE INSURANCE PREMIUM",
+          "amount": 13065,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0480",
+          "date": "2024-11-27",
+          "description": "LIC PREMIUM PAYMENT",
+          "amount": 16646,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0481",
+          "date": "2025-03-26",
+          "description": "MAX BUPA HEALTH PREMIUM",
+          "amount": 11508,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_0482",
+          "date": "2025-01-21",
+          "description": "LOYALTY POINTS REDEEMED",
+          "amount": 244,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0483",
+          "date": "2025-03-28",
+          "description": "CASHBACK CREDIT CARD REWARDS",
+          "amount": 136,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0484",
+          "date": "2025-01-08",
+          "description": "LOYALTY POINTS REDEEMED",
+          "amount": 172,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0485",
+          "date": "2024-09-18",
+          "description": "PAYTM CASHBACK CREDIT",
+          "amount": 68,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0486",
+          "date": "2024-08-14",
+          "description": "PAYTM CASHBACK CREDIT",
+          "amount": 157,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_0487",
+          "date": "2024-04-21",
+          "description": "PAYTM CASHBACK CREDIT",
+          "amount": 14,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_0032",
+          "date": "2024-11-25",
+          "description": "HDFC BANK FD INT CR",
+          "amount": 1227,
+          "transaction_type": "credit"
+        }
+      ],
+      "zerodha_csv": [
+        {
+          "Symbol": "STOCK",
+          "ISIN": "INE123A0107",
+          "Trade Date": "2025-09-20",
+          "Buy Date": "2025-05-10",
+          "Buy Price": "100.00",
+          "Buy Qty": "1000",
+          "Sell Date": "2025-09-20",
+          "Sell Price": "150.00",
+          "Sell Qty": "1000",
+          "P&L": "50000"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 925000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "marginal_relief": 0,
+    "itr_form": "ITR-2",
+    "risk_level": "HIGH",
+    "schedules_required": [
+      "Schedule CG",
+      "Schedule Salary",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should recommend ITR-2"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

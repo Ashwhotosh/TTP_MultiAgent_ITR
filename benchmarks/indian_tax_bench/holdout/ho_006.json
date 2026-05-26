@@ -1,0 +1,199 @@
+{
+  "id": "ho_006",
+  "category": "regime_comparison",
+  "difficulty": "medium",
+  "description": "Old vs New regime comparison at ₹1,200,000 with 80C+80D deductions",
+  "input": {
+    "gross_income": 1200000,
+    "regime": "old",
+    "deductions": {
+      "80C": 150000,
+      "80D": 50000
+    },
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "THOUGHTWORKS",
+        "part_a": {
+          "gross_salary": 1200000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1200000,
+          "salary_breakup": {
+            "basic_salary": 600000
+          },
+          "regime": "old",
+          "standard_deduction": 50000,
+          "deductions_claimed": {
+            "80C": 150000,
+            "80D": 50000
+          }
+        }
+      },
+      "ais": {
+        "pan": "IAEXO2364I",
+        "assessment_year": "2026-27",
+        "sft": []
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 82006,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81737,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81907,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81910,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 82015,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81760,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81775,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 82201,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81980,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81931,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81934,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 81727,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-23",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1807,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-01-05",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1026,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-02-08",
+          "description": "SWIGGY ORDER",
+          "amount": 434,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-02-10",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4951,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-03-26",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22011,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-11",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 838,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-10-01",
+          "description": "FD INT CR",
+          "amount": 1736,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1125000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should compare both regimes"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ],
+  "_noise": "Missing SFT-001: AIS salary entry absent (bank delay)"
+}

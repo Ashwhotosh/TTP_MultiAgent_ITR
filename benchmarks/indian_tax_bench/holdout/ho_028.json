@@ -1,0 +1,205 @@
+{
+  "id": "ho_028",
+  "category": "itr_form_selection",
+  "difficulty": "hard",
+  "description": "Salary ₹600,000 + freelance consulting ₹350,000 — requires ITR-3",
+  "input": {
+    "gross_income": 600000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "business_income"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "THOUGHTWORKS",
+        "part_a": {
+          "gross_salary": 600000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 600000,
+          "salary_breakup": {
+            "basic_salary": 300000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "RSLFF2909U",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "THOUGHTWORKS",
+            "reported_value": 600000
+          },
+          {
+            "sft_code": "SFT-015",
+            "info_source": "WISE PAYMENTS",
+            "reported_value": 350000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40771,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 41253,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40840,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 41168,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40963,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40734,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 41131,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 41199,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40938,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 41114,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40972,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT THOUGHTWORKS",
+          "amount": 40744,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-17",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1792,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-01-07",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1024,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-03-09",
+          "description": "SWIGGY ORDER",
+          "amount": 499,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-19",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4978,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-03-09",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22029,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-01-10",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 830,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_freelance_01",
+          "date": "2025-06-15",
+          "description": "WISE PAYMENTS CONSULTING CREDIT",
+          "amount": 350000,
+          "transaction_type": "credit"
+        }
+      ]
+    },
+    "interview_answers": {
+      "q_txn_freelance_01": "true"
+    }
+  },
+  "expected": {
+    "taxable_income": 700000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-3",
+    "risk_level": "MEDIUM",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule BP"
+    ],
+    "hallucination_traps": [
+      "Should select ITR-3 not ITR-1 or ITR-2"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

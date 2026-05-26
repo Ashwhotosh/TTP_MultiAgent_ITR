@@ -1,0 +1,175 @@
+{
+  "B1": {
+    "gemini": {
+      "taxable_income": 1125000,
+      "tax_before_rebate": 52500,
+      "rebate_87a": 52500,
+      "tax_after_rebate": 0,
+      "cess_4pct": 0,
+      "total_tax_liability": 0,
+      "marginal_relief_applied": false,
+      "itr_form": "ITR-1"
+    }
+  },
+  "B2": {
+    "gemini": {
+      "taxable_income": 1175000,
+      "tax_before_rebate": 57500,
+      "marginal_relief": 0,
+      "total_tax_liability": 0,
+      "marginal_relief_applied": false,
+      "explanation_of_marginal_relief": "No marginal relief is required because taxable income is under the ₹12,00,000 threshold, meaning the entire tax liability is neutralized by the Section 87A rebate."
+    }
+  },
+  "B3": {
+    "gemini": {
+      "gross_income": 3000000,
+      "deductions": {
+        "80CCD_2": 120000
+      },
+      "taxable_income": 2805000,
+      "tax_before_surcharge": 421500,
+      "surcharge_rate": 0,
+      "surcharge_amount": 0,
+      "cess": 16860,
+      "total_tax_liability": 438360
+    }
+  },
+  "R1": {
+    "gemini": {
+      "old_regime": {
+        "taxable_income": 865000,
+        "total_tax": 88920
+      },
+      "new_regime": {
+        "taxable_income": 1425000,
+        "total_tax": 97500
+      },
+      "recommended_regime": "old",
+      "savings": 8580,
+      "reason": "The Old Regime is more tax-efficient because the taxpayer has heavy deductions (HRA, Section 24b, 80C) that offset the higher slab rates."
+    }
+  },
+  "R2": {
+    "gemini": {
+      "old_regime": {
+        "taxable_income": 1950000,
+        "total_tax": 413400
+      },
+      "new_regime": {
+        "taxable_income": 1925000,
+        "total_tax": 192400
+      },
+      "recommended_regime": "new",
+      "savings": 221000
+    }
+  },
+  "CG1": {
+    "gemini": {
+      "actual_cost": 200000,
+      "fmv_jan2018": 350000,
+      "grandfathered_cost": 350000,
+      "sale_consideration": 500000,
+      "ltcg_before_exemption": 150000,
+      "exemption_125000": 125000,
+      "taxable_ltcg": 25000,
+      "tax_at_12_5_pct": 3125
+    }
+  },
+  "CG2": {
+    "gemini": {
+      "stcg_111a_net": 50000,
+      "stcg_other_loss": 30000,
+      "ltcg_112a_net": 60000,
+      "set_off_applied": "The non-STT STCG loss of ₹30,000 is set off against the STCG under 111A, leaving the 112A gains untouched and fully exempt.",
+      "total_cg_tax": 0,
+      "salary_tax": 0
+    }
+  },
+  "V1": {
+    "gemini": {
+      "sale_proceeds": 128000,
+      "cost_of_acquisition": 95000,
+      "vda_gain": 33000,
+      "tax_rate_pct": 30,
+      "tax_before_tds": 9900,
+      "tds_194s_credit": 3840,
+      "net_vda_tax_payable": 6060,
+      "can_vda_loss_offset_salary": false
+    }
+  },
+  "V2": {
+    "gemini": {
+      "crypto_loss": 50000,
+      "can_offset_equity_ltcg": false,
+      "can_offset_salary": false,
+      "can_carry_forward": false,
+      "correct_treatment": "Virtual Digital Asset losses cannot be set off against any other income head, including equity gains or salary, nor can they be carried forward.",
+      "section": "115BBH"
+    }
+  },
+  "A1": {
+    "gemini": {
+      "fd_interest_must_be_declared": true,
+      "schedule_for_fd_interest": "Schedule OS",
+      "tds_credit_available": 3200,
+      "notice_risk": "MEDIUM",
+      "action": "The taxpayer must declare the ₹32,000 FD interest in Schedule OS when filing to match the AIS and avoid a mismatch notice."
+    }
+  },
+  "A2": {
+    "gemini": {
+      "notice_risk": "LOW",
+      "itr_form": "ITR-1",
+      "ais_form16_match": true,
+      "action": "File ITR-1 as usual since the declared Form 16 income perfectly mirrors the AIS records."
+    }
+  },
+  "F1": {
+    "gemini": {
+      "can_file_itr1": false,
+      "correct_form": "ITR-2",
+      "reason_itr1_blocked": "Crypto gains must be reported in Schedule VDA, which is not supported in ITR-1.",
+      "schedule_for_crypto": "Schedule VDA"
+    }
+  },
+  "F2": {
+    "gemini": {
+      "itr_form": "ITR-4",
+      "section_44ada_applicable": true,
+      "presumptive_income_pct": 50,
+      "professional_taxable_income": 2000000,
+      "salary_income": 500000,
+      "total_taxable_income": 2500000
+    }
+  },
+  "AD1": {
+    "gemini": {
+      "is_gift_taxable": true,
+      "amount_taxable": 60000,
+      "section": "56(2)(x)",
+      "threshold": 50000,
+      "uncle_is_specified_relative": false,
+      "schedule": "Schedule OS"
+    }
+  },
+  "AD2": {
+    "gemini": {
+      "can_claim_80C_elss_new_regime": false,
+      "can_claim_80CCD1B_new_regime": false,
+      "employer_nps_80CCD2_allowed": true,
+      "total_deductions_allowed": 0,
+      "explanation": "The New Tax Regime disallows voluntary deductions like 80C and 80CCD(1B); only employer NPS contributions under 80CCD(2) are permitted, resulting in 0 allowed from the investments mentioned."
+    }
+  },
+  "CTC1": {
+    "gemini": {
+      "employer_nps_contribution": 60000,
+      "section": "80CCD(2)",
+      "allowed_in_new_regime": true,
+      "tax_savings": 12480,
+      "effective_tax_rate_before": 8.38,
+      "effective_tax_rate_after": 7.68
+    }
+  }
+}

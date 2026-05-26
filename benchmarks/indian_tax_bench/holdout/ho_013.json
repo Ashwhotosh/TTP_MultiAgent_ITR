@@ -1,0 +1,225 @@
+{
+  "id": "ho_013",
+  "category": "capital_gains",
+  "difficulty": "medium",
+  "description": "Salary ₹1,100,000 + LTCG ₹120,000 via Zerodha",
+  "input": {
+    "gross_income": 1100000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "capital_gains"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "PUBLICIS SAPIENT",
+        "part_a": {
+          "gross_salary": 1100000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 1100000,
+          "salary_breakup": {
+            "basic_salary": 550000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "XFROW6711H",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "PUBLICIS SAPIENT",
+            "reported_value": 1100000
+          },
+          {
+            "sft_code": "SFT-009",
+            "info_source": "ZERODHA SECURITIES",
+            "reported_value": 120000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75442,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75150,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75053,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75298,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75128,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75322,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 74975,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 74942,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 74960,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75252,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75067,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT PUBLICIS SAPIENT",
+          "amount": 75124,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-03-19",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1833,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-01-05",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1034,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-02-14",
+          "description": "SWIGGY ORDER",
+          "amount": 476,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-01-10",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5025,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-03-27",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21988,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-12",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 821,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_cg_01",
+          "date": "2025-08-15",
+          "description": "ZERODHA SECURITIES EQUITY SALE",
+          "amount": 120000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-12-01",
+          "description": "SB INT CR",
+          "amount": 1940,
+          "transaction_type": "credit"
+        }
+      ],
+      "zerodha_csv": [
+        {
+          "Symbol": "HDFCBANK",
+          "ISIN": "INE040A01034",
+          "Trade Date": "2025-08-15",
+          "Buy Date": "2022-03-10",
+          "Buy Price": "1200.00",
+          "Buy Qty": "50",
+          "Sell Date": "2025-08-15",
+          "Sell Price": "2400.0",
+          "Sell Qty": "50",
+          "P&L": "60000"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 1025000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-2",
+    "risk_level": "HIGH",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule CG",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should select ITR-2 not ITR-1"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

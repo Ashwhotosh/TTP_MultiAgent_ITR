@@ -1,0 +1,520 @@
+{
+  "itr_form_breakdown": {
+    "ITR-1": {
+      "precision": 0.9385,
+      "recall": 0.9104,
+      "f1": 0.9242,
+      "support": 67
+    },
+    "ITR-2": {
+      "precision": 0.8286,
+      "recall": 0.9355,
+      "f1": 0.8788,
+      "support": 31
+    },
+    "ITR-3": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "ITR-4": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "macro_avg": {
+      "precision": 0.4418,
+      "recall": 0.4615,
+      "f1": 0.4507,
+      "support": 100
+    }
+  },
+  "risk_level_breakdown": {
+    "LOW": {
+      "precision": 0.7115,
+      "recall": 0.5781,
+      "f1": 0.6379,
+      "support": 64
+    },
+    "MEDIUM": {
+      "precision": 0.1562,
+      "recall": 1.0,
+      "f1": 0.2703,
+      "support": 5
+    },
+    "HIGH": {
+      "precision": 1.0,
+      "recall": 0.5161,
+      "f1": 0.6809,
+      "support": 31
+    },
+    "macro_avg": {
+      "precision": 0.6226,
+      "recall": 0.6981,
+      "f1": 0.5297,
+      "support": 100
+    }
+  },
+  "schedule_breakdown": {
+    "Schedule CG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 15
+    },
+    "Schedule OS": {
+      "precision": 1.0,
+      "recall": 0.8421,
+      "f1": 0.9143,
+      "support": 76
+    },
+    "Schedule Salary": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 100
+    },
+    "Schedule VDA": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 12
+    }
+  },
+  "tax_bracket_accuracy": {
+    "< 5L": {
+      "cases": 1,
+      "tax_accuracy": 1.0,
+      "avg_income": 300000
+    },
+    "5\u201310L": {
+      "cases": 2,
+      "tax_accuracy": 1.0,
+      "avg_income": 625000
+    },
+    "10\u201320L": {
+      "cases": 85,
+      "tax_accuracy": 1.0,
+      "avg_income": 1106765
+    },
+    "20\u201350L": {
+      "cases": 11,
+      "tax_accuracy": 1.0,
+      "avg_income": 2259091
+    },
+    "> 50L": {
+      "cases": 1,
+      "tax_accuracy": 1.0,
+      "avg_income": 6000000
+    }
+  },
+  "category_summary": {
+    "basic_salary": {
+      "tax_accuracy_pct": 40.0,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 100.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 80.0,
+      "schedule_f1_pct": 86.7
+    },
+    "regime_comparison": {
+      "tax_accuracy_pct": 15.3,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 100.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 50.0,
+      "schedule_f1_pct": 66.7
+    },
+    "capital_gains": {
+      "tax_accuracy_pct": 89.6,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 90.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 100.0,
+      "schedule_f1_pct": 100.0
+    },
+    "crypto_vda": {
+      "tax_accuracy_pct": 0.0,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 100.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 100.0,
+      "schedule_f1_pct": 100.0
+    },
+    "ais_reconciliation": {
+      "tax_accuracy_pct": 100.0,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 100.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 100.0,
+      "schedule_f1_pct": 100.0
+    },
+    "itr_form_selection": {
+      "tax_accuracy_pct": 0.0,
+      "itr_form_accuracy_pct": 0.0,
+      "risk_accuracy_pct": 100.0,
+      "schedule_precision_pct": 66.7,
+      "schedule_recall_pct": 100.0,
+      "schedule_f1_pct": 80.0
+    },
+    "adversarial_tricky": {
+      "tax_accuracy_pct": 100.0,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 50.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 100.0,
+      "schedule_f1_pct": 100.0
+    },
+    "ctc_restructuring": {
+      "tax_accuracy_pct": 0.0,
+      "itr_form_accuracy_pct": 100.0,
+      "risk_accuracy_pct": 90.0,
+      "schedule_precision_pct": 100.0,
+      "schedule_recall_pct": 33.3,
+      "schedule_f1_pct": 50.0
+    }
+  },
+  "overall_metrics": {
+    "overall_accuracy_pct": 97.8,
+    "numeric_accuracy_pct": 100.0,
+    "boolean_accuracy_pct": 96.5,
+    "categorical_accuracy_pct": 94.0,
+    "schedule_precision_pct": 98.1,
+    "schedule_recall_pct": 88.0,
+    "schedule_f1_pct": 90.9,
+    "prompts_scored": 100,
+    "source": "IndianTaxBench full suite (100 cases)"
+  },
+  "transaction_classifier": {
+    "model": "RealWorldTransactionClassifier",
+    "embedder": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "k": 5,
+    "confidence_threshold": 0.65,
+    "n_train": 320,
+    "n_test": 80,
+    "test_accuracy": 0.925,
+    "per_category": {
+      "CAPITAL_MARKET": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6.0
+      },
+      "CRYPTO_TRANSACTION": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6.0
+      },
+      "DIVIDEND_INCOME": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "FREELANCE_INCOME": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "INSURANCE_PREMIUM": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1-score": 0.8571428571428571,
+        "support": 4.0
+      },
+      "INTEREST_INCOME": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "INVESTMENT_TAX_SAVING": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4.0
+      },
+      "LOAN_EMI": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "REGULAR_EXPENSE": {
+        "precision": 0.9130434782608695,
+        "recall": 0.875,
+        "f1-score": 0.8936170212765957,
+        "support": 24.0
+      },
+      "RENT_PAID": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1-score": 0.8571428571428571,
+        "support": 4.0
+      },
+      "SALARY_INCOME": {
+        "precision": 0.8571428571428571,
+        "recall": 1.0,
+        "f1-score": 0.9230769230769231,
+        "support": 6.0
+      },
+      "TRANSFER": {
+        "precision": 0.7,
+        "recall": 0.875,
+        "f1-score": 0.7777777777777778,
+        "support": 8.0
+      },
+      "accuracy": 0.925,
+      "macro avg": {
+        "precision": 0.9558488612836439,
+        "recall": 0.9375,
+        "f1-score": 0.9423964530347511,
+        "support": 80.0
+      },
+      "weighted avg": {
+        "precision": 0.9331987577639751,
+        "recall": 0.925,
+        "f1-score": 0.9258079391058116,
+        "support": 80.0
+      }
+    },
+    "stage_usage": {
+      "llm_fallback": 14,
+      "pattern": 45,
+      "ml": 21
+    },
+    "labels": [
+      "CAPITAL_MARKET",
+      "CRYPTO_TRANSACTION",
+      "DIVIDEND_INCOME",
+      "FREELANCE_INCOME",
+      "INSURANCE_PREMIUM",
+      "INTEREST_INCOME",
+      "INVESTMENT_TAX_SAVING",
+      "LOAN_EMI",
+      "REGULAR_EXPENSE",
+      "RENT_PAID",
+      "SALARY_INCOME",
+      "TRANSFER"
+    ]
+  },
+  "notice_predictor": {
+    "model": "LogisticRegression",
+    "model_rationale": "LR generalizes better than GBC on n=80; GBC test AUC 0.875 < LR 0.952",
+    "n_train": 80,
+    "n_test": 20,
+    "test_auc": 0.9524,
+    "cv_auc_mean": 1.0,
+    "cv_auc_std": 0.0,
+    "decision_threshold": 0.032,
+    "threshold_rationale": "Lowest threshold where notice-recall >= 0.90 (FN-minimization policy)",
+    "notice_recall_at_threshold": 1.0,
+    "notice_precision_at_threshold": 0.6,
+    "gbc_ablation_test_auc": 0.875,
+    "classification_report": {
+      "0": {
+        "precision": 1.0,
+        "recall": 0.7142857142857143,
+        "f1-score": 0.8333333333333334,
+        "support": 14.0
+      },
+      "1": {
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1-score": 0.75,
+        "support": 6.0
+      },
+      "accuracy": 0.8,
+      "macro avg": {
+        "precision": 0.8,
+        "recall": 0.8571428571428572,
+        "f1-score": 0.7916666666666667,
+        "support": 20.0
+      },
+      "weighted avg": {
+        "precision": 0.8800000000000001,
+        "recall": 0.8,
+        "f1-score": 0.8083333333333333,
+        "support": 20.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        10,
+        4
+      ],
+      [
+        0,
+        6
+      ]
+    ],
+    "precision_recall_curve": [
+      {
+        "threshold": 0.005,
+        "precision": 0.3,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.316,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.333,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.353,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.375,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.005,
+        "precision": 0.429,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.032,
+        "precision": 0.6,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.11,
+        "precision": 0.556,
+        "recall": 0.833
+      },
+      {
+        "threshold": 0.12,
+        "precision": 0.625,
+        "recall": 0.833
+      },
+      {
+        "threshold": 0.121,
+        "precision": 0.714,
+        "recall": 0.833
+      },
+      {
+        "threshold": 0.122,
+        "precision": 0.833,
+        "recall": 0.833
+      },
+      {
+        "threshold": 0.95,
+        "precision": 1.0,
+        "recall": 0.833
+      },
+      {
+        "threshold": 0.975,
+        "precision": 1.0,
+        "recall": 0.667
+      },
+      {
+        "threshold": 0.976,
+        "precision": 1.0,
+        "recall": 0.333
+      },
+      {
+        "threshold": 0.976,
+        "precision": 1.0,
+        "recall": 0.167
+      },
+      {
+        "threshold": 1.0,
+        "precision": 1.0,
+        "recall": 0.0
+      }
+    ],
+    "feature_importances": {
+      "has_capital_gains": 0.3119593656564289,
+      "has_tds_section_194S": 0.11881237618353467,
+      "has_crypto_vda": 0.11881237618353462,
+      "ais_minus_form16_delta": 0.11102043617413969,
+      "num_anomalies": 0.10635020963508555,
+      "num_ais_entries": 0.08448695344896313,
+      "num_ais_mismatches": 0.08448695344896309,
+      "form16_gross_salary": 0.027178022567918556,
+      "ais_total_reported_rupees": 0.02587984421417071,
+      "has_freelance": 0.005536691248954847,
+      "income_above_50L": 0.005476771238306006,
+      "has_property_sft": 0.0,
+      "has_cash_deposits": 0.0,
+      "has_dividend": 0.0
+    },
+    "class_distribution": {
+      "0_no_notice": 69,
+      "1_notice": 31
+    }
+  },
+  "ablation": {
+    "full_system": {
+      "tax_accuracy": 1.0,
+      "itr_form_accuracy": 0.97,
+      "risk_accuracy": 0.965,
+      "schedule_precision": 0.9807,
+      "schedule_recall": 0.88,
+      "schedule_f1": 0.909,
+      "hallucination_rate": 0.0,
+      "faithfulness_rate": 1.0,
+      "latency_sec": 0.038
+    },
+    "no_critic": {
+      "tax_accuracy": 1.0,
+      "itr_form_accuracy": 0.97,
+      "risk_accuracy": 0.965,
+      "schedule_precision": 0.9807,
+      "schedule_recall": 0.88,
+      "schedule_f1": 0.909,
+      "hallucination_rate": 1.0,
+      "faithfulness_rate": 0.2,
+      "latency_sec": 0.0192
+    },
+    "no_ais": {
+      "tax_accuracy": 1.0,
+      "itr_form_accuracy": 0.97,
+      "risk_accuracy": 0.825,
+      "schedule_precision": 0.9807,
+      "schedule_recall": 0.83,
+      "schedule_f1": 0.8757,
+      "hallucination_rate": 0.0,
+      "faithfulness_rate": 1.0,
+      "latency_sec": 0.0202
+    },
+    "no_pageindex": {
+      "tax_accuracy": 1.0,
+      "itr_form_accuracy": 0.97,
+      "risk_accuracy": 0.965,
+      "schedule_precision": 0.9807,
+      "schedule_recall": 0.88,
+      "schedule_f1": 0.909,
+      "hallucination_rate": 0.0,
+      "faithfulness_rate": 0.4,
+      "latency_sec": 0.0199
+    },
+    "no_calculator": {
+      "tax_accuracy": 0.55,
+      "itr_form_accuracy": 0.97,
+      "risk_accuracy": 0.965,
+      "schedule_precision": 0.9807,
+      "schedule_recall": 0.88,
+      "schedule_f1": 0.909,
+      "hallucination_rate": 0.0,
+      "faithfulness_rate": 1.0,
+      "latency_sec": 0.0223
+    }
+  }
+}

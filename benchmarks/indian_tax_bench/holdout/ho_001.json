@@ -1,0 +1,189 @@
+{
+  "id": "ho_001",
+  "category": "basic_salary",
+  "difficulty": "easy",
+  "description": "Salaried employee, ₹950,000 gross, New Regime",
+  "input": {
+    "gross_income": 950000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "INTUIT INDIA",
+        "part_a": {
+          "gross_salary": 950000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 950000,
+          "salary_breakup": {
+            "basic_salary": 475000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "ANEUL8433D",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "INTUIT INDIA",
+            "reported_value": 950000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64909,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64689,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64721,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64895,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64904,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64994,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64706,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 65167,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 65211,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64860,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 65150,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 64622,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-01-06",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1813,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-18",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 1019,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-01-21",
+          "description": "SWIGGY ORDER",
+          "amount": 421,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-16",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 5013,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-02-17",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 22015,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-03-28",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 809,
+          "transaction_type": "debit"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 875000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-1",
+    "risk_level": "LOW",
+    "schedules_required": [
+      "Schedule Salary"
+    ],
+    "hallucination_traps": [
+      "Should NOT claim 80C under new regime"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}

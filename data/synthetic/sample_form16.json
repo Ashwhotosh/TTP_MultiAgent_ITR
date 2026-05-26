@@ -1,0 +1,76 @@
+{
+    "employer_name": "TECHCORP INDIA PVT LTD",
+    "employer_tan": "DELT12345A",
+    "employee_pan": "ABCDE1234F",
+    "employee_name": "ARJUN KUMAR SHARMA",
+    "assessment_year": "2026-27",
+    "period": {"from": "2025-04-01", "to": "2026-03-31"},
+
+    "part_a": {
+        "gross_salary": 2200000,
+        "tds_deducted": 182400,
+        "tds_deposited": 182400
+    },
+
+    "part_b": {
+        "salary_breakup": {
+            "basic_salary": 880000,
+            "hra_received": 352000,
+            "special_allowance": 660000,
+            "lta": 80000,
+            "medical_allowance": 0,
+            "other_allowance": 228000
+        },
+
+        "gross_salary_section_17_1": 2200000,
+        "perquisites_section_17_2": 0,
+        "profits_in_lieu_section_17_3": 0,
+
+        "exemptions": {
+            "hra_exemption_claimed": 0,
+            "lta_exemption_claimed": 0,
+            "other_exemptions": 0,
+            "_note": "Employee did NOT submit rent receipts or LTA claims to employer"
+        },
+
+        "income_under_salary": 2200000,
+
+        "standard_deduction": 75000,
+        "professional_tax": 2400,
+        "entertainment_allowance": 0,
+
+        "income_chargeable_under_salary": 2122600,
+
+        "other_income_reported_by_employee": 0,
+
+        "gross_total_income": 2122600,
+
+        "deductions_chapter_vi_a": {
+            "80C": 0,
+            "80CCC": 0,
+            "80CCD_1": 0,
+            "80CCD_1B": 0,
+            "80CCD_2": 0,
+            "80D": 0,
+            "80E": 0,
+            "80G": 0,
+            "80TTA": 0,
+            "_note": "Under New Regime — only 80CCD(2) allowed, not claimed"
+        },
+
+        "total_deductions": 0,
+        "total_taxable_income": 2122600,
+        "tax_on_total_income": 182400,
+        "rebate_87a": 0,
+        "surcharge": 0,
+        "cess": 7296,
+        "total_tax_payable": 189696,
+        "relief_89": 0,
+        "net_tax_payable": 189696,
+        "tds_deducted_total": 182400,
+
+        "regime": "new"
+    },
+
+    "_comment": "Synthetic Form 16 for testing. Arjun's employer processed under New Regime. HRA was received (352k) but exemption NOT claimed because Arjun forgot to submit rent receipts. This is a deliberate test case — the AuditorAgent should detect bank rent payments and flag the HRA optimization opportunity under Old Regime."
+}

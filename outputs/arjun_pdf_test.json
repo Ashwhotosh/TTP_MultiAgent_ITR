@@ -1,0 +1,3066 @@
+{
+  "version": "3.0",
+  "assessment_year": "2026-27",
+  "gross_income": 2200000.0,
+  "basic_salary": 880000.0,
+  "documents": {
+    "bank_transactions": 55,
+    "form16_present": true,
+    "ais_present": true,
+    "form26as_present": false
+  },
+  "reconciliation": {
+    "ledger": [
+      {
+        "item": "Salary - Unknown",
+        "amount_form16": 2200000.0,
+        "amount_ais": 2200000.0,
+        "amount_bank": 1814400.0,
+        "match_status": "confirmed",
+        "delta": 0.0,
+        "itr_schedule": "Schedule Salary",
+        "risk_weight": 0
+      },
+      {
+        "item": "Interest Savings - HDFC BANK LTD",
+        "amount_form16": 0,
+        "amount_ais": 14200.0,
+        "amount_bank": 14200.0,
+        "match_status": "ais_only",
+        "delta": 14200.0,
+        "itr_schedule": "Schedule OS",
+        "risk_weight": 10
+      },
+      {
+        "item": "Interest Fd - SBI",
+        "amount_form16": 0,
+        "amount_ais": 32000.0,
+        "amount_bank": 32000.0,
+        "match_status": "ais_only",
+        "delta": 32000.0,
+        "itr_schedule": "Schedule OS",
+        "risk_weight": 10
+      },
+      {
+        "item": "Mf Redemption - MIRAE ASSET MF",
+        "amount_form16": 0,
+        "amount_ais": 120000.0,
+        "amount_bank": 120000.0,
+        "match_status": "ais_only",
+        "delta": 120000.0,
+        "itr_schedule": "Schedule CG",
+        "risk_weight": 10
+      },
+      {
+        "item": "Crypto Vda - WAZIRX",
+        "amount_form16": 0,
+        "amount_ais": 128000.0,
+        "amount_bank": 0,
+        "match_status": "ais_only",
+        "delta": 128000.0,
+        "itr_schedule": "Schedule VDA",
+        "risk_weight": 10
+      },
+      {
+        "item": "Equity Sale - ZERODHA BROKING LTD",
+        "amount_form16": 0,
+        "amount_ais": 85000.0,
+        "amount_bank": 85000.0,
+        "match_status": "ais_only",
+        "delta": 85000.0,
+        "itr_schedule": "Schedule CG",
+        "risk_weight": 10
+      },
+      {
+        "item": "Foreign Remittance - HDFC BANK LTD",
+        "amount_form16": 0,
+        "amount_ais": 85000.0,
+        "amount_bank": 85000.0,
+        "match_status": "ais_only",
+        "delta": 85000.0,
+        "itr_schedule": "Schedule PGBP / OS",
+        "risk_weight": 10
+      },
+      {
+        "item": "Crypto Vda - WAZIRX",
+        "amount_form16": 0,
+        "amount_ais": 0,
+        "amount_bank": 78000.0,
+        "match_status": "bank_only",
+        "delta": 78000.0,
+        "itr_schedule": "Schedule VDA",
+        "risk_weight": 5
+      },
+      {
+        "item": "Crypto Vda - WAZIRX",
+        "amount_form16": 0,
+        "amount_ais": 0,
+        "amount_bank": 50000.0,
+        "match_status": "bank_only",
+        "delta": 50000.0,
+        "itr_schedule": "Schedule VDA",
+        "risk_weight": 5
+      },
+      {
+        "item": "Cash Deposit - CASH",
+        "amount_form16": 0,
+        "amount_ais": 0,
+        "amount_bank": 75000.0,
+        "match_status": "bank_only",
+        "delta": 75000.0,
+        "itr_schedule": "N/A (verify source)",
+        "risk_weight": 5
+      }
+    ],
+    "total_form16": 2200000.0,
+    "total_ais": 2664200.0,
+    "total_bank_credits": 2353600.0
+  },
+  "anomalies": [
+    {
+      "id": "txn_001",
+      "date": "2025-04-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/APR25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD APR25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_003",
+      "date": "2025-04-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/APR",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD APR",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_004",
+      "date": "2025-04-15",
+      "description": "UPI/DR/ZERODHA BROKING/EQUITY PURCHASE",
+      "cleaned": "ZERODHA BROKING EQUITY PURCHASE",
+      "amount": 100000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_006",
+      "date": "2025-04-25",
+      "description": "UPI/CR/INTEREST/SBI FD MATURITY",
+      "cleaned": "INTEREST SBI FD MATURITY",
+      "amount": 32000.0,
+      "flag_type": "INTEREST_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule OS",
+      "risk_weight": 10,
+      "confidence": 0.95,
+      "classification_stage": "llm_fallback",
+      "transaction_method": "UPI",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "INTEREST_INCOME detected (conf=0.95, stage=llm_fallback). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_007",
+      "date": "2025-05-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/MAY25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD MAY25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_009",
+      "date": "2025-05-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_010",
+      "date": "2025-05-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/MAY",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD MAY",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_012",
+      "date": "2025-06-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/JUN25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD JUN25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_013",
+      "date": "2025-06-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_014",
+      "date": "2025-06-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/JUN",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD JUN",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_016",
+      "date": "2025-06-25",
+      "description": "UPI/DR/WAZIRX/CRYPTO PURCHASE",
+      "cleaned": "WAZIRX CRYPTO PURCHASE",
+      "amount": 50000.0,
+      "flag_type": "CRYPTO_TRANSACTION",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule VDA",
+      "risk_weight": 30,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CRYPTO_TRANSACTION detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_017",
+      "date": "2025-07-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/JUL25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD JUL25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_018",
+      "date": "2025-07-10",
+      "description": "UPI/CR/ZERODHA/EQUITY SALE PROCEEDS",
+      "cleaned": "ZERODHA EQUITY SALE PROCEEDS",
+      "amount": 85000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_019",
+      "date": "2025-07-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/JUL",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD JUL",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_021",
+      "date": "2025-07-20",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_022",
+      "date": "2025-08-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/AUG25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD AUG25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_023",
+      "date": "2025-08-10",
+      "description": "UPI/CR/WAZIRX/CRYPTO SELL",
+      "cleaned": "WAZIRX CRYPTO SELL",
+      "amount": 78000.0,
+      "flag_type": "CRYPTO_TRANSACTION",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule VDA",
+      "risk_weight": 30,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CRYPTO_TRANSACTION detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_024",
+      "date": "2025-08-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/AUG",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD AUG",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_025",
+      "date": "2025-08-15",
+      "description": "NEFT/CR/WISE/UPWORK GLOBAL INC/USD WIRE",
+      "cleaned": "WISE UPWORK GLOBAL INC USD WIRE",
+      "amount": 85000.0,
+      "flag_type": "FREELANCE_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule BP / OS",
+      "risk_weight": 25,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "FREELANCE_INCOME detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_027",
+      "date": "2025-09-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/SEP25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD SEP25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_028",
+      "date": "2025-09-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_029",
+      "date": "2025-09-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/SEP",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD SEP",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_030",
+      "date": "2025-09-20",
+      "description": "UPI/CR/WAZIRX/CRYPTO SELL",
+      "cleaned": "WAZIRX CRYPTO SELL",
+      "amount": 50000.0,
+      "flag_type": "CRYPTO_TRANSACTION",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule VDA",
+      "risk_weight": 30,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CRYPTO_TRANSACTION detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_032",
+      "date": "2025-10-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/OCT25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD OCT25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_034",
+      "date": "2025-10-10",
+      "description": "UPI/DR/GROWW/ELSS REDEMPTION/MIRAE ASSET",
+      "cleaned": "GROWW ELSS REDEMPTION MIRAE ASSET",
+      "amount": 120000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_035",
+      "date": "2025-10-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/OCT",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD OCT",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_036",
+      "date": "2025-11-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/NOV25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD NOV25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_037",
+      "date": "2025-11-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_038",
+      "date": "2025-11-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/NOV",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD NOV",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_041",
+      "date": "2025-12-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/DEC25",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD DEC25",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_042",
+      "date": "2025-12-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_043",
+      "date": "2025-12-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/DEC",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD DEC",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_045",
+      "date": "2026-01-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/JAN26",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD JAN26",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_046",
+      "date": "2026-01-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_047",
+      "date": "2026-01-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/JAN",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD JAN",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_049",
+      "date": "2026-02-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/FEB26",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD FEB26",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_050",
+      "date": "2026-02-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_051",
+      "date": "2026-02-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/FEB",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD FEB",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_052",
+      "date": "2026-03-05",
+      "description": "NEFT/SALARY/TECHCORP INDIA PVT LTD/MAR26",
+      "cleaned": "SALARY TECHCORP INDIA PVT LTD MAR26",
+      "amount": 151200.0,
+      "flag_type": "SALARY_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule Salary",
+      "risk_weight": 0,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_053",
+      "date": "2026-03-10",
+      "description": "UPI/DR/GROWW/SIP ELSS",
+      "cleaned": "GROWW SIP ELSS",
+      "amount": 10000.0,
+      "flag_type": "CAPITAL_MARKET",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule CG",
+      "risk_weight": 20,
+      "confidence": 0.95,
+      "classification_stage": "pattern",
+      "transaction_method": "UPI",
+      "in_ais": true,
+      "requires_user_input": false,
+      "reasoning": "CAPITAL_MARKET detected (conf=0.95, stage=pattern). Found in AIS."
+    },
+    {
+      "id": "txn_054",
+      "date": "2026-03-12",
+      "description": "NEFT/RENT/RAMESH KUMAR LANDLORD/MAR",
+      "cleaned": "RENT RAMESH KUMAR LANDLORD MAR",
+      "amount": 18000.0,
+      "flag_type": "RENT_PAID",
+      "tax_relevance": "deduction_opportunity",
+      "itr_schedule": "HRA/80GG",
+      "risk_weight": 0,
+      "confidence": 0.9,
+      "classification_stage": "pattern",
+      "transaction_method": "NEFT",
+      "in_ais": false,
+      "requires_user_input": false,
+      "reasoning": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+    },
+    {
+      "id": "txn_055",
+      "date": "2026-03-25",
+      "description": "INT/SAVINGS ACCOUNT/HDFC/Q4 INTEREST",
+      "cleaned": "INT SAVINGS ACCOUNT HDFC Q4 INTEREST",
+      "amount": 14200.0,
+      "flag_type": "INTEREST_INCOME",
+      "tax_relevance": "income",
+      "itr_schedule": "Schedule OS",
+      "risk_weight": 10,
+      "confidence": 0.6866,
+      "classification_stage": "ml",
+      "transaction_method": "UNKNOWN",
+      "in_ais": false,
+      "requires_user_input": true,
+      "reasoning": "INTEREST_INCOME detected (conf=0.69, stage=ml). Not found in AIS \u2014 verify declaration."
+    }
+  ],
+  "regime_comparison": {
+    "old_regime": {
+      "regime": "old",
+      "gross_income": 2200000.0,
+      "standard_deduction": 50000,
+      "deductions": {
+        "80C": 0.0,
+        "80CCD_1B": 0.0,
+        "80CCD_2": 0.0,
+        "80D": 0.0,
+        "80E": 0.0,
+        "80G": 0.0,
+        "80TTA": 0.0,
+        "24b": 0.0,
+        "HRA": 0.0,
+        "LTA": 0.0
+      },
+      "total_deductions": 0.0,
+      "taxable_income": 2150000.0,
+      "slab_tax": 457499.7,
+      "slab_breakdown": [
+        {
+          "slab": "0 - 250,000",
+          "rate": "0%",
+          "taxable_amount": 250001,
+          "tax": 0.0
+        },
+        {
+          "slab": "250,001 - 500,000",
+          "rate": "5%",
+          "taxable_amount": 250000,
+          "tax": 12500.0
+        },
+        {
+          "slab": "500,001 - 1,000,000",
+          "rate": "20%",
+          "taxable_amount": 500000,
+          "tax": 100000.0
+        },
+        {
+          "slab": "1,000,001+",
+          "rate": "30%",
+          "taxable_amount": 1149999.0,
+          "tax": 344999.7
+        }
+      ],
+      "rebate_87a": 0.0,
+      "tax_after_rebate": 457499.7,
+      "surcharge": 0.0,
+      "cess": 18299.99,
+      "total_tax_liability": 475799.69,
+      "effective_rate": 21.63,
+      "marginal_relief_applied": false
+    },
+    "new_regime": {
+      "regime": "new",
+      "gross_income": 2200000.0,
+      "standard_deduction": 75000,
+      "deductions": {
+        "80CCD_2": 0.0,
+        "80CCH": 0.0
+      },
+      "total_deductions": 0.0,
+      "taxable_income": 2125000.0,
+      "slab_tax": 231249.75,
+      "slab_breakdown": [
+        {
+          "slab": "0 - 400,000",
+          "rate": "0%",
+          "taxable_amount": 400001,
+          "tax": 0.0
+        },
+        {
+          "slab": "400,001 - 800,000",
+          "rate": "5%",
+          "taxable_amount": 400000,
+          "tax": 20000.0
+        },
+        {
+          "slab": "800,001 - 1,200,000",
+          "rate": "10%",
+          "taxable_amount": 400000,
+          "tax": 40000.0
+        },
+        {
+          "slab": "1,200,001 - 1,600,000",
+          "rate": "15%",
+          "taxable_amount": 400000,
+          "tax": 60000.0
+        },
+        {
+          "slab": "1,600,001 - 2,000,000",
+          "rate": "20%",
+          "taxable_amount": 400000,
+          "tax": 80000.0
+        },
+        {
+          "slab": "2,000,001 - 2,400,000",
+          "rate": "25%",
+          "taxable_amount": 124999.0,
+          "tax": 31249.75
+        }
+      ],
+      "rebate_87a": 0.0,
+      "tax_after_rebate": 231249.75,
+      "surcharge": 0.0,
+      "cess": 9249.99,
+      "total_tax_liability": 240499.74,
+      "effective_rate": 10.93,
+      "marginal_relief_applied": false
+    },
+    "recommended": "new",
+    "savings": 235299.95,
+    "reason": "New Regime saves \u20b9235,300 despite losing HRA and 80C deductions"
+  },
+  "ctc_strategy": {
+    "computation": {
+      "max_employer_nps": 88000.0,
+      "current_employer_nps": 0.0,
+      "additional_nps_room": 88000.0,
+      "tax_before": 240499.74,
+      "tax_after": 217619.74,
+      "annual_savings": 22880.0
+    },
+    "narrative": "Given the significant savings under the New Regime, it is advisable to leverage the restructuring potential of Rs 22,880.00 by optimizing contributions towards eligible schemes such as Section 80C and Section 80CCD(2) to further reduce taxable income. Additionally, ensure compliance with Section 115BAC for potential additional deductions applicable to your specific circumstances. This dual approach can maximize tax savings while adhering to current tax laws."
+  },
+  "itr_form": {
+    "recommended_form": "ITR-2",
+    "reason": "Capital gains, VDA, or foreign assets/income present without business income.",
+    "blocked_forms": {
+      "ITR-1": [
+        "capital_gains",
+        "crypto_vda",
+        "foreign_assets"
+      ],
+      "ITR-4": [
+        "capital_gains",
+        "crypto_vda",
+        "foreign_assets"
+      ]
+    },
+    "required_schedules": [
+      "Schedule CG",
+      "Schedule FA",
+      "Schedule OS",
+      "Schedule Salary",
+      "Schedule VDA"
+    ]
+  },
+  "schedule_mapping": [
+    {
+      "item": "Salary - Unknown",
+      "amount": 2200000.0,
+      "schedule": "Schedule Salary",
+      "section": "17(1)",
+      "line_hint": "Salary Details -> Gross Salary under Section 17(1)",
+      "source": "confirmed",
+      "tds_credit": 182400.0,
+      "tds_section": "192"
+    },
+    {
+      "item": "Interest Savings - HDFC BANK LTD",
+      "amount": 14200.0,
+      "schedule": "Schedule OS",
+      "section": "56",
+      "line_hint": "Income from Other Sources",
+      "source": "ais_only",
+      "tds_credit": 1420.0,
+      "tds_section": "194A"
+    },
+    {
+      "item": "Interest Fd - SBI",
+      "amount": 32000.0,
+      "schedule": "Schedule OS",
+      "section": "56",
+      "line_hint": "Income from Other Sources",
+      "source": "ais_only",
+      "tds_credit": 3200.0,
+      "tds_section": "194A"
+    },
+    {
+      "item": "Mf Redemption - MIRAE ASSET MF",
+      "amount": 120000.0,
+      "schedule": "Schedule CG",
+      "section": "111A",
+      "line_hint": "Schedule CG -> Capital Gains details",
+      "source": "ais_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    },
+    {
+      "item": "Crypto Vda - WAZIRX",
+      "amount": 128000.0,
+      "schedule": "Schedule VDA",
+      "section": "115BBH",
+      "line_hint": "Part A -> Virtual Digital Asset -> Sl. No. 1",
+      "source": "ais_only",
+      "tds_credit": 3840.0,
+      "tds_section": "194S"
+    },
+    {
+      "item": "Equity Sale - ZERODHA BROKING LTD",
+      "amount": 85000.0,
+      "schedule": "Schedule CG",
+      "section": "111A",
+      "line_hint": "Schedule CG -> Capital Gains details",
+      "source": "ais_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    },
+    {
+      "item": "Foreign Remittance - HDFC BANK LTD",
+      "amount": 85000.0,
+      "schedule": "Schedule OS",
+      "section": "56",
+      "line_hint": "Income from Other Sources -> Others",
+      "source": "ais_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    },
+    {
+      "item": "Crypto Vda - WAZIRX",
+      "amount": 78000.0,
+      "schedule": "Schedule VDA",
+      "section": "115BBH",
+      "line_hint": "Part A -> Virtual Digital Asset -> Sl. No. 1",
+      "source": "bank_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    },
+    {
+      "item": "Crypto Vda - WAZIRX",
+      "amount": 50000.0,
+      "schedule": "Schedule VDA",
+      "section": "115BBH",
+      "line_hint": "Part A -> Virtual Digital Asset -> Sl. No. 1",
+      "source": "bank_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    },
+    {
+      "item": "Cash Deposit - CASH",
+      "amount": 75000.0,
+      "schedule": "N/A (verify source)",
+      "section": "56",
+      "line_hint": "Income from Other Sources",
+      "source": "bank_only",
+      "tds_credit": 0.0,
+      "tds_section": ""
+    }
+  ],
+  "risk_score": {
+    "total_score": 100,
+    "risk_level": "CRITICAL",
+    "breakdown": [
+      {
+        "item": "interest_savings (HDFC BANK LTD): Rs 14,200",
+        "weight": 25,
+        "reason": "AIS mismatch: ais_mismatch_income"
+      },
+      {
+        "item": "interest_fd (SBI): Rs 32,000",
+        "weight": 25,
+        "reason": "AIS mismatch: ais_mismatch_income"
+      },
+      {
+        "item": "mf_redemption (MIRAE ASSET MF): Rs 120,000",
+        "weight": 55,
+        "reason": "AIS mismatch: capital_gains_undeclared"
+      },
+      {
+        "item": "crypto_vda (WAZIRX): Rs 128,000",
+        "weight": 60,
+        "reason": "AIS mismatch: crypto_undeclared"
+      },
+      {
+        "item": "equity_sale (ZERODHA BROKING LTD): Rs 85,000",
+        "weight": 55,
+        "reason": "AIS mismatch: capital_gains_undeclared"
+      },
+      {
+        "item": "foreign_remittance (HDFC BANK LTD): Rs 85,000",
+        "weight": 25,
+        "reason": "AIS mismatch: freelance_undeclared"
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/APR25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/APR",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "INTEREST_INCOME: UPI/CR/INTEREST/SBI FD MATURITY",
+        "weight": 10,
+        "reason": "INTEREST_INCOME detected (conf=0.95, stage=llm_fallback). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/MAY25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/MAY",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/JUN25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/JUN",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/JUL25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/JUL",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/AUG25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/AUG",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/SEP25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/SEP",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/OCT25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/OCT",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/NOV25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/NOV",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/DEC25",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/DEC",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/JAN26",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/JAN",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/FEB26",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/FEB",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "SALARY_INCOME: NEFT/SALARY/TECHCORP INDIA PVT LTD/MAR26",
+        "weight": 0,
+        "reason": "SALARY_INCOME detected (conf=0.95, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "RENT_PAID: NEFT/RENT/RAMESH KUMAR LANDLORD/MAR",
+        "weight": 0,
+        "reason": "RENT_PAID detected (conf=0.90, stage=pattern). Not found in AIS \u2014 verify declaration."
+      },
+      {
+        "item": "INTEREST_INCOME: INT/SAVINGS ACCOUNT/HDFC/Q4 INTEREST",
+        "weight": 10,
+        "reason": "INTEREST_INCOME detected (conf=0.69, stage=ml). Not found in AIS \u2014 verify declaration."
+      }
+    ],
+    "undeclared_amount": 464200.0
+  },
+  "deduction_gaps": {
+    "gaps": [],
+    "total_unclaimed_old_regime": 0,
+    "estimated_old_regime_saving": 0,
+    "estimated_new_regime_saving": 0,
+    "regime_switch_recommended": false,
+    "switch_saving": 0,
+    "current_regime": "new",
+    "summary": "No significant unclaimed deductions detected."
+  },
+  "interview_questions": [],
+  "verification": [
+    {
+      "type": "legal_reference",
+      "section": "80CCD(2)",
+      "claim_text": "CTC strategy narrative references Section 80CCD(2)",
+      "value": "80CCD(2)",
+      "source": "optimizer",
+      "verification": {
+        "claim": "CTC strategy narrative references Section 80CCD(2)",
+        "evidence_snippet": "Where the employer makes contribution to employee's NPS account, deduction is allowed up to 14% of salary for central government employees or 10% for others. This deduction is available in BOTH old an...",
+        "label": "UNVERIFIED",
+        "score": 3.401,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "115BAC",
+      "claim_text": "CTC strategy narrative references Section 115BAC",
+      "value": "115BAC",
+      "source": "optimizer",
+      "verification": {
+        "claim": "CTC strategy narrative references Section 115BAC",
+        "evidence_snippet": "The New Tax Regime under Section 115BAC is the default regime from FY 2023-24. Tax slabs for FY 2025-26 (Budget 2025): 0-4L: Nil, 4L-8L: 5%, 8L-12L: 10%, 12L-16L: 15%, 16L-20L: 20%, 20L-24L: 25%, abov...",
+        "label": "UNVERIFIED",
+        "score": 2.5505,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "111A",
+      "claim_text": "Schedule mapping matches item 'Mf Redemption - MIRAE ASSET MF' to Section 111A",
+      "value": "111A",
+      "source": "compliance",
+      "verification": {
+        "claim": "Schedule mapping matches item 'Mf Redemption - MIRAE ASSET MF' to Section 111A",
+        "evidence_snippet": "STCG on listed equity shares and equity mutual funds (held less than 12 months) are taxed at a flat rate of 20% (changed from 15% effective Budget 2024). Applicable when Securities Transaction Tax (ST...",
+        "label": "UNVERIFIED",
+        "score": 2.0365,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "115BBH",
+      "claim_text": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+      "value": "115BBH",
+      "source": "compliance",
+      "verification": {
+        "claim": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+        "evidence_snippet": "Income from transfer of virtual digital assets taxed at flat 30% on profits. No deduction for any expenditure other than cost of acquisition. No loss set-off allowed. No basic exemption. Section 194S:...",
+        "label": "UNVERIFIED",
+        "score": 2.4173,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "111A",
+      "claim_text": "Schedule mapping matches item 'Equity Sale - ZERODHA BROKING LTD' to Section 111A",
+      "value": "111A",
+      "source": "compliance",
+      "verification": {
+        "claim": "Schedule mapping matches item 'Equity Sale - ZERODHA BROKING LTD' to Section 111A",
+        "evidence_snippet": "STCG on listed equity shares and equity mutual funds (held less than 12 months) are taxed at a flat rate of 20% (changed from 15% effective Budget 2024). Applicable when Securities Transaction Tax (ST...",
+        "label": "UNVERIFIED",
+        "score": 1.5138,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "115BBH",
+      "claim_text": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+      "value": "115BBH",
+      "source": "compliance",
+      "verification": {
+        "claim": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+        "evidence_snippet": "Income from transfer of virtual digital assets taxed at flat 30% on profits. No deduction for any expenditure other than cost of acquisition. No loss set-off allowed. No basic exemption. Section 194S:...",
+        "label": "UNVERIFIED",
+        "score": 2.4173,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "legal_reference",
+      "section": "115BBH",
+      "claim_text": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+      "value": "115BBH",
+      "source": "compliance",
+      "verification": {
+        "claim": "Schedule mapping matches item 'Crypto Vda - WAZIRX' to Section 115BBH",
+        "evidence_snippet": "Income from transfer of virtual digital assets taxed at flat 30% on profits. No deduction for any expenditure other than cost of acquisition. No loss set-off allowed. No basic exemption. Section 194S:...",
+        "label": "UNVERIFIED",
+        "score": 2.4173,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    },
+    {
+      "type": "arithmetic",
+      "section": "old",
+      "claim_text": "Old Regime tax computation has tax liability of Rs 475,799.69",
+      "value": {
+        "regime": "old",
+        "gross_income": 2200000.0,
+        "standard_deduction": 50000,
+        "deductions": {
+          "80C": 0.0,
+          "80CCD_1B": 0.0,
+          "80CCD_2": 0.0,
+          "80D": 0.0,
+          "80E": 0.0,
+          "80G": 0.0,
+          "80TTA": 0.0,
+          "24b": 0.0,
+          "HRA": 0.0,
+          "LTA": 0.0
+        },
+        "total_deductions": 0.0,
+        "taxable_income": 2150000.0,
+        "slab_tax": 457499.7,
+        "slab_breakdown": [
+          {
+            "slab": "0 - 250,000",
+            "rate": "0%",
+            "taxable_amount": 250001,
+            "tax": 0.0
+          },
+          {
+            "slab": "250,001 - 500,000",
+            "rate": "5%",
+            "taxable_amount": 250000,
+            "tax": 12500.0
+          },
+          {
+            "slab": "500,001 - 1,000,000",
+            "rate": "20%",
+            "taxable_amount": 500000,
+            "tax": 100000.0
+          },
+          {
+            "slab": "1,000,001+",
+            "rate": "30%",
+            "taxable_amount": 1149999.0,
+            "tax": 344999.7
+          }
+        ],
+        "rebate_87a": 0.0,
+        "tax_after_rebate": 457499.7,
+        "surcharge": 0.0,
+        "cess": 18299.99,
+        "total_tax_liability": 475799.69,
+        "effective_rate": 21.63,
+        "marginal_relief_applied": false
+      },
+      "source": "optimizer",
+      "verification": {
+        "claim": "Old Regime tax computation has tax liability of Rs 475,799.69",
+        "evidence_snippet": "The Old Tax Regime retains all traditional deductions but has higher slab rates. Slabs: 0-2.5L: Nil, 2.5L-5L: 5%, 5L-10L: 20%, above 10L: 30%. Standard deduction: Rs 50,000. Rebate under 87A: Up to Rs...",
+        "label": "UNVERIFIED",
+        "score": 2.5842,
+        "reason": "NLI verification labeled this as UNVERIFIED."
+      }
+    }
+  ],
+  "critic_feedback": [
+    {
+      "iteration": 0,
+      "issues": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "blocked_claims": [
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "reason": "Section not allowed under chosen regime",
+          "source": "optimizer",
+          "section": "80C"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "17(1)"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "reason": "NLI contradiction: NLI verification labeled this as HALLUCINATED.",
+          "source": "optimizer",
+          "section": "new"
+        }
+      ]
+    },
+    {
+      "iteration": 1,
+      "issues": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "blocked_claims": [
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "reason": "Section not allowed under chosen regime",
+          "source": "optimizer",
+          "section": "80C"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "17(1)"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "reason": "NLI contradiction: NLI verification labeled this as HALLUCINATED.",
+          "source": "optimizer",
+          "section": "new"
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "issues": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "blocked_claims": [
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "reason": "Section not allowed under chosen regime",
+          "source": "optimizer",
+          "section": "80C"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "17(1)"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "reason": "Section not found in knowledge base",
+          "source": "compliance",
+          "section": "56"
+        },
+        {
+          "claim": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "reason": "NLI contradiction: NLI verification labeled this as HALLUCINATED.",
+          "source": "optimizer",
+          "section": "new"
+        }
+      ]
+    }
+  ],
+  "form16_data": {
+    "employer_name": "Unknown",
+    "employer_tan": "",
+    "employee_pan": "",
+    "employee_name": "Unknown",
+    "assessment_year": "2026-27",
+    "gross_salary": 2200000.0,
+    "basic_salary": 880000.0,
+    "hra_received": 0.0,
+    "lta": 0.0,
+    "special_allowance": 0.0,
+    "perquisites_17_2": 0.0,
+    "profits_in_lieu_17_3": 0.0,
+    "hra_exemption_claimed": 352000.0,
+    "lta_exemption_claimed": 0.0,
+    "standard_deduction": 75000.0,
+    "professional_tax": 0.0,
+    "deductions_claimed": {},
+    "total_taxable_income": 2125000.0,
+    "tax_on_total_income": 0.0,
+    "cess_4_percent": 0.0,
+    "total_tax_payable": 182400.0,
+    "tds_deducted": 182400.0,
+    "regime": "new",
+    "_source": "pdf_parsed",
+    "_extracted_fields_count": 9
+  },
+  "ais_data": {
+    "pan": "A****1234F",
+    "assessment_year": "2026-27",
+    "sft_entries": [
+      {
+        "type": "salary",
+        "amount": 2200000.0,
+        "reporter": "TECHCORP INDIA PVT LTD",
+        "tds_deducted": 182400.0,
+        "section": "192",
+        "source": "ais",
+        "sft_code": "SFT-001",
+        "quarter": "ALL",
+        "additional_info": {}
+      },
+      {
+        "type": "interest_savings",
+        "amount": 14200.0,
+        "reporter": "HDFC BANK LTD",
+        "tds_deducted": 1420.0,
+        "section": "194A",
+        "source": "ais",
+        "sft_code": "SFT-003",
+        "quarter": "ALL",
+        "additional_info": {}
+      },
+      {
+        "type": "interest_fd",
+        "amount": 32000.0,
+        "reporter": "SBI",
+        "tds_deducted": 3200.0,
+        "section": "194A",
+        "source": "ais",
+        "sft_code": "SFT-004",
+        "quarter": "Q4",
+        "additional_info": {}
+      },
+      {
+        "type": "mf_redemption",
+        "amount": 120000.0,
+        "reporter": "MIRAE ASSET MF",
+        "tds_deducted": 0.0,
+        "section": "194F",
+        "source": "ais",
+        "sft_code": "SFT-008",
+        "quarter": "Q3",
+        "additional_info": {
+          "scheme_name": "Mirae Asset Tax Saver Fund - ELSS",
+          "units_redeemed": 842.5,
+          "nav_on_redemption": 142.38
+        }
+      },
+      {
+        "type": "crypto_vda",
+        "amount": 128000.0,
+        "reporter": "WAZIRX",
+        "tds_deducted": 3840.0,
+        "section": "194S",
+        "source": "ais",
+        "sft_code": "SFT-016",
+        "quarter": "Q2",
+        "additional_info": {
+          "tds_section": "194S",
+          "number_of_transactions": 7
+        }
+      },
+      {
+        "type": "equity_sale",
+        "amount": 85000.0,
+        "reporter": "ZERODHA BROKING LTD",
+        "tds_deducted": 0.0,
+        "section": "194",
+        "source": "ais",
+        "sft_code": "SFT-009",
+        "quarter": "Q1",
+        "additional_info": {
+          "stt_paid": 85,
+          "trade_type": "delivery"
+        }
+      },
+      {
+        "type": "foreign_remittance",
+        "amount": 85000.0,
+        "reporter": "HDFC BANK LTD",
+        "tds_deducted": 0.0,
+        "section": "206C",
+        "source": "ais",
+        "sft_code": "SFT-015",
+        "quarter": "Q3",
+        "additional_info": {
+          "remitter": "UPWORK GLOBAL INC",
+          "country": "UNITED STATES",
+          "purpose": "P1301 - Freelance/Consulting"
+        }
+      }
+    ],
+    "tds_entries": [
+      {
+        "section": "192",
+        "deductor_name": "TECHCORP INDIA PVT LTD",
+        "deductor_tan": "DELT12345A",
+        "amount_paid": 2200000.0,
+        "tax_deducted": 182400.0,
+        "tax_deposited": 182400.0,
+        "date_of_deposit": "2026-04-07"
+      },
+      {
+        "section": "194A",
+        "deductor_name": "HDFC BANK LTD",
+        "deductor_tan": "MUMH09876B",
+        "amount_paid": 14200.0,
+        "tax_deducted": 1420.0,
+        "tax_deposited": 1420.0,
+        "date_of_deposit": "2026-04-15"
+      },
+      {
+        "section": "194A",
+        "deductor_name": "STATE BANK OF INDIA",
+        "deductor_tan": "DELS45678C",
+        "amount_paid": 32000.0,
+        "tax_deducted": 3200.0,
+        "tax_deposited": 3200.0,
+        "date_of_deposit": "2026-04-10"
+      },
+      {
+        "section": "194S",
+        "deductor_name": "ZANMAI LABS PVT LTD (WAZIRX)",
+        "deductor_tan": "MUMW78901D",
+        "amount_paid": 128000.0,
+        "tax_deducted": 3840.0,
+        "tax_deposited": 3840.0,
+        "date_of_deposit": "2025-10-15"
+      }
+    ],
+    "summary": {
+      "total_reported_income": 2664200.0,
+      "total_tds": 190860.0,
+      "income_types_present": [
+        "salary",
+        "interest_savings",
+        "interest_fd",
+        "mf_redemption",
+        "crypto_vda",
+        "equity_sale",
+        "foreign_remittance"
+      ]
+    }
+  },
+  "agent_trace": [
+    {
+      "agent": "AuditorAgent",
+      "status": "success",
+      "duration_sec": 40.170581102371216,
+      "tools_called": [],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "OptimizerAgent",
+      "status": "success",
+      "duration_sec": 1.583601713180542,
+      "tools_called": [
+        "calculator"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "ComplianceAgent",
+      "status": "success",
+      "duration_sec": 0.0,
+      "tools_called": [],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "CriticAgent",
+      "status": "needs_review",
+      "duration_sec": 30.90484857559204,
+      "tools_called": [],
+      "warnings": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "agent": "OptimizerAgent",
+      "status": "success",
+      "duration_sec": 1.9528281688690186,
+      "tools_called": [
+        "calculator"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "ComplianceAgent",
+      "status": "success",
+      "duration_sec": 0.0,
+      "tools_called": [],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "CriticAgent",
+      "status": "needs_review",
+      "duration_sec": 0.5059940814971924,
+      "tools_called": [],
+      "warnings": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "agent": "OptimizerAgent",
+      "status": "success",
+      "duration_sec": 1.6288292407989502,
+      "tools_called": [
+        "calculator"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "ComplianceAgent",
+      "status": "success",
+      "duration_sec": 0.0,
+      "tools_called": [],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "agent": "CriticAgent",
+      "status": "needs_review",
+      "duration_sec": 0.446305513381958,
+      "tools_called": [],
+      "warnings": [
+        {
+          "type": "blocked_claim",
+          "source": "optimizer",
+          "detail": {
+            "type": "legal_reference",
+            "section": "80C",
+            "claim_text": "CTC strategy narrative references Section 80C",
+            "value": "80C",
+            "source": "optimizer"
+          },
+          "section": "80C"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "17(1)",
+            "claim_text": "Schedule mapping matches item 'Salary - Unknown' to Section 17(1)",
+            "value": "17(1)",
+            "source": "compliance"
+          },
+          "section": "17(1)"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Savings - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Interest Fd - SBI' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Foreign Remittance - HDFC BANK LTD' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "fabricated_section",
+          "source": "compliance",
+          "detail": {
+            "type": "legal_reference",
+            "section": "56",
+            "claim_text": "Schedule mapping matches item 'Cash Deposit - CASH' to Section 56",
+            "value": "56",
+            "source": "compliance"
+          },
+          "section": "56"
+        },
+        {
+          "type": "nli_contradiction",
+          "source": "optimizer",
+          "detail": {
+            "type": "arithmetic",
+            "section": "new",
+            "claim_text": "New Regime tax computation has tax liability of Rs 240,499.74",
+            "value": {
+              "regime": "new",
+              "gross_income": 2200000.0,
+              "standard_deduction": 75000,
+              "deductions": {
+                "80CCD_2": 0.0,
+                "80CCH": 0.0
+              },
+              "total_deductions": 0.0,
+              "taxable_income": 2125000.0,
+              "slab_tax": 231249.75,
+              "slab_breakdown": [
+                {
+                  "slab": "0 - 400,000",
+                  "rate": "0%",
+                  "taxable_amount": 400001,
+                  "tax": 0.0
+                },
+                {
+                  "slab": "400,001 - 800,000",
+                  "rate": "5%",
+                  "taxable_amount": 400000,
+                  "tax": 20000.0
+                },
+                {
+                  "slab": "800,001 - 1,200,000",
+                  "rate": "10%",
+                  "taxable_amount": 400000,
+                  "tax": 40000.0
+                },
+                {
+                  "slab": "1,200,001 - 1,600,000",
+                  "rate": "15%",
+                  "taxable_amount": 400000,
+                  "tax": 60000.0
+                },
+                {
+                  "slab": "1,600,001 - 2,000,000",
+                  "rate": "20%",
+                  "taxable_amount": 400000,
+                  "tax": 80000.0
+                },
+                {
+                  "slab": "2,000,001 - 2,400,000",
+                  "rate": "25%",
+                  "taxable_amount": 124999.0,
+                  "tax": 31249.75
+                }
+              ],
+              "rebate_87a": 0.0,
+              "tax_after_rebate": 231249.75,
+              "surcharge": 0.0,
+              "cess": 9249.99,
+              "total_tax_liability": 240499.74,
+              "effective_rate": 10.93,
+              "marginal_relief_applied": false
+            },
+            "source": "optimizer"
+          },
+          "section": "new"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "iterations": 3,
+  "total_time_sec": 77.37795186042786,
+  "notice_prediction": {
+    "notice_probability": 0.716,
+    "risk_tier": "HIGH_RISK",
+    "confidence": "high",
+    "feature_values": {
+      "num_ais_entries": 7.0,
+      "ais_total_reported_rupees": 14.795414758246626,
+      "form16_gross_salary": 14.603968372873895,
+      "num_ais_mismatches": 5.0,
+      "ais_minus_form16_delta": 13.048072927064014,
+      "has_crypto_vda": 1.0,
+      "has_freelance": 1.0,
+      "has_capital_gains": 1.0,
+      "has_property_sft": 0.0,
+      "has_cash_deposits": 0.0,
+      "has_dividend": 0.0,
+      "num_anomalies": 5.0,
+      "income_above_50L": 0.0,
+      "has_tds_section_194S": 1.0
+    },
+    "feature_contributions": {
+      "num_ais_entries": {
+        "value": 7.0,
+        "importance": 0.08448695344896313
+      },
+      "ais_total_reported_rupees": {
+        "value": 14.795414758246626,
+        "importance": 0.02587984421417071
+      },
+      "form16_gross_salary": {
+        "value": 14.603968372873895,
+        "importance": 0.027178022567918556
+      },
+      "num_ais_mismatches": {
+        "value": 5.0,
+        "importance": 0.08448695344896309
+      },
+      "ais_minus_form16_delta": {
+        "value": 13.048072927064014,
+        "importance": 0.11102043617413969
+      },
+      "has_crypto_vda": {
+        "value": 1.0,
+        "importance": 0.11881237618353462
+      },
+      "has_freelance": {
+        "value": 1.0,
+        "importance": 0.005536691248954847
+      },
+      "has_capital_gains": {
+        "value": 1.0,
+        "importance": 0.3119593656564289
+      },
+      "has_property_sft": {
+        "value": 0.0,
+        "importance": 0.0
+      },
+      "has_cash_deposits": {
+        "value": 0.0,
+        "importance": 0.0
+      },
+      "has_dividend": {
+        "value": 0.0,
+        "importance": 0.0
+      },
+      "num_anomalies": {
+        "value": 5.0,
+        "importance": 0.10635020963508555
+      },
+      "income_above_50L": {
+        "value": 0.0,
+        "importance": 0.005476771238306006
+      },
+      "has_tds_section_194S": {
+        "value": 1.0,
+        "importance": 0.11881237618353467
+      }
+    },
+    "top_risk_factors": [
+      "ais_minus_form16_delta",
+      "num_ais_entries",
+      "num_anomalies"
+    ],
+    "interpretation": "Notice risk driven by: VDA/crypto income in AIS without Schedule VDA declaration; foreign remittance income without corresponding declaration"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "full_system": {
+    "tax_accuracy": 0.94,
+    "itr_form_accuracy": 0.93,
+    "risk_accuracy": 0.928,
+    "schedule_precision": 0.962,
+    "schedule_recall": 0.87,
+    "schedule_f1": 0.913,
+    "hallucination_rate": 0.068,
+    "faithfulness_rate": 0.892,
+    "latency_sec": 6.1
+  },
+  "no_critic": {
+    "tax_accuracy": 0.94,
+    "itr_form_accuracy": 0.93,
+    "risk_accuracy": 0.928,
+    "schedule_precision": 0.962,
+    "schedule_recall": 0.87,
+    "schedule_f1": 0.913,
+    "hallucination_rate": 0.184,
+    "faithfulness_rate": 0.612,
+    "latency_sec": 4.3
+  },
+  "no_ais": {
+    "tax_accuracy": 0.94,
+    "itr_form_accuracy": 0.93,
+    "risk_accuracy": 0.796,
+    "schedule_precision": 0.948,
+    "schedule_recall": 0.83,
+    "schedule_f1": 0.864,
+    "hallucination_rate": 0.068,
+    "faithfulness_rate": 0.892,
+    "latency_sec": 5.6
+  },
+  "no_pageindex": {
+    "tax_accuracy": 0.94,
+    "itr_form_accuracy": 0.93,
+    "risk_accuracy": 0.928,
+    "schedule_precision": 0.962,
+    "schedule_recall": 0.87,
+    "schedule_f1": 0.913,
+    "hallucination_rate": 0.124,
+    "faithfulness_rate": 0.718,
+    "latency_sec": 5.9
+  },
+  "no_calculator": {
+    "tax_accuracy": 0.542,
+    "itr_form_accuracy": 0.93,
+    "risk_accuracy": 0.928,
+    "schedule_precision": 0.962,
+    "schedule_recall": 0.87,
+    "schedule_f1": 0.913,
+    "hallucination_rate": 0.068,
+    "faithfulness_rate": 0.892,
+    "latency_sec": 6.4
+  }
+}

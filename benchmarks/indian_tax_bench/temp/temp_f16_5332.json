@@ -1,0 +1,33 @@
+{
+  "employer_name": "MICROSOFT INDIA",
+  "employer_tan": "",
+  "employee_pan": "",
+  "employee_name": "",
+  "assessment_year": "2026-27",
+  "part_a": {
+    "gross_salary": 2100000,
+    "tds_deducted": 0
+  },
+  "part_b": {
+    "gross_salary_section_17_1": 2100000,
+    "perquisites_section_17_2": 0.0,
+    "profits_in_lieu_section_17_3": 0.0,
+    "salary_breakup": {
+      "basic_salary": 840000.0,
+      "hra_received": 315000.0
+    },
+    "exemptions": {},
+    "deductions_chapter_vi_a": {
+      "80C": 150000,
+      "80D": 25000
+    },
+    "income_under_salary": 0.0,
+    "standard_deduction": 50000,
+    "professional_tax": 0.0,
+    "income_chargeable_under_salary": 1735000.0,
+    "gross_total_income": 0.0,
+    "total_deductions": 0.0,
+    "total_taxable_income": 0.0,
+    "regime": "old"
+  }
+}

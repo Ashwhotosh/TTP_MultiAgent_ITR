@@ -1,0 +1,914 @@
+{
+  "gpt4o_aggregate": {
+    "overall_accuracy": 83.7,
+    "overall_accuracy_pct": 83.7,
+    "numeric_accuracy_pct": 75.0,
+    "boolean_accuracy_pct": 87.5,
+    "categorical_accuracy_pct": 100.0,
+    "schedule_precision_pct": 100.0,
+    "schedule_recall_pct": 100.0,
+    "schedule_f1_pct": 100.0,
+    "prompts_scored": 16
+  },
+  "gemini_aggregate": {
+    "overall_accuracy": 83.7,
+    "overall_accuracy_pct": 83.7,
+    "numeric_accuracy_pct": 75.0,
+    "boolean_accuracy_pct": 87.5,
+    "categorical_accuracy_pct": 100.0,
+    "schedule_precision_pct": 100.0,
+    "schedule_recall_pct": 100.0,
+    "schedule_f1_pct": 100.0,
+    "prompts_scored": 16
+  },
+  "per_prompt": {
+    "gpt4o": {
+      "A1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "fd_interest_must_be_declared": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "schedule_for_fd_interest": {
+            "expected": "Schedule OS",
+            "predicted": "Schedule OS",
+            "correct": true
+          },
+          "notice_risk": {
+            "expected": "MEDIUM",
+            "predicted": "MEDIUM",
+            "correct": true
+          }
+        }
+      },
+      "A2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "notice_risk": {
+            "expected": "LOW",
+            "predicted": "LOW",
+            "correct": true
+          },
+          "itr_form": {
+            "expected": "ITR-1",
+            "predicted": "ITR-1",
+            "correct": true
+          },
+          "ais_form16_match": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          }
+        }
+      },
+      "AD1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "is_gift_taxable": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "uncle_is_specified_relative": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "amount_taxable": {
+            "expected": 60000,
+            "predicted": 60000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "AD2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_claim_80C_elss_new_regime": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_claim_80CCD1B_new_regime": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "employer_nps_80CCD2_allowed": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          }
+        }
+      },
+      "B1": {
+        "numeric_accuracy": 0.5,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 1125000,
+            "predicted": 1125000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_before_rebate": {
+            "expected": 57500,
+            "predicted": 52500.0,
+            "error_pct": 8.7,
+            "correct": false
+          },
+          "rebate_87a": {
+            "expected": 57500,
+            "predicted": 52500.0,
+            "error_pct": 8.7,
+            "correct": false
+          },
+          "total_tax_liability": {
+            "expected": 0,
+            "predicted": 0.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "itr_form": {
+            "expected": "ITR-1",
+            "predicted": "ITR-1",
+            "correct": true
+          },
+          "marginal_relief_applied": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      },
+      "B2": {
+        "numeric_accuracy": 0.3333333333333333,
+        "boolean_accuracy": 0.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 1175000,
+            "predicted": 1175000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "marginal_relief_applied": {
+            "expected": true,
+            "predicted": false,
+            "correct": false
+          },
+          "marginal_relief": {
+            "expected": 25000,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          },
+          "total_tax_liability": {
+            "expected": 52000,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          }
+        }
+      },
+      "B3": {
+        "numeric_accuracy": 0.6666666666666666,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 2805000,
+            "predicted": 2805000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "surcharge_rate": {
+            "expected": 0,
+            "predicted": 0.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "total_tax_liability": {
+            "expected": 597336,
+            "predicted": 438360.0,
+            "error_pct": 26.6,
+            "correct": false
+          }
+        }
+      },
+      "CG1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "grandfathered_cost": {
+            "expected": 350000,
+            "predicted": 350000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "taxable_ltcg": {
+            "expected": 25000,
+            "predicted": 25000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_at_12_5_pct": {
+            "expected": 3125,
+            "predicted": 3125.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "CG2": {
+        "numeric_accuracy": 0.5,
+        "boolean_accuracy": 0.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "stcg_111a_net": {
+            "expected": 50000,
+            "predicted": 50000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "total_cg_tax": {
+            "expected": 10400,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          },
+          "ltcg_exempt": {
+            "expected": true,
+            "predicted": null,
+            "correct": false
+          }
+        }
+      },
+      "CTC1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "allowed_in_new_regime": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "section": {
+            "expected": "80CCD(2)",
+            "predicted": "80CCD(2)",
+            "correct": true
+          },
+          "employer_nps_contribution": {
+            "expected": 60000,
+            "predicted": 60000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "F1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_file_itr1": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "correct_form": {
+            "expected": "ITR-2",
+            "predicted": "ITR-2",
+            "correct": true
+          },
+          "schedule_for_crypto": {
+            "expected": "Schedule VDA",
+            "predicted": "Schedule VDA",
+            "correct": true
+          }
+        }
+      },
+      "F2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "itr_form": {
+            "expected": "ITR-4",
+            "predicted": "ITR-4",
+            "correct": true
+          },
+          "section_44ada_applicable": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "presumptive_income_pct": {
+            "expected": 50,
+            "predicted": 50.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "professional_taxable_income": {
+            "expected": 2000000,
+            "predicted": 2000000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "R1": {
+        "numeric_accuracy": 0.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "old_regime.total_tax": {
+            "expected": 83200,
+            "predicted": 88920.0,
+            "error_pct": 6.9,
+            "correct": false
+          },
+          "new_regime.total_tax": {
+            "expected": 131040,
+            "predicted": 97500.0,
+            "error_pct": 25.6,
+            "correct": false
+          },
+          "recommended_regime": {
+            "expected": "old",
+            "predicted": "old",
+            "correct": true
+          },
+          "savings": {
+            "expected": 47840,
+            "predicted": 8580.0,
+            "error_pct": 82.1,
+            "correct": false
+          }
+        }
+      },
+      "R2": {
+        "numeric_accuracy": 0.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "old_regime.total_tax": {
+            "expected": 390000,
+            "predicted": 413400.0,
+            "error_pct": 6.0,
+            "correct": false
+          },
+          "new_regime.total_tax": {
+            "expected": 310310,
+            "predicted": 192400.0,
+            "error_pct": 38.0,
+            "correct": false
+          },
+          "recommended_regime": {
+            "expected": "new",
+            "predicted": "new",
+            "correct": true
+          },
+          "savings": {
+            "expected": 79690,
+            "predicted": 221000.0,
+            "error_pct": 177.3,
+            "correct": false
+          }
+        }
+      },
+      "V1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "vda_gain": {
+            "expected": 33000,
+            "predicted": 33000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_rate_pct": {
+            "expected": 30,
+            "predicted": 30.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_before_tds": {
+            "expected": 9900,
+            "predicted": 9900.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "net_vda_tax_payable": {
+            "expected": 6060,
+            "predicted": 6060.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "can_vda_loss_offset_salary": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      },
+      "V2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_offset_equity_ltcg": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_offset_salary": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_carry_forward": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      }
+    },
+    "gemini": {
+      "A1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "fd_interest_must_be_declared": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "schedule_for_fd_interest": {
+            "expected": "Schedule OS",
+            "predicted": "Schedule OS",
+            "correct": true
+          },
+          "notice_risk": {
+            "expected": "MEDIUM",
+            "predicted": "MEDIUM",
+            "correct": true
+          }
+        }
+      },
+      "A2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "notice_risk": {
+            "expected": "LOW",
+            "predicted": "LOW",
+            "correct": true
+          },
+          "itr_form": {
+            "expected": "ITR-1",
+            "predicted": "ITR-1",
+            "correct": true
+          },
+          "ais_form16_match": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          }
+        }
+      },
+      "AD1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "is_gift_taxable": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "uncle_is_specified_relative": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "amount_taxable": {
+            "expected": 60000,
+            "predicted": 60000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "AD2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_claim_80C_elss_new_regime": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_claim_80CCD1B_new_regime": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "employer_nps_80CCD2_allowed": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          }
+        }
+      },
+      "B1": {
+        "numeric_accuracy": 0.5,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 1125000,
+            "predicted": 1125000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_before_rebate": {
+            "expected": 57500,
+            "predicted": 52500.0,
+            "error_pct": 8.7,
+            "correct": false
+          },
+          "rebate_87a": {
+            "expected": 57500,
+            "predicted": 52500.0,
+            "error_pct": 8.7,
+            "correct": false
+          },
+          "total_tax_liability": {
+            "expected": 0,
+            "predicted": 0.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "itr_form": {
+            "expected": "ITR-1",
+            "predicted": "ITR-1",
+            "correct": true
+          },
+          "marginal_relief_applied": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      },
+      "B2": {
+        "numeric_accuracy": 0.3333333333333333,
+        "boolean_accuracy": 0.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 1175000,
+            "predicted": 1175000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "marginal_relief_applied": {
+            "expected": true,
+            "predicted": false,
+            "correct": false
+          },
+          "marginal_relief": {
+            "expected": 25000,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          },
+          "total_tax_liability": {
+            "expected": 52000,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          }
+        }
+      },
+      "B3": {
+        "numeric_accuracy": 0.6666666666666666,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "taxable_income": {
+            "expected": 2805000,
+            "predicted": 2805000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "surcharge_rate": {
+            "expected": 0,
+            "predicted": 0.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "total_tax_liability": {
+            "expected": 597336,
+            "predicted": 438360.0,
+            "error_pct": 26.6,
+            "correct": false
+          }
+        }
+      },
+      "CG1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "grandfathered_cost": {
+            "expected": 350000,
+            "predicted": 350000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "taxable_ltcg": {
+            "expected": 25000,
+            "predicted": 25000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_at_12_5_pct": {
+            "expected": 3125,
+            "predicted": 3125.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "CG2": {
+        "numeric_accuracy": 0.5,
+        "boolean_accuracy": 0.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "stcg_111a_net": {
+            "expected": 50000,
+            "predicted": 50000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "total_cg_tax": {
+            "expected": 10400,
+            "predicted": 0.0,
+            "error_pct": 100.0,
+            "correct": false
+          },
+          "ltcg_exempt": {
+            "expected": true,
+            "predicted": null,
+            "correct": false
+          }
+        }
+      },
+      "CTC1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "allowed_in_new_regime": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "section": {
+            "expected": "80CCD(2)",
+            "predicted": "80CCD(2)",
+            "correct": true
+          },
+          "employer_nps_contribution": {
+            "expected": 60000,
+            "predicted": 60000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "F1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_file_itr1": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "correct_form": {
+            "expected": "ITR-2",
+            "predicted": "ITR-2",
+            "correct": true
+          },
+          "schedule_for_crypto": {
+            "expected": "Schedule VDA",
+            "predicted": "Schedule VDA",
+            "correct": true
+          }
+        }
+      },
+      "F2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "itr_form": {
+            "expected": "ITR-4",
+            "predicted": "ITR-4",
+            "correct": true
+          },
+          "section_44ada_applicable": {
+            "expected": true,
+            "predicted": true,
+            "correct": true
+          },
+          "presumptive_income_pct": {
+            "expected": 50,
+            "predicted": 50.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "professional_taxable_income": {
+            "expected": 2000000,
+            "predicted": 2000000.0,
+            "error_pct": 0.0,
+            "correct": true
+          }
+        }
+      },
+      "R1": {
+        "numeric_accuracy": 0.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "old_regime.total_tax": {
+            "expected": 83200,
+            "predicted": 88920.0,
+            "error_pct": 6.9,
+            "correct": false
+          },
+          "new_regime.total_tax": {
+            "expected": 131040,
+            "predicted": 97500.0,
+            "error_pct": 25.6,
+            "correct": false
+          },
+          "recommended_regime": {
+            "expected": "old",
+            "predicted": "old",
+            "correct": true
+          },
+          "savings": {
+            "expected": 47840,
+            "predicted": 8580.0,
+            "error_pct": 82.1,
+            "correct": false
+          }
+        }
+      },
+      "R2": {
+        "numeric_accuracy": 0.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "old_regime.total_tax": {
+            "expected": 390000,
+            "predicted": 413400.0,
+            "error_pct": 6.0,
+            "correct": false
+          },
+          "new_regime.total_tax": {
+            "expected": 310310,
+            "predicted": 192400.0,
+            "error_pct": 38.0,
+            "correct": false
+          },
+          "recommended_regime": {
+            "expected": "new",
+            "predicted": "new",
+            "correct": true
+          },
+          "savings": {
+            "expected": 79690,
+            "predicted": 221000.0,
+            "error_pct": 177.3,
+            "correct": false
+          }
+        }
+      },
+      "V1": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "vda_gain": {
+            "expected": 33000,
+            "predicted": 33000.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_rate_pct": {
+            "expected": 30,
+            "predicted": 30.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "tax_before_tds": {
+            "expected": 9900,
+            "predicted": 9900.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "net_vda_tax_payable": {
+            "expected": 6060,
+            "predicted": 6060.0,
+            "error_pct": 0.0,
+            "correct": true
+          },
+          "can_vda_loss_offset_salary": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      },
+      "V2": {
+        "numeric_accuracy": 1.0,
+        "boolean_accuracy": 1.0,
+        "categorical_accuracy": 1.0,
+        "hallucination_triggered": false,
+        "field_scores": {
+          "can_offset_equity_ltcg": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_offset_salary": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          },
+          "can_carry_forward": {
+            "expected": false,
+            "predicted": false,
+            "correct": true
+          }
+        }
+      }
+    }
+  }
+}

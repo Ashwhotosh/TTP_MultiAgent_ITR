@@ -1,0 +1,225 @@
+{
+  "id": "ho_011",
+  "category": "capital_gains",
+  "difficulty": "medium",
+  "description": "Salary ₹900,000 + LTCG ₹180,000 via Zerodha",
+  "input": {
+    "gross_income": 900000,
+    "regime": "new",
+    "deductions": {},
+    "income_sources": [
+      "salary",
+      "capital_gains"
+    ],
+    "documents": {
+      "form16": {
+        "employer_name": "INTUIT INDIA",
+        "part_a": {
+          "gross_salary": 900000,
+          "tds_deducted": 0
+        },
+        "part_b": {
+          "gross_salary_section_17_1": 900000,
+          "salary_breakup": {
+            "basic_salary": 450000
+          },
+          "regime": "new",
+          "standard_deduction": 75000
+        }
+      },
+      "ais": {
+        "pan": "JSHUV5528Z",
+        "assessment_year": "2026-27",
+        "sft": [
+          {
+            "sft_code": "SFT-001",
+            "info_source": "INTUIT INDIA",
+            "reported_value": 900000
+          },
+          {
+            "sft_code": "SFT-009",
+            "info_source": "ZERODHA SECURITIES",
+            "reported_value": 180000
+          }
+        ]
+      },
+      "bank_transactions": [
+        {
+          "id": "txn_sal_01",
+          "date": "2024-04-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61607,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_02",
+          "date": "2024-05-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61633,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_03",
+          "date": "2024-06-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61765,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_04",
+          "date": "2024-07-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61759,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_05",
+          "date": "2024-08-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61683,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_06",
+          "date": "2024-09-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61451,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_07",
+          "date": "2024-10-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61498,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_08",
+          "date": "2024-11-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61712,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_09",
+          "date": "2024-12-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61418,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_10",
+          "date": "2025-01-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61736,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_11",
+          "date": "2025-02-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61201,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_sal_12",
+          "date": "2025-03-03",
+          "description": "SALARY CREDIT INTUIT INDIA",
+          "amount": 61656,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_life_01",
+          "date": "2025-03-24",
+          "description": "UPI/DR/DMART RETAIL",
+          "amount": 1829,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_02",
+          "date": "2025-03-23",
+          "description": "AIRTEL BROADBAND BILL",
+          "amount": 993,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_03",
+          "date": "2025-03-05",
+          "description": "SWIGGY ORDER",
+          "amount": 417,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_04",
+          "date": "2025-03-12",
+          "description": "ATM CASH WITHDRAWAL",
+          "amount": 4977,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_05",
+          "date": "2025-02-14",
+          "description": "HDFC CREDIT CARD BILL",
+          "amount": 21969,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_life_06",
+          "date": "2025-02-11",
+          "description": "JIOFIBER BROADBAND",
+          "amount": 809,
+          "transaction_type": "debit"
+        },
+        {
+          "id": "txn_cg_01",
+          "date": "2025-08-15",
+          "description": "ZERODHA SECURITIES EQUITY SALE",
+          "amount": 180000,
+          "transaction_type": "credit"
+        },
+        {
+          "id": "txn_int_01",
+          "date": "2024-11-01",
+          "description": "FD INT CR",
+          "amount": 1209,
+          "transaction_type": "credit"
+        }
+      ],
+      "zerodha_csv": [
+        {
+          "Symbol": "HDFCBANK",
+          "ISIN": "INE040A01034",
+          "Trade Date": "2025-08-15",
+          "Buy Date": "2022-03-10",
+          "Buy Price": "1200.00",
+          "Buy Qty": "50",
+          "Sell Date": "2025-08-15",
+          "Sell Price": "3600.0",
+          "Sell Qty": "50",
+          "P&L": "120000"
+        }
+      ]
+    },
+    "interview_answers": {}
+  },
+  "expected": {
+    "taxable_income": 825000,
+    "tax_liability": 0.0,
+    "rebate_87a_applied": true,
+    "itr_form": "ITR-2",
+    "risk_level": "HIGH",
+    "schedules_required": [
+      "Schedule Salary",
+      "Schedule CG",
+      "Schedule OS"
+    ],
+    "hallucination_traps": [
+      "Should select ITR-2 not ITR-1"
+    ]
+  },
+  "evaluation_fields": [
+    "tax_liability",
+    "itr_form",
+    "risk_level"
+  ]
+}
