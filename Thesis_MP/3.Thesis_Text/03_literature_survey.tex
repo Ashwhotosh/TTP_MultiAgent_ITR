@@ -18,9 +18,12 @@ fail at the arithmetic and invent rules. The tool-augmentation literature offers
 the right techniques --- deferring computation to tools, retrieving grounded
 evidence, checking claims for faithfulness --- but supplies them as
 domain-agnostic frameworks rather than as a finished, verified tax system. This
-chapter examines all three in turn. For each category we describe the
-representative systems in enough detail to make the comparison meaningful, and
-then we state precisely where our design diverges and why.
+chapter examines all three in turn, and then turns to a fourth and more immediate
+point of reference: the small set of recent academic prototypes that pursue the
+same end-to-end goal as this project, and against which our design choices show
+most sharply. For each category we describe the representative systems in enough
+detail to make the comparison meaningful, and then we state precisely where our
+design diverges and why.
 
 \section{Existing Approaches -- Rule-Based and Commercial ITR Tools}
 \label{sec:category-a}
@@ -258,11 +261,134 @@ RAG + NLI faithfulness \cite{ref8}\cite{ref9} & Grounding and entailment-checkin
 \end{tabularx}
 \end{table}
 
+\section{Existing Approaches -- Recent Academic Prototypes for Automated Indian ITR}
+\label{sec:category-d}
+
+The three categories examined so far are either deployed products or general
+techniques borrowed from adjacent fields. A fourth and more pointed comparison
+comes from the handful of academic prototypes that, like this work, set out
+specifically to automate Indian tax filing from end to end. Two recent systems
+are representative, and because they share both our problem and parts of our
+method, they reward a closer reading than the broader literature does. They
+occupy the same middle ground this project aims for --- more ambitious than a
+guided form, more grounded than a bare chatbot --- which is exactly what makes
+the points where they and we part company the most informative in the chapter.
+
+\subsection{Auto ITR: A Hybrid Rule-Based and Heuristic Pipeline}
+The first system, presented as Auto ITR, assembles a full pipeline that runs from
+multi-format bank-statement ingestion through to a chartered-accountant-approved
+export \cite{ref13}. Its categoriser is a hybrid of keyword and regular-expression
+rules layered over amount-range and recurrence heuristics, and it folds user
+corrections back in as high-priority rules rather than retraining a model on them.
+Around that categoriser sit three further components worth naming: a statistical
+anomaly detector built from z-score outliers, round-amount flags, and duplicate
+detection; a dual-regime optimiser that solves for the break-even deduction at
+which the old and new regimes produce the same liability; and a
+knowledge-base-first chatbot that escalates to a hosted model only when its
+curated index fails to match. The authors report a categorisation precision of
+91.2 percent and recall of 88.5 percent, an anomaly-detection accuracy of 93.1
+percent, and a chartered-accountant acceptance rate of 87 percent in a pilot
+review.
+
+Two parts of this design deserve to be taken seriously, because they tackle
+problems our own system either handles differently or does not yet address. The
+anomaly detector and the human-in-the-loop review stage are real strengths: the
+former surfaces suspicious entries a taxpayer might otherwise overlook, and the
+latter installs an accountability checkpoint that a fully automated pipeline does
+without. Where Auto ITR stops short is in its reasoning model and its trust
+boundary. The categoriser and optimiser execute as a single deterministic pass
+with no component empowered to question, re-run, or veto an earlier conclusion,
+so an early misclassification propagates unchecked into the deductions and the
+final liability. Its chatbot reaches out to a cloud-hosted model, which means a
+user's reconciled financial picture can leave the device. And although its
+evaluation is quantified, it measures categorisation and anomaly detection rather
+than the faithfulness of the explanations the system hands back to the user.
+
+\subsection{A Self-Updating Retrieval Pipeline for Tax Calculation and ITR Suggestion}
+The second system pairs a rule-based calculation layer with a
+retrieval-augmented language model, and its distinguishing claim is a knowledge
+base that updates itself \cite{ref14}. A scraping component periodically pulls
+circulars and notifications from government sources, embeds them into a vector
+store, and retrieves the relevant passages at calculation time, so that the
+model's regulatory reasoning is anchored to current policy rather than to
+whatever rules were frozen into its weights or hand-written into a static corpus.
+It draws its financial input from Tally ERP export files rather than from bank
+statements, applies deterministic rules for the arithmetic, and produces
+human-readable explanations with regulatory citations alongside a recommended ITR
+form.
+
+The self-updating retrieval loop is the single idea here most worth borrowing.
+Tax rules change with every assessment year, and any system --- ours included ---
+that pins a corpus to one year carries a built-in expiry date; a pipeline that
+refreshes its regulatory store without a developer in the loop attacks that
+weakness directly. The limitations run in the other direction and are equally
+instructive. By the authors' own statement the evaluation is qualitative,
+concerned with correctness, robustness, and explainability rather than with
+measured accuracy, so there is no held-out comparison of computed liabilities
+against ground truth of the sort reported in Chapter~\ref{chap:results}. The
+reliance on a cloud model once more places both the reasoning and the data it
+reasons over outside the user's control. And the Tally-XML input presumes a user
+who already keeps structured books, which quietly excludes the salaried filer
+working from nothing more than a bank statement and a Form 16 --- the very case
+this project is built around.
+
+\subsection{Differentiation of Our Approach}
+Set beside these two prototypes, FinITR-AI shares their soundest instinct ---
+that the arithmetic belongs in a deterministic engine --- and shares the second's
+use of retrieval to ground regulatory claims. It diverges on three points, each
+of which follows from treating the return as something that must be trusted, not
+merely produced.
+
+\begin{itemize}
+    \item \textbf{Verification with the authority to veto, not a single pass.}
+          Neither prototype contains a component whose job is to check the others.
+          FinITR-AI's Critic blocks an ungrounded claim and forces a bounded
+          re-run of the responsible agent, so an early error is intercepted rather
+          than carried through into the filed return.
+    \item \textbf{Measured faithfulness, not only functional correctness.} Where
+          one prototype reports categorisation accuracy and the other reports no
+          numbers at all, our evaluation quantifies both the hallucination rate
+          and the end-to-end tax accuracy on a held-out benchmark --- the metric
+          that actually matters when the output is a figure a taxpayer will file.
+    \item \textbf{Local execution as a constraint, not a convenience.} Both
+          prototypes send data to a hosted model. FinITR-AI keeps its reasoning
+          offline, so the reconciled financial picture never leaves the user's
+          machine, which for tax data sits closer to a requirement than to a
+          feature.
+\end{itemize}
+
+The comparison cuts both ways, and in fairness two capabilities in these systems
+mark concrete directions for our own: the self-updating regulatory store of the
+second, and the explicit anomaly detection and accountant-review checkpoint of
+the first. We return to both in Chapter~\ref{chap:conclusion} as planned
+extensions rather than as claimed contributions. A side-by-side comparison is
+given in Table~\ref{tab:cat-d-comparison}.
+
+\begin{table}[H]
+\centering
+\caption{Recent Academic Prototypes for Automated Indian ITR versus Our Approach}
+\label{tab:cat-d-comparison}
+\small
+\begin{tabularx}{\textwidth}{|l|l|l|X|X|}
+\hline
+\textbf{System} & \textbf{Type} & \textbf{Year} & \textbf{Methodology} & \textbf{Key Findings / Limitation} \\
+\hline
+Auto ITR \cite{ref13} & Hybrid rule + heuristic & 2026 & Keyword/regex + amount/recurrence categoriser, z-score anomaly detector, break-even optimiser, KB-first chatbot, CA export & Quantified (91.2/88.5 categorisation, 93.1 anomaly, 87 CA acceptance); single deterministic pass with no verification; cloud chatbot; explanation faithfulness unmeasured \\
+\hline
+Self-updating RAG \cite{ref14} & RAG + LLM & 2026 & Auto-scraped government circulars embedded into a vector store; rule layer plus LLM reasoning over Tally-XML input; cited explanations & Self-refreshing corpus is the key strength; evaluation is qualitative only; cloud LLM; assumes structured Tally books, not a bank statement and Form 16 \\
+\hline
+\textbf{Proposed (FinITR-AI)} & Agentic + engine & 2026 & Multi-agent reasoning over a deterministic FY25-26 engine, RAG-grounded Critic veto loop, fully offline & AIS reconciliation and quantified notice-risk; measured hallucination and tax accuracy on a held-out set; static corpus (self-update a planned extension) \\
+\hline
+\end{tabularx}
+\end{table}
+
 To summarise the landscape: the rule-based tools are accurate but blind to the
 AIS and unable to explain themselves; the general models are flexible but
-arithmetically unreliable and hostile to privacy; and the agentic and retrieval
+arithmetically unreliable and hostile to privacy; the agentic and retrieval
 literature provides the right building blocks but no finished, verified, offline
-tax system. FinITR-AI is positioned in the empty middle of this space. It takes
+tax system; and the academic prototypes that come closest to our own goal stop
+short of a verification loop, of measured faithfulness, or of an offline
+guarantee. FinITR-AI is positioned in the empty middle of this space. It takes
 the arithmetic reliability of a rule engine, the reasoning and explanation of a
 language model, the AIS reconciliation that neither chatbots nor most tools
 attempt, and a verification loop that keeps the whole assembly honest. How that
