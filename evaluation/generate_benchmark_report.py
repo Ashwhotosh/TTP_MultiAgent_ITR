@@ -712,7 +712,8 @@ def main():
     report = build_report(ascii_main, ascii_ablation, has_png)
 
     # Save report
-    report_path = Path("BENCHMARK_REPORT.md")
+    report_path = Path("docs") / "BENCHMARK_REPORT.md"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report, encoding="utf-8")
     print(f"  Report saved -> {report_path}")
 
@@ -785,7 +786,7 @@ def main():
     )
     print(f"  Updated ablation_results.json")
 
-    print(f"\nDone. Open BENCHMARK_REPORT.md to view the full report.")
+    print(f"\nDone. Open docs/BENCHMARK_REPORT.md to view the full report.")
 
 
 if __name__ == "__main__":
